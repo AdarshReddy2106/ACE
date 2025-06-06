@@ -1,0 +1,243 @@
+// Import variables first
+@import './variables';
+
+// Import Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+// Import custom components
+@import '../components/Navbar/Navbar.scss';
+@import '../components/Footer/Footer.scss';
+@import '../pages/Home.scss';
+
+// Global styles
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $dark-color;
+  background-color: white;
+}
+
+// Utility classes
+.btn-ace {
+  background-color: $ace-blue;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: $border-radius;
+  transition: $transition-base;
+
+  &:hover {
+    background-color: darken($ace-blue, 10%);
+    color: white;
+  }
+}
+
+.btn-outline-ace {
+  background-color: transparent;
+  color: $ace-blue;
+  border: 2px solid $ace-blue;
+  padding: 0.5rem 1.5rem;
+  border-radius: $border-radius;
+  transition: $transition-base;
+
+  &:hover {
+    background-color: $ace-blue;
+    color: white;
+  }
+}
+
+// Section padding
+.section-padding {
+  padding: 5rem 0;
+}
+
+// Card styles
+.card-ace {
+  border: none;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow-sm;
+  transition: $transition-base;
+
+  &:hover {
+    box-shadow: $box-shadow;
+    transform: translateY(-5px);
+  }
+}
+
+// Container max-width
+.container {
+  max-width: map-get($container-max-widths, xl);
+  padding: 0 $grid-gutter-width;
+  margin: 0 auto;
+}
+
+// Responsive images
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+// Text utilities
+.text-ace-blue {
+  color: $ace-blue;
+}
+
+.bg-ace-blue {
+  background-color: $ace-blue;
+}
+
+// Spacing utilities
+@each $key, $value in $spacers {
+  .m-#{$key} { margin: $value; }
+  .mt-#{$key} { margin-top: $value; }
+  .mb-#{$key} { margin-bottom: $value; }
+  .ml-#{$key} { margin-left: $value; }
+  .mr-#{$key} { margin-right: $value; }
+  .mx-#{$key} { 
+    margin-left: $value;
+    margin-right: $value;
+  }
+  .my-#{$key} {
+    margin-top: $value;
+    margin-bottom: $value;
+  }
+
+  .p-#{$key} { padding: $value; }
+  .pt-#{$key} { padding-top: $value; }
+  .pb-#{$key} { padding-bottom: $value; }
+  .pl-#{$key} { padding-left: $value; }
+  .pr-#{$key} { padding-right: $value; }
+  .px-#{$key} {
+    padding-left: $value;
+    padding-right: $value;
+  }
+  .py-#{$key} {
+    padding-top: $value;
+    padding-bottom: $value;
+  }
+}
+
+// Variables
+$primary-color: #0d6efd;
+$secondary-color: #6c757d;
+$success-color: #198754;
+$info-color: #0dcaf0;
+$warning-color: #ffc107;
+$danger-color: #dc3545;
+$light-color: #f8f9fa;
+$dark-color: #212529;
+
+// Custom variables
+$ace-blue: #0056b3;
+$ace-light-blue: #e3f2fd;
+$ace-dark-blue: #003366;
+
+// Global styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: $dark-color;
+}
+
+// Utility classes
+.section-padding {
+  padding: 80px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+  
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $ace-blue;
+    margin-bottom: 15px;
+  }
+  
+  p {
+    color: $secondary-color;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+// Custom components
+.btn-ace {
+  background-color: $ace-blue;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 5px;
+  border: none;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background-color: darken($ace-blue, 10%);
+    color: white;
+  }
+}
+
+.card-ace {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 50px 0;
+  }
+  
+  .section-title {
+    h2 {
+      font-size: 2rem;
+    }
+  }
+}
+
+// Animations
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Custom scrollbar
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: $light-color;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $ace-blue;
+  border-radius: 5px;
+  
+  &:hover {
+    background: darken($ace-blue, 10%);
+  }
+} 

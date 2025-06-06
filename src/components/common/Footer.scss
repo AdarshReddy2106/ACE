@@ -1,0 +1,147 @@
+.footer {
+  background-color: $ace-dark-blue;
+  color: white;
+  padding: 80px 0 0;
+  margin-top: 80px;
+
+  h3 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 15px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 50px;
+      height: 2px;
+      background-color: $ace-blue;
+    }
+  }
+
+  p {
+    color: rgba(white, 0.8);
+    margin-bottom: 25px;
+    line-height: 1.8;
+  }
+
+  // Social Links
+  .social-links {
+    display: flex;
+    gap: 15px;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(white, 0.1);
+      border-radius: 50%;
+      color: white;
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
+
+      &:hover {
+        background-color: $ace-blue;
+        transform: translateY(-3px);
+      }
+    }
+  }
+
+  // Quick Links
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 15px;
+
+      a {
+        color: rgba(white, 0.8);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+
+        &:hover {
+          color: white;
+          transform: translateX(5px);
+        }
+      }
+    }
+  }
+
+  // Contact Info
+  .contact-info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      color: rgba(white, 0.8);
+
+      svg {
+        margin-right: 15px;
+        margin-top: 5px;
+        color: $ace-blue;
+        font-size: 1.2rem;
+      }
+
+      span {
+        line-height: 1.6;
+      }
+    }
+  }
+
+  // Footer Bottom
+  .footer-bottom {
+    margin-top: 60px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(white, 0.1);
+    text-align: center;
+
+    p {
+      margin: 0;
+      color: rgba(white, 0.6);
+      font-size: 0.9rem;
+    }
+  }
+}
+
+// Responsive styles
+@media (max-width: 991.98px) {
+  .footer {
+    padding: 60px 0 0;
+    margin-top: 60px;
+
+    h3 {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .footer {
+    text-align: center;
+
+    h3::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .social-links {
+      justify-content: center;
+    }
+
+    .contact-info li {
+      justify-content: center;
+    }
+  }
+} 

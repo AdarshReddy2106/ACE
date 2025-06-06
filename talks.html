@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talks - Association of Civil Engineering</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Navigation */
+        .navbar {
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #4B5563;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+        }
+
+        .nav-link:hover {
+            color: #2563EB;
+        }
+
+        .nav-link.active {
+            color: #2563EB;
+            border-bottom: 2px solid #2563EB;
+        }
+
+ /* Dropdown styles */
+ .relative {
+            position: relative;
+        }
+
+        .group:hover .group-hover\:block {
+            display: block;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .absolute {
+            position: absolute;
+        }
+
+        .z-10 {
+            z-index: 10;
+        }
+
+        .mt-2 {
+            margin-top: 0.5rem;
+        }
+
+        .py-2 {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .rounded-md {
+            border-radius: 0.375rem;
+        }
+
+        .shadow-md {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .bg-white {
+            background-color: white;
+        }
+
+        .block {
+            display: block;
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .text-gray-800 {
+            color: #1F2937;
+        }
+
+        .hover\:bg-gray-200:hover {
+            background-color: #E5E7EB;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="text-2xl font-bold text-blue-600">ACE</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+
+                <!-- Activities Dropdown -->
+                <div class="relative group">
+                    <span class="nav-link cursor-pointer group-hover:text-blue-700">Activities <i class="fas fa-chevron-down text-xs ml-1"></i></span>
+                    <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 rounded-md z-10">
+                        <a href="events.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Events</a>
+                        <a href="industrial_trips.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Industrial Trips</a>
+                        <a href="talks.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Talks</a>
+                        <a href="workshops.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Workshops</a>
+                    </div>
+                </div>
+
+                <!-- Team Dropdown -->
+                <div class="relative group">
+                    <a href="team.html" class="nav-link group-hover:text-blue-700">Team <i class="fas fa-chevron-down text-xs ml-1"></i></a>
+                    <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 rounded-md z-10">
+                        <a href="team_2024-2025.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Team 2024-2025</a>
+                        <a href="team_2025-2026.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Team 2025-2026</a>
+                    </div>
+                </div>
+
+                <a href="repository.html" class="nav-link">Repository</a>
+                <a href="gallery.html" class="nav-link">Gallery</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="bg-blue-600 text-white py-16">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Talks</h1>
+            <p class="text-xl max-w-2xl">Browse through the talks and guest lectures organized by the Association of Civil Engineering.</p>
+        </div>
+    </header>
+
+    <!-- Talks Section -->
+    <section class="container mx-auto px-4 py-16">
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">[Talk Title]</h2>
+            <p class="text-gray-700 mb-6">[Brief description of the talk, speaker, date, key topics, etc.]</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Placeholder for images or speaker photos -->
+                <div class="bg-gray-200 h-48 flex items-center justify-center text-gray-600 rounded-md">Image/Speaker Placeholder</div>
+                <div class="bg-gray-200 h-48 flex items-center justify-center text-gray-600 rounded-md">Image/Speaker Placeholder</div>
+                <div class="bg-gray-200 h-48 flex items-center justify-center text-gray-600 rounded-md">Image/Speaker Placeholder</div>
+                <!-- Add more placeholders or actual content here -->
+            </div>
+        </div>
+        <!-- Add more talk blocks here -->
+    </section>
+
+    <!-- Past Talks -->
+    <section class="bg-gray-100 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8">Past Talks</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Past Talk 1 -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <span class="text-gray-600 text-sm">February 28, 2024</span>
+                    <h3 class="text-lg font-bold mb-2">Innovations in Bridge Design</h3>
+                    <p class="text-gray-600 mb-4">A comprehensive overview of modern bridge design techniques and materials.</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-700">Watch Recording →</a>
+                </div>
+
+                <!-- Past Talk 2 -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <span class="text-gray-600 text-sm">February 15, 2024</span>
+                    <h3 class="text-lg font-bold mb-2">Water Resource Management</h3>
+                    <p class="text-gray-600 mb-4">Strategies for sustainable water resource management in urban areas.</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-700">Watch Recording →</a>
+                </div>
+
+                <!-- Past Talk 3 -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <span class="text-gray-600 text-sm">February 1, 2024</span>
+                    <h3 class="text-lg font-bold mb-2">Geotechnical Engineering</h3>
+                    <p class="text-gray-600 mb-4">Advanced techniques in soil analysis and foundation design.</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-700">Watch Recording →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <p>Email: contact@ace.edu</p>
+                    <p>Phone: (123) 456-7890</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="hover:text-blue-400">About Us</a></li>
+                        <li><a href="events.html" class="hover:text-blue-400">Events</a></li>
+                        <li><a href="resources.html" class="hover:text-blue-400">Resources</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-blue-400">Twitter</a>
+                        <a href="#" class="hover:text-blue-400">LinkedIn</a>
+                        <a href="#" class="hover:text-blue-400">Facebook</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> Association of Civil Engineering. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Gallery filtering
+            $('.filter-btn').click(function() {
+                const filter = $(this).data('filter');
+                
+                // Update active button
+                $('.filter-btn').removeClass('active');
+                $(this).addClass('active');
+                
+                // Filter gallery items
+                if (filter === 'all') {
+                    $('.gallery-item').show();
+                } else {
+                    $('.gallery-item').hide();
+                    $('.' + filter).show();
+                }
+            });
+
+            // Smooth scrolling only for anchor links (links starting with #)
+            $('.nav-link').click(function(e) {
+                const href = $(this).attr('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    $('html, body').animate({
+                        scrollTop: $(href).offset().top - 70
+                    }, 500);
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,105 @@
+.home-page {
+  .hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('/images/hero-bg.jpg') center/cover no-repeat;
+    color: white;
+    padding: 120px 0;
+    margin-top: -76px; // Compensate for fixed navbar
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: white;
+    }
+
+    .lead {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      color: rgba(white, 0.9);
+    }
+
+    .hero-buttons {
+      .btn-outline-ace {
+        background: transparent;
+        border: 2px solid white;
+        color: white;
+
+        &:hover {
+          background: white;
+          color: $ace-blue;
+        }
+      }
+    }
+  }
+
+  .quick-links {
+    background-color: $light-color;
+
+    .card-ace {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+
+      .card-body {
+        padding: 2rem;
+        text-align: center;
+
+        h3 {
+          color: $ace-blue;
+          margin-bottom: 1rem;
+          font-size: 1.5rem;
+        }
+
+        p {
+          color: $secondary-color;
+          margin: 0;
+        }
+      }
+
+      &:hover {
+        .card-body {
+          h3 {
+            color: darken($ace-blue, 10%);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive styles
+@media (max-width: 991.98px) {
+  .home-page {
+    .hero-section {
+      padding: 100px 0;
+      margin-top: -66px;
+
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .home-page {
+    .hero-section {
+      padding: 80px 0;
+      margin-top: -56px;
+      text-align: center;
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .hero-buttons {
+        .btn {
+          display: block;
+          width: 100%;
+          margin: 0.5rem 0;
+        }
+      }
+    }
+  }
+}
