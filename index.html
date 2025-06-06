@@ -211,33 +211,34 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="relative">
+    <section id="home" class="relative w-full h-screen">
         <!-- Hero Image with Logo -->
-        <div class="relative h-[500px] overflow-hidden">
+        <div class="relative w-full h-full">
             <div class="absolute inset-0">
                 <img src="images/iit-palakkad.jpg" alt="IIT Palakkad Campus" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-black/40"></div>
+                <div class="absolute inset-0 bg-black bg-opacity-60"></div>
             </div>
-            <div class="absolute inset-0 flex items-center justify-center">
-                <img src="images/ace-logo.png" alt="ACE Logo" class="w-48 h-48 object-contain">
-            </div>
-        </div>
-
-        <!-- About Section -->
-        <div class="bg-white py-16">
-            <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto text-center">
-                    <h2 class="text-3xl font-bold mb-6 text-gray-800">About ACE</h2>
-                    <p class="text-lg text-gray-600 mb-8">
-                        The Association of Civil Engineering (ACE) at IIT Palakkad is a vibrant community dedicated to fostering excellence in civil engineering education and research. Our association brings together students, faculty, and industry professionals to create a dynamic platform for learning, innovation, and professional growth.
-                    </p>
-                    <p class="text-lg text-gray-600">
-                        Through workshops, seminars, and hands-on projects, we aim to bridge the gap between academic knowledge and practical applications, preparing our members for successful careers in civil engineering.
-                    </p>
-                </div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center space-y-8">
+                <img src="images/ace-logo.png" alt="ACE Logo" class="w-64 h-64 object-contain">
+                <h1 class="text-white text-5xl font-bold text-center">Civil Engineering Society IIT Palakkad</h1>
             </div>
         </div>
     </section>
+
+    <!-- About Section -->
+    <div class="bg-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-6 text-gray-800">About ACE</h2>
+                <p class="text-lg text-gray-600 mb-8">
+                    The Association of Civil Engineering (ACE) at IIT Palakkad is a vibrant community dedicated to fostering excellence in civil engineering education and research. Our association brings together students, faculty, and industry professionals to create a dynamic platform for learning, innovation, and professional growth.
+                </p>
+                <p class="text-lg text-gray-600">
+                    Through workshops, seminars, and hands-on projects, we aim to bridge the gap between academic knowledge and practical applications, preparing our members for successful careers in civil engineering.
+                </p>
+            </div>
+        </div>
+    </div>
 
     <!-- Featured Sections -->
     <section id="courses" class="container mx-auto px-4 py-16">
@@ -335,4 +336,4 @@
         });
     </script>
 </body>
-</html> 
+</html>
