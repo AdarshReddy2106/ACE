@@ -38,12 +38,12 @@
         }
 
         .nav-link:hover {
-            color: #2563EB;
+            color: #ED6C4B;
         }
 
         .nav-link.active {
-            color: #2563EB;
-            border-bottom: 2px solid #2563EB;
+            color: #ED6C4B;
+            border-bottom: 2px solid #ED6C4B;
         }
 
  /* Dropdown styles */
@@ -102,7 +102,7 @@
         }
 
         .hover\:bg-gray-200:hover {
-            background-color: #E5E7EB;
+            background-color: #F8F8F8;
         }
         
         /* Gallery */
@@ -159,26 +159,26 @@
         }
 
         .filter-btn.active {
-            background: #2563EB;
+            background: #ED6C4B;
             color: white;
         }
 
         .filter-btn:not(.active) {
-            background: #E5E7EB;
+            background: #F8F8F8;
             color: #4B5563;
         }
 
         .filter-btn:hover:not(.active) {
-            background: #2563EB;
+            background: #ED6C4B;
             color: white;
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-secondary-500">
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="gallery.html" class="text-2xl font-bold text-blue-600">ACE</a>
+            <a href="gallery.html" class="text-primary-500 text-2xl font-bold">ACE</a>
             <div class="nav-links">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="about.html" class="nav-link">About</a>
@@ -186,21 +186,21 @@
 
                 <!-- Activities Dropdown -->
                 <div class="relative group">
-                    <span class="nav-link cursor-pointer group-hover:text-blue-700">Activities <i class="fas fa-chevron-down text-xs ml-1"></i></span>
+                    <span class="nav-link cursor-pointer group-hover:text-primary-600">Activities <i class="fas fa-chevron-down text-xs ml-1"></i></span>
                     <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 rounded-md z-10">
-                        <a href="events.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Events</a>
-                        <a href="industrial_trips.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Industrial Trips</a>
-                        <a href="talks.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Talks</a>
-                        <a href="workshops.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Workshops</a>
+                        <a href="events.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Events</a>
+                        <a href="industrial_trips.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Industrial Trips</a>
+                        <a href="talks.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Talks</a>
+                        <a href="workshops.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Workshops</a>
                     </div>
                 </div>
 
                 <!-- Team Dropdown -->
                 <div class="relative group">
-                    <a href="team.html" class="nav-link group-hover:text-blue-700">Team <i class="fas fa-chevron-down text-xs ml-1"></i></a>
+                    <a href="team.html" class="nav-link group-hover:text-primary-600">Team <i class="fas fa-chevron-down text-xs ml-1"></i></a>
                     <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 rounded-md z-10">
-                        <a href="team_2024-2025.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Team 2024-2025</a>
-                        <a href="team_2025-2026.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Team 2025-2026</a>
+                        <a href="team_2024-2025.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Team 2024-2025</a>
+                        <a href="team_2025-2026.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Team 2025-2026</a>
                     </div>
                 </div>
 
@@ -249,12 +249,60 @@
                     </a>
                     <p>Annual Technical Fest</p>
                 </div>
+
+                <!-- Industrial Trips -->
+                <div class="gallery-item industrial-trips">
+                    <a href="images/gallery/industrial-trip-2.jpg" data-lightbox="industrial-trips" data-title="Site Visit to Construction Area">
+                        <img src="images/gallery/industrial-trip-2.jpg" alt="Construction Site Visit">
+                    </a>
+                    <p>Site Visit to Construction Area</p>
+                </div>
+
+                <!-- Talks -->
+                <div class="gallery-item talks">
+                    <a href="images/gallery/talk-2.jpg" data-lightbox="talks" data-title="Seminar on Sustainable Practices">
+                        <img src="images/gallery/talk-2.jpg" alt="Sustainable Seminar">
+                    </a>
+                    <p>Seminar on Sustainable Practices</p>
+                </div>
+
+                <!-- Events -->
+                <div class="gallery-item events">
+                    <a href="images/gallery/event-2.jpg" data-lightbox="events" data-title="Civil Engineering Symposium">
+                        <img src="images/gallery/event-2.jpg" alt="Civil Engineering Symposium">
+                    </a>
+                    <p>Civil Engineering Symposium</p>
+                </div>
+
+                <!-- Industrial Trips -->
+                <div class="gallery-item industrial-trips">
+                    <a href="images/gallery/industrial-trip-3.jpg" data-lightbox="industrial-trips" data-title="Dam Construction Site Visit">
+                        <img src="images/gallery/industrial-trip-3.jpg" alt="Dam Site Visit">
+                    </a>
+                    <p>Dam Construction Site Visit</p>
+                </div>
+
+                <!-- Talks -->
+                <div class="gallery-item talks">
+                    <a href="images/gallery/talk-3.jpg" data-lightbox="talks" data-title="Webinar on Smart Cities">
+                        <img src="images/gallery/talk-3.jpg" alt="Smart Cities Webinar">
+                    </a>
+                    <p>Webinar on Smart Cities</p>
+                </div>
+
+                <!-- Events -->
+                <div class="gallery-item events">
+                    <a href="images/gallery/event-3.jpg" data-lightbox="events" data-title="Student Design Competition">
+                        <img src="images/gallery/event-3.jpg" alt="Design Competition">
+                    </a>
+                    <p>Student Design Competition</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
+    <footer class="text-white py-8">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
@@ -265,21 +313,21 @@
                 <div>
                     <h3 class="text-xl font-bold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="about.html" class="hover:text-blue-400">About Us</a></li>
-                        <li><a href="events.html" class="hover:text-blue-400">Events</a></li>
-                        <li><a href="resources.html" class="hover:text-blue-400">Resources</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="resources.html">Resources</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="text-xl font-bold mb-4">Follow Us</h3>
                     <div class="flex space-x-4">
-                        <a href="#" class="hover:text-blue-400">Twitter</a>
-                        <a href="#" class="hover:text-blue-400">LinkedIn</a>
-                        <a href="#" class="hover:text-blue-400">Facebook</a>
+                        <a href="#">Twitter</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Facebook</a>
                     </div>
                 </div>
             </div>
-            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+            <div class="mt-8 pt-8 border-t border-white/20 text-center">
                 <p>&copy; <script>document.write(new Date().getFullYear())</script> Association of Civil Engineering. All rights reserved.</p>
             </div>
         </div>

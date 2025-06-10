@@ -62,7 +62,7 @@ h3 {
 }
 
 .btn:focus-visible {
-    outline: 2px solid #2563eb;
+    outline: 2px solid #ED6C4B;
     outline-offset: 2px;
 }
 
@@ -72,21 +72,21 @@ h3 {
 }
 
 .btn-primary {
-    background-color: #2563eb;
+    background-color: #ED6C4B;
     color: white;
 }
 
 .btn-primary:hover {
-    background-color: #1d4ed8;
+    background-color: #e06041;
 }
 
 .btn-secondary {
-    background-color: #e5e7eb;
+    background-color: #F8F8F8;
     color: #1f2937;
 }
 
 .btn-secondary:hover {
-    background-color: #d1d5db;
+    background-color: #e5e5e5;
 }
 
 /* Container */
@@ -115,23 +115,23 @@ h3 {
 
 /* Utility classes */
 .text-blue-600 {
-    color: #2563eb;
+    color: #ED6C4B;
 }
 
 .hover\:text-blue-700:hover {
-    color: #1d4ed8;
+    color: #e06041;
 }
 
 .hover\:text-blue-400:hover {
-    color: #60a5fa;
+    color: #f2826a;
 }
 
 .bg-blue-600 {
-    background-color: #2563eb;
+    background-color: #ED6C4B;
 }
 
 .bg-gray-50 {
-    background-color: #f9fafb;
+    background-color: #f8fafc;
 }
 
 .bg-white {
@@ -168,12 +168,12 @@ h3 {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #2563eb;
+    background-color: #ED6C4B;
     border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #1d4ed8;
+    background-color: #e06041;
 }
 
 /* Animations */
@@ -184,4 +184,20 @@ h3 {
 
 .animate-fade-in {
     animation: fadeIn 0.5s ease-in;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #ED6C4B;
+    color: white;
+    padding: 2rem 0;
+}
+
+footer a {
+    color: white;
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: rgba(255, 255, 255, 0.8);
 } 

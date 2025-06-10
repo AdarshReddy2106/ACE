@@ -38,12 +38,12 @@
         }
 
         .nav-link:hover {
-            color: #2563EB;
+            color: #ED6C4B;
         }
 
         .nav-link.active {
-            color: #2563EB;
-            border-bottom: 2px solid #2563EB;
+            color: #ED6C4B;
+            border-bottom: 2px solid #ED6C4B;
         }
          /* Dropdown styles */
          .relative {
@@ -101,7 +101,7 @@
         }
 
         .hover\:bg-gray-200:hover {
-            background-color: #E5E7EB;
+            background-color: #F8F8F8;
         }
 
         /* Gallery */
@@ -158,26 +158,26 @@
         }
 
         .filter-btn.active {
-            background: #2563EB;
+            background: #ED6C4B;
             color: white;
         }
 
         .filter-btn:not(.active) {
-            background: #E5E7EB;
+            background: #F8F8F8;
             color: #4B5563;
         }
 
         .filter-btn:hover:not(.active) {
-            background: #2563EB;
+            background: #ED6C4B;
             color: white;
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-secondary-500">
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="text-2xl font-bold text-blue-600">ACE</a>
+            <a href="index.html" class="text-white text-2xl font-bold">ACE</a>
             <div class="nav-links">
                 <a href="index.html" class="nav-link active">Home</a>
                 <a href="about.html" class="nav-link">About</a>
@@ -185,21 +185,21 @@
 
                 <!-- Activities Dropdown -->
                 <div class="relative group">
-                    <span class="nav-link cursor-pointer group-hover:text-blue-700">Activities <i class="fas fa-chevron-down text-xs ml-1"></i></span>
+                    <span class="nav-link cursor-pointer">Activities <i class="fas fa-chevron-down text-xs ml-1"></i></span>
                     <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 rounded-md z-10">
-                        <a href="events.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Events</a>
-                        <a href="industrial_trips.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Industrial Trips</a>
-                        <a href="talks.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Talks</a>
-                        <a href="workshops.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Workshops</a>
+                        <a href="events.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Events</a>
+                        <a href="industrial_trips.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Industrial Trips</a>
+                        <a href="talks.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Talks</a>
+                        <a href="workshops.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Workshops</a>
                     </div>
                 </div>
 
                 <!-- Team Dropdown -->
                 <div class="relative group">
-                    <a href="team.html" class="nav-link group-hover:text-blue-700">Team <i class="fas fa-chevron-down text-xs ml-1"></i></a>
+                    <a href="team.html" class="nav-link group-hover:text-primary-600">Team <i class="fas fa-chevron-down text-xs ml-1"></i></a>
                     <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 rounded-md z-10">
-                        <a href="team_2024-2025.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Team 2024-2025</a>
-                        <a href="team_2025-2026.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Team 2025-2026</a>
+                        <a href="team_2024-2025.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Team 2024-2025</a>
+                        <a href="team_2025-2026.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Team 2025-2026</a>
                     </div>
                 </div>
 
@@ -247,29 +247,53 @@
                 <p class="text-gray-600 mb-4">
                     Meet our distinguished faculty members who are leaders in their respective fields.
                 </p>
-                <a href="faculty.html" class="text-blue-600 hover:text-blue-700">View Faculty →</a>
+                <a href="faculty.html" class="text-primary-500 hover:text-primary-600">View Faculty →</a>
             </div>
 
             <div class="bg-white p-6 rounded-lg shadow-md">
-                <h2 class="text-2xl font-bold mb-4">Upcoming Talks</h2>
+                <h2 class="text-2xl font-bold mb-4">Events</h2>
                 <p class="text-gray-600 mb-4">
-                    Stay updated with our latest seminars and guest lectures from industry experts.
+                    Stay updated with our upcoming events, workshops, and seminars.
                 </p>
-                <a href="talks.html" class="text-blue-600 hover:text-blue-700">View Schedule →</a>
+                <a href="events.html" class="text-primary-500 hover:text-primary-600">View Events →</a>
             </div>
 
             <div class="bg-white p-6 rounded-lg shadow-md">
-                <h2 class="text-2xl font-bold mb-4">Courses</h2>
+                <h2 class="text-2xl font-bold mb-4">Repository</h2>
                 <p class="text-gray-600 mb-4">
-                    Explore our comprehensive range of courses designed to enhance your skills.
+                    Access a collection of resources, papers, and presentations.
                 </p>
-                <a href="courses.html" class="text-blue-600 hover:text-blue-700">Browse Courses →</a>
+                <a href="repository.html" class="text-primary-500 hover:text-primary-600">Browse Repository →</a>
             </div>
         </div>
     </section>
 
+    <!-- Vision and Mission Section -->
+    <section class="bg-secondary-500 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800">Our Vision & Mission</h2>
+            <p class="text-lg text-gray-600 mb-8">
+                To be a leader in civil engineering education and research, preparing graduates to address global challenges.
+            </p>
+            <p class="text-lg text-gray-600">
+                Our mission is to provide an exceptional learning environment that fosters critical thinking, creativity, and a strong foundation in civil engineering principles.
+            </p>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-16 bg-primary-500 text-white text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-6">Join ACE Today!</h2>
+            <p class="text-lg mb-8">
+                Become a part of a dynamic community dedicated to civil engineering excellence.
+            </p>
+            <a href="contact.html" class="bg-white text-primary-500 hover:bg-secondary-100 hover:text-primary-600 font-bold py-3 px-8 rounded-full transition duration-300">Contact Us</a>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
+    <footer class="text-white py-8">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
@@ -280,59 +304,28 @@
                 <div>
                     <h3 class="text-xl font-bold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="about.html" class="hover:text-blue-400">About Us</a></li>
-                        <li><a href="events.html" class="hover:text-blue-400">Events</a></li>
-                        <li><a href="resources.html" class="hover:text-blue-400">Resources</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="resources.html">Resources</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="text-xl font-bold mb-4">Follow Us</h3>
                     <div class="flex space-x-4">
-                        <a href="#" class="hover:text-blue-400">Twitter</a>
-                        <a href="#" class="hover:text-blue-400">LinkedIn</a>
-                        <a href="#" class="hover:text-blue-400">Facebook</a>
+                        <a href="#">Twitter</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Facebook</a>
                     </div>
                 </div>
             </div>
-            <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+            <div class="mt-8 pt-8 border-t border-white/20 text-center">
                 <p>&copy; <script>document.write(new Date().getFullYear())</script> Association of Civil Engineering. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            // Gallery filtering
-            $('.filter-btn').click(function() {
-                const filter = $(this).data('filter');
-                
-                // Update active button
-                $('.filter-btn').removeClass('active');
-                $(this).addClass('active');
-                
-                // Filter gallery items
-                if (filter === 'all') {
-                    $('.gallery-item').show();
-                } else {
-                    $('.gallery-item').hide();
-                    $('.' + filter).show();
-                }
-            });
-
-            // Smooth scrolling only for anchor links (links starting with #)
-            $('.nav-link').click(function(e) {
-                const href = $(this).attr('href');
-                if (href.startsWith('#')) {
-                    e.preventDefault();
-                    $('html, body').animate({
-                        scrollTop: $(href).offset().top - 70
-                    }, 500);
-                }
-            });
-        });
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html> 
