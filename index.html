@@ -57,7 +57,7 @@
             color: #4B5563;
             cursor: pointer;
         }
-        
+
         .mobile-menu {
             display: none;
             position: absolute;
@@ -84,10 +84,16 @@
             padding: 1rem;
             border-bottom: 1px solid #E5E7EB;
             display: block;
+            text-decoration: none;
         }
 
         .mobile-nav-links .nav-link:last-child {
             border-bottom: none;
+        }
+
+        /* Style for dropdown triggers in mobile */
+        .mobile-nav-links .nav-link.dropdown-trigger {
+            cursor: pointer;
         }
 
         /* Mobile dropdown adjustments */
@@ -368,7 +374,7 @@
 
                 <!-- Team Dropdown -->
                 <div class="relative group">
-                    <a href="team.html" class="nav-link group-hover:text-blue-700">Team <i class="fas fa-chevron-down text-xs ml-1"></i></a>
+                    <span class="nav-link cursor-pointer group-hover:text-blue-700">Team <i class="fas fa-chevron-down text-xs ml-1"></i></span>
                     <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 rounded-md z-10">
                         <a href="team_2024-2025.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Team 2024-2025</a>
                         <a href="team_2025-2026.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Team 2025-2026</a>
@@ -389,9 +395,9 @@
                 <a href="faculty.html" class="nav-link">Faculty</a>
                 
                 <div>
-                    <span class="nav-link cursor-pointer" onclick="toggleMobileDropdown('activities')">
+                    <div class="nav-link dropdown-trigger" onclick="toggleMobileDropdown('activities')">
                         Activities <i class="fas fa-chevron-down text-xs ml-1" id="activities-icon"></i>
-                    </span>
+                    </div>
                     <div class="mobile-dropdown hidden" id="activities-dropdown">
                         <a href="events.html">Events</a>
                         <a href="industrial_trips.html">Industrial Trips</a>
@@ -401,9 +407,9 @@
                 </div>
 
                 <div>
-                    <span class="nav-link cursor-pointer" onclick="toggleMobileDropdown('team')">
+                    <div class="nav-link dropdown-trigger" onclick="toggleMobileDropdown('team')">
                         Team <i class="fas fa-chevron-down text-xs ml-1" id="team-icon"></i>
-                    </span>
+                    </div>
                     <div class="mobile-dropdown hidden" id="team-dropdown">
                         <a href="team_2024-2025.html">Team 2024-2025</a>
                         <a href="team_2025-2026.html">Team 2025-2026</a>
@@ -520,12 +526,23 @@
         }
 
         function toggleMobileDropdown(dropdownName) {
+            // Prevent any default behavior and stop event propagation
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            
             const dropdown = document.getElementById(dropdownName + '-dropdown');
             const icon = document.getElementById(dropdownName + '-icon');
             
-            dropdown.classList.toggle('hidden');
-            icon.classList.toggle('fa-chevron-down');
-            icon.classList.toggle('fa-chevron-up');
+            if (dropdown && icon) {
+                dropdown.classList.toggle('hidden');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            }
+            
+            // Prevent any navigation
+            return false;
         }
 
         // Close mobile menu when clicking outside
@@ -537,6 +554,18 @@
             if (!navbar.contains(event.target)) {
                 mobileMenu.classList.remove('active');
             }
+        });
+
+        // Prevent dropdown triggers from navigating
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
+            dropdownTriggers.forEach(trigger => {
+                trigger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                });
+            });
         });
 
         $(document).ready(function() {
@@ -568,9 +597,16 @@
                 }
             });
 
-            // Close mobile menu when nav link is clicked
-            $('.mobile-nav-links .nav-link').click(function() {
+            // Close mobile menu when nav link is clicked (but not dropdowns)
+            $('.mobile-nav-links .nav-link:not(.dropdown-trigger)').click(function() {
                 $('#mobileMenu').removeClass('active');
+            });
+
+            // Prevent dropdown triggers from navigating (jQuery version)
+            $('.dropdown-trigger').click(function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
             });
         });
     </script>
