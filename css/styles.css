@@ -188,16 +188,20 @@ h3 {
 
 /* Footer Styles */
 footer {
-    background-color: #ED6C4B;
-    color: white;
+    background-color: #ED6C4B !important;
+    color: white !important;
     padding: 2rem 0;
 }
 
 footer a {
-    color: white;
+    color: white !important;
     transition: all 0.3s ease;
 }
 
 footer a:hover {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+footer .border-t {
+    border-color: rgba(255, 255, 255, 0.2) !important;
 } 
