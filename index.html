@@ -14,6 +14,7 @@
             background: white;
             padding: 1rem;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
         }
 
         .nav-container {
@@ -35,6 +36,7 @@
             color: #4B5563;
             font-weight: 500;
             padding: 0.5rem 1rem;
+            white-space: nowrap;
         }
 
         .nav-link:hover {
@@ -42,11 +44,77 @@
         }
 
         .nav-link.active {
-            color: #ED6C4B;
-            border-bottom: 2px solid #ED6C4B;
+            color: #2563EB;
+            border-bottom: 2px solid #2563EB;
         }
-         /* Dropdown styles */
-         .relative {
+
+        /* Mobile Navigation */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #4B5563;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 50;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-nav-links {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0;
+            padding: 1rem 0;
+        }
+
+        .mobile-nav-links .nav-link {
+            padding: 1rem;
+            border-bottom: 1px solid #E5E7EB;
+            display: block;
+            text-decoration: none;
+        }
+
+        .mobile-nav-links .nav-link:last-child {
+            border-bottom: none;
+        }
+
+        /* Style for dropdown triggers in mobile */
+        .mobile-nav-links .nav-link.dropdown-trigger {
+            cursor: pointer;
+        }
+
+        /* Mobile dropdown adjustments */
+        .mobile-dropdown {
+            background: #F9FAFB;
+            padding-left: 2rem;
+        }
+
+        .mobile-dropdown a {
+            padding: 0.75rem 1rem;
+            display: block;
+            color: #6B7280;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .mobile-dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        /* Desktop dropdown styles */
+        .relative {
             position: relative;
         }
 
@@ -113,7 +181,7 @@
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             margin-top: 2rem;
         }
@@ -147,6 +215,7 @@
             justify-content: center;
             gap: 1rem;
             margin: 2rem 0;
+            flex-wrap: wrap;
         }
 
         .filter-btn {
@@ -171,13 +240,122 @@
             background: #ED6C4B;
             color: white;
         }
+
+        /* Hero Section Responsive */
+        .hero-content {
+            padding: 2rem 1rem;
+        }
+
+        .hero-logo {
+            width: 200px;
+            height: 200px;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-logo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .hero-title {
+                font-size: 1.875rem;
+                padding: 0 1rem;
+            }
+
+            .hero-content {
+                padding: 1rem;
+            }
+
+            /* Mobile gallery adjustments */
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .filter-buttons {
+                gap: 0.5rem;
+                margin: 1rem 0;
+            }
+
+            .filter-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.875rem;
+            }
+
+            /* Mobile card layout */
+            .featured-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            /* Mobile footer */
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            /* Mobile dropdown hover to click */
+            .group:hover .group-hover\:block {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-logo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .hero-title {
+                font-size: 1.5rem;
+            }
+
+            .nav-container {
+                padding: 0 0.5rem;
+            }
+
+            .navbar {
+                padding: 0.75rem;
+            }
+
+            .filter-buttons {
+                gap: 0.25rem;
+            }
+
+            .filter-btn {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-secondary-500">
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="text-white text-2xl font-bold">ACE</a>
+            <a href="index.html" class="text-2xl font-bold text-blue-600">ACE</a>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Desktop Navigation -->
             <div class="nav-links">
                 <a href="index.html" class="nav-link active">Home</a>
                 <a href="about.html" class="nav-link">About</a>
@@ -196,10 +374,45 @@
 
                 <!-- Team Dropdown -->
                 <div class="relative group">
-                    <a href="team.html" class="nav-link group-hover:text-primary-600">Team <i class="fas fa-chevron-down text-xs ml-1"></i></a>
+                    <span class="nav-link cursor-pointer group-hover:text-blue-700">Team <i class="fas fa-chevron-down text-xs ml-1"></i></span>
                     <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 rounded-md z-10">
-                        <a href="team_2024-2025.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Team 2024-2025</a>
-                        <a href="team_2025-2026.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Team 2025-2026</a>
+                        <a href="team_2024-2025.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Team 2024-2025</a>
+                        <a href="team_2025-2026.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Team 2025-2026</a>
+                    </div>
+                </div>
+
+                <a href="repository.html" class="nav-link">Repository</a>
+                <a href="gallery.html" class="nav-link">Gallery</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-nav-links">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="faculty.html" class="nav-link">Faculty</a>
+                
+                <div>
+                    <div class="nav-link dropdown-trigger" onclick="toggleMobileDropdown('activities')">
+                        Activities <i class="fas fa-chevron-down text-xs ml-1" id="activities-icon"></i>
+                    </div>
+                    <div class="mobile-dropdown hidden" id="activities-dropdown">
+                        <a href="events.html">Events</a>
+                        <a href="industrial_trips.html">Industrial Trips</a>
+                        <a href="talks.html">Talks</a>
+                        <a href="workshops.html">Workshops</a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="nav-link dropdown-trigger" onclick="toggleMobileDropdown('team')">
+                        Team <i class="fas fa-chevron-down text-xs ml-1" id="team-icon"></i>
+                    </div>
+                    <div class="mobile-dropdown hidden" id="team-dropdown">
+                        <a href="team_2024-2025.html">Team 2024-2025</a>
+                        <a href="team_2025-2026.html">Team 2025-2026</a>
                     </div>
                 </div>
 
@@ -211,37 +424,38 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="relative">
+    <section id="home" class="relative w-full h-screen">
         <!-- Hero Image with Logo -->
-        <div class="relative h-[500px] overflow-hidden">
+        <div class="relative w-full h-full">
             <div class="absolute inset-0">
                 <img src="images/iit-palakkad.jpg" alt="IIT Palakkad Campus" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-black/40"></div>
+                <div class="absolute inset-0 bg-black bg-opacity-60"></div>
             </div>
-            <div class="absolute inset-0 flex items-center justify-center">
-                <img src="images/ace-logo.png" alt="ACE Logo" class="w-48 h-48 object-contain">
-            </div>
-        </div>
-
-        <!-- About Section -->
-        <div class="bg-white py-16">
-            <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto text-center">
-                    <h2 class="text-3xl font-bold mb-6 text-gray-800">About ACE</h2>
-                    <p class="text-lg text-gray-600 mb-8">
-                        The Association of Civil Engineering (ACE) at IIT Palakkad is a vibrant community dedicated to fostering excellence in civil engineering education and research. Our association brings together students, faculty, and industry professionals to create a dynamic platform for learning, innovation, and professional growth.
-                    </p>
-                    <p class="text-lg text-gray-600">
-                        Through workshops, seminars, and hands-on projects, we aim to bridge the gap between academic knowledge and practical applications, preparing our members for successful careers in civil engineering.
-                    </p>
-                </div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center space-y-8 hero-content">
+                <img src="images/ace-logo.png" alt="ACE Logo" class="hero-logo object-contain">
+                <h1 class="text-white hero-title font-bold text-center">Civil Engineering Society IIT Palakkad</h1>
             </div>
         </div>
     </section>
 
+    <!-- About Section -->
+    <div class="bg-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-6 text-gray-800">About ACE</h2>
+                <p class="text-lg text-gray-600 mb-8">
+                    The Association of Civil Engineering (ACE) at IIT Palakkad is a vibrant community dedicated to fostering excellence in civil engineering education and research. Our association brings together students, faculty, and industry professionals to create a dynamic platform for learning, innovation, and professional growth.
+                </p>
+                <p class="text-lg text-gray-600">
+                    Through workshops, seminars, and hands-on projects, we aim to bridge the gap between academic knowledge and practical applications, preparing our members for successful careers in civil engineering.
+                </p>
+            </div>
+        </div>
+    </div>
+
     <!-- Featured Sections -->
     <section id="courses" class="container mx-auto px-4 py-16">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 featured-grid">
             <div class="bg-white p-6 rounded-lg shadow-md">
                 <h2 class="text-2xl font-bold mb-4">Faculty</h2>
                 <p class="text-gray-600 mb-4">
@@ -295,7 +509,7 @@
     <!-- Footer -->
     <footer class="text-white py-8">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 footer-grid">
                 <div>
                     <h3 class="text-xl font-bold mb-4">Contact Us</h3>
                     <p>Email: contact@ace.edu</p>
@@ -311,10 +525,10 @@
                 </div>
                 <div>
                     <h3 class="text-xl font-bold mb-4">Follow Us</h3>
-                    <div class="flex space-x-4">
-                        <a href="#">Twitter</a>
-                        <a href="#">LinkedIn</a>
-                        <a href="#">Facebook</a>
+                    <div class="flex space-x-4 justify-center md:justify-start">
+                        <a href="#" class="hover:text-blue-400">Twitter</a>
+                        <a href="#" class="hover:text-blue-400">LinkedIn</a>
+                        <a href="#" class="hover:text-blue-400">Facebook</a>
                     </div>
                 </div>
             </div>
@@ -326,6 +540,98 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-    <script src="js/script.js"></script>
+    
+    <script>
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        function toggleMobileDropdown(dropdownName) {
+            // Prevent any default behavior and stop event propagation
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            
+            const dropdown = document.getElementById(dropdownName + '-dropdown');
+            const icon = document.getElementById(dropdownName + '-icon');
+            
+            if (dropdown && icon) {
+                dropdown.classList.toggle('hidden');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            }
+            
+            // Prevent any navigation
+            return false;
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navbar = document.querySelector('.navbar');
+            
+            if (!navbar.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+
+        // Prevent dropdown triggers from navigating
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
+            dropdownTriggers.forEach(trigger => {
+                trigger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                });
+            });
+        });
+
+        $(document).ready(function() {
+            // Gallery filtering
+            $('.filter-btn').click(function() {
+                const filter = $(this).data('filter');
+                
+                // Update active button
+                $('.filter-btn').removeClass('active');
+                $(this).addClass('active');
+                
+                // Filter gallery items
+                if (filter === 'all') {
+                    $('.gallery-item').show();
+                } else {
+                    $('.gallery-item').hide();
+                    $('.' + filter).show();
+                }
+            });
+
+            // Smooth scrolling only for anchor links (links starting with #)
+            $('.nav-link').click(function(e) {
+                const href = $(this).attr('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    $('html, body').animate({
+                        scrollTop: $(href).offset().top - 70
+                    }, 500);
+                }
+            });
+
+            // Close mobile menu when nav link is clicked (but not dropdowns)
+            $('.mobile-nav-links .nav-link:not(.dropdown-trigger)').click(function() {
+                $('#mobileMenu').removeClass('active');
+            });
+
+            // Prevent dropdown triggers from navigating (jQuery version)
+            $('.dropdown-trigger').click(function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            });
+        });
+    </script>
 </body>
-</html> 
+</html>
