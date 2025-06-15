@@ -44,8 +44,70 @@
             color: #ED6C4B;
             border-bottom: 2px solid #ED6C4B;
         }
- /* Dropdown styles */
- .relative {
+
+        /* Mobile Navigation */
+        .mobile-menu-button {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #4B5563;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-button {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 1rem;
+                flex-direction: column;
+                align-items: flex-start;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                z-index: 50;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-link {
+                width: 100%;
+                padding: 0.75rem 1rem;
+            }
+
+            /* Dropdown adjustments for mobile */
+            .relative {
+                width: 100%;
+            }
+
+            .group:hover .group-hover\:block {
+                display: none;
+            }
+
+            .group.active .group-hover\:block {
+                display: block;
+                position: static;
+                box-shadow: none;
+                padding-left: 1rem;
+            }
+
+            /* Faculty grid adjustments */
+            .faculty-grid {
+                grid-template-columns: repeat(1, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        /* Dropdown styles */
+        .relative {
             position: relative;
         }
 
@@ -175,14 +237,17 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="text-primary-500 text-2xl font-bold">ACE</a>
-            <div class="nav-links">
+            <a href="index.html" class="text-2xl font-bold text-blue-600">ACE</a>
+            <button class="mobile-menu-button" id="mobileMenuButton">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="about.html" class="nav-link">About</a>
                 <a href="faculty.html" class="nav-link active">Faculty</a>
 
                 <!-- Activities Dropdown -->
-                <div class="relative group">
+                <div class="relative group" id="activitiesDropdown">
                     <span class="nav-link cursor-pointer group-hover:text-primary-600">Activities <i class="fas fa-chevron-down text-xs ml-1"></i></span>
                     <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 rounded-md z-10">
                         <a href="events.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Events</a>
@@ -193,7 +258,7 @@
                 </div>
 
                 <!-- Team Dropdown -->
-                <div class="relative group">
+                <div class="relative group" id="teamDropdown">
                     <a href="team.html" class="nav-link group-hover:text-primary-600">Team <i class="fas fa-chevron-down text-xs ml-1"></i></a>
                     <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 rounded-md z-10">
                         <a href="team_2024-2025.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Team 2024-2025</a>
@@ -211,13 +276,14 @@
     <!-- Faculty Section -->
     <section class="container mx-auto px-4 py-16">
         <h2 class="text-3xl font-bold text-center mb-8">Our Faculty</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <p class="text-center text-gray-600 mb-8">To know more about our faculty members, please visit our <a href="https://iitpkd.ac.in/faculty-list?field_full_name_value=&field_department_target_id=3" target="_blank" class="text-primary-500 hover:text-primary-600 underline">Faculty page in IIT palakkad website</a>.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <!-- Faculty Member 1 -->
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <img src="images/faculty/faculty-1.jpg" alt="Faculty Member" class="w-full h-48 object-cover rounded-lg mb-4">
-                <h3 class="text-xl font-bold mb-2">Dr. John Smith</h3>
-                <p class="text-gray-600 mb-2">Professor of Structural Engineering</p>
-                <p class="text-gray-600 mb-4">Specializes in earthquake-resistant design and structural analysis.</p>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <img src="images/faculty/Ankesh Kumar.png" alt="Faculty Member" class="w-full rounded-lg mb-3" style="max-height: 250px; object-fit: contain;">
+                <h3 class="text-lg font-bold mb-1">Dr. Ankesh Kumar</h3>
+                <p class="text-sm text-gray-600 mb-1">Assistant Professor</p>
+                <p class="text-xs text-gray-600 mb-3">Research Area: Geotechnical Engineering: Rock Mechanics and Underground Structures, Petroleum Related Rock Mechanics, Blast Resistant Design of U/G Structures, Geothermal Energy, Slope Stability, Machine Foundation</p>
                 <div class="flex space-x-4">
                     <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fab fa-linkedin"></i></a>
                     <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fas fa-envelope"></i></a>
@@ -225,11 +291,11 @@
             </div>
 
             <!-- Faculty Member 2 -->
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <img src="images/faculty/faculty-2.jpg" alt="Faculty Member" class="w-full h-48 object-cover rounded-lg mb-4">
-                <h3 class="text-xl font-bold mb-2">Dr. Sarah Johnson</h3>
-                <p class="text-gray-600 mb-2">Associate Professor of Environmental Engineering</p>
-                <p class="text-gray-600 mb-4">Expert in sustainable infrastructure and water resources management.</p>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <img src="images/faculty/Arun C O.png" alt="Faculty Member" class="w-full rounded-lg mb-3" style="max-height: 250px; object-fit: contain;">
+                <h3 class="text-lg font-bold mb-1">Dr. Arun C O</h3>
+                <p class="text-sm text-gray-600 mb-1">Associate Professor</p>
+                <p class="text-xs text-gray-600 mb-3">Research Area: Structural mechanics, Computational Mechanics, Stochastic mechanics, Meshfree methods, Finite element method, Structural reliability, Damage mechanics, Fracture mechanics, Sloshing, Fragility analysis etc.</p>
                 <div class="flex space-x-4">
                     <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fab fa-linkedin"></i></a>
                     <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fas fa-envelope"></i></a>
@@ -237,11 +303,11 @@
             </div>
 
             <!-- Faculty Member 3 -->
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <img src="images/faculty/faculty-3.jpg" alt="Faculty Member" class="w-full h-48 object-cover rounded-lg mb-4">
-                <h3 class="text-xl font-bold mb-2">Dr. Michael Chen</h3>
-                <p class="text-gray-600 mb-2">Assistant Professor of Transportation Engineering</p>
-                <p class="text-gray-600 mb-4">Focuses on smart transportation systems and urban mobility.</p>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <img src="images/faculty/Athira Gopinath.png" alt="Faculty Member" class="w-full rounded-lg mb-3" style="max-height: 250px; object-fit: contain;">
+                <h3 class="text-lg font-bold mb-1">Dr. Athira Gopinath</h3>
+                <p class="text-sm text-gray-600 mb-1">Assistant Professor</p>
+                <p class="text-xs text-gray-600 mb-3">Research Area: Develoment of sustainable construction materials, Research Area: Low-carbon binders, Research Area: Material characterization, Research Area: Biomass waste valorization</p>
                 <div class="flex space-x-4">
                     <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fab fa-linkedin"></i></a>
                     <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fas fa-envelope"></i></a>
@@ -249,11 +315,11 @@
             </div>
 
             <!-- Faculty Member 4 -->
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <img src="images/faculty/faculty-4.jpg" alt="Faculty Member" class="w-full h-48 object-cover rounded-lg mb-4">
-                <h3 class="text-xl font-bold mb-2">Dr. Emily White</h3>
-                <p class="text-gray-600 mb-2">Professor of Geotechnical Engineering</p>
-                <p class="text-gray-600 mb-4">Specializes in soil mechanics and foundation design.</p>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <img src="images/faculty/Athira P.png" alt="Faculty Member" class="w-full rounded-lg mb-3" style="max-height: 250px; object-fit: contain;">
+                <h3 class="text-lg font-bold mb-1">Dr. Athira P</h3>
+                <p class="text-sm text-gray-600 mb-1">Associate Professor</p>
+                <p class="text-xs text-gray-600 mb-3">Research Area: Transportation Engineering</p>
                 <div class="flex space-x-4">
                     <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fab fa-linkedin"></i></a>
                     <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fas fa-envelope"></i></a>
@@ -262,10 +328,10 @@
 
             <!-- Faculty Member 5 -->
             <div class="bg-white p-6 rounded-lg shadow-md">
-                <img src="images/faculty/faculty-5.jpg" alt="Faculty Member" class="w-full h-48 object-cover rounded-lg mb-4">
-                <h3 class="text-xl font-bold mb-2">Dr. Robert Green</h3>
-                <p class="text-gray-600 mb-2">Associate Professor of Construction Management</p>
-                <p class="text-gray-600 mb-4">Expert in project planning, scheduling, and cost control.</p>
+                <img src="images/faculty/Sridharan.png" alt="Faculty Member" class="w-full rounded-lg mb-4" style="max-height: 300px; object-fit: contain;">
+                <h3 class="text-xl font-bold mb-2">Dr. B Sridharan</h3>
+                <p class="text-gray-600 mb-2">Assistant Professor</p>
+                <p class="text-gray-600 mb-4">Research Area: Open Channel Flows, Computational Fluid Dynamics, Dam Break Simulation , Coastal and Estuarine Flow Modelling, Urban Hydrology and Hydraulics modelling , Large Scale Hydrological and Hydraulics Modelling , Simulation and Optimization of Reservoirs , Water Supply Systems, Impact of climate change on urban flooding , Cyclone induced flooding in changing climate</p>
                 <div class="flex space-x-4">
                     <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fab fa-linkedin"></i></a>
                     <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fas fa-envelope"></i></a>
@@ -274,10 +340,178 @@
 
             <!-- Faculty Member 6 -->
             <div class="bg-white p-6 rounded-lg shadow-md">
-                <img src="images/faculty/faculty-6.jpg" alt="Faculty Member" class="w-full h-48 object-cover rounded-lg mb-4">
-                <h3 class="text-xl font-bold mb-2">Dr. Linda Black</h3>
-                <p class="text-gray-600 mb-2">Assistant Professor of Civil Engineering Materials</p>
-                <p class="text-gray-600 mb-4">Research focuses on novel construction materials and their properties.</p>
+                <img src="images/faculty/Bhavathrathnan.png" alt="Faculty Member" class="w-full rounded-lg mb-4" style="max-height: 300px; object-fit: contain;">
+                <h3 class="text-xl font-bold mb-2">Dr. B. K. Bhavathrathnan</h3>
+                <p class="text-gray-600 mb-2">Associate Professor</p>
+                <p class="text-gray-600 mb-4">Research Area: Transportation Systems</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <!-- Faculty Member 7 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <img src="images/faculty/Veena Venudharan.png" alt="Faculty Member" class="w-full rounded-lg mb-4" style="max-height: 300px; object-fit: contain;">
+                <h3 class="text-xl font-bold mb-2">Dr. C.V. Veena Venudharan</h3>
+                <p class="text-gray-600 mb-2">Assistant Professor</p>
+                <p class="text-gray-600 mb-4">Research Area: Transportation Engineering, Pavement Engineering</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <!-- Faculty Member 8 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <img src="images/faculty/Divya P.V..png" alt="Faculty Member" class="w-full rounded-lg mb-4" style="max-height: 300px; object-fit: contain;">
+                <h3 class="text-xl font-bold mb-2">Dr. Divya P.V.</h3>
+                <p class="text-gray-600 mb-2">Associate Professor</p>
+                <p class="text-gray-600 mb-4">Research Area: Geosynthetics, Reinforced soil structures, Ground Improvement, Slope stabilization and landslide mitigation, Green-Geotechnics, Centrifuge modelling and Image analysis</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <!-- Faculty Member 9 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <img src="images/faculty/Gokulnath C.png" alt="Faculty Member" class="w-full rounded-lg mb-4" style="max-height: 300px; object-fit: contain;">
+                <h3 class="text-xl font-bold mb-2">Dr. Gokulnath C</h3>
+                <p class="text-gray-600 mb-2">Assistant Professor</p>
+                <p class="text-gray-600 mb-4">Research Area: Constitutive modelling, Continuum Mechanics, Finite element modelling, Experimental mechanics</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <!-- Faculty Member 10 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <img src="images/faculty/M.V. Anil Kumar.png" alt="Faculty Member" class="w-full rounded-lg mb-4" style="max-height: 300px; object-fit: contain;">
+                <h3 class="text-xl font-bold mb-2">Dr. M.V. Anil Kumar</h3>
+                <p class="text-gray-600 mb-2">Associate Professor</p>
+                <p class="text-gray-600 mb-4">Research Area: Steel Structures</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <!-- Faculty Member 11 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <img src="images/faculty/Madhu Karthik M..png" alt="Faculty Member" class="w-full rounded-lg mb-4" style="max-height: 300px; object-fit: contain;">
+                <h3 class="text-xl font-bold mb-2">Dr. Madhu Karthik M.</h3>
+                <p class="text-gray-600 mb-2">Associate Professor</p>
+                <p class="text-gray-600 mb-4">Research Area: Reinforced and prestressed concrete structures, Structural evaluation of deteriorating structures, Non-destructive testing and evaluation, Bridge engineering</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <!-- Faculty Member 12 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <img src="images/faculty/N. Sai Surya Sree Aparna.png" alt="Faculty Member" class="w-full rounded-lg mb-4" style="max-height: 300px; object-fit: contain;">
+                <h3 class="text-xl font-bold mb-2">Dr. N.  Sai Surya Sree Aparna</h3>
+                <p class="text-gray-600 mb-2">Assistant Professor</p>
+                <p class="text-gray-600 mb-4">Research Area: Alkali-activated Materials, 3D printing of cementitious materials, Rheology of cementitious materials, Valorisation of construction and demolition waste, industrial waste and residues, Carbon sequestration - Mineral carbonation, Chemical admixtures</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <!-- Faculty Member 13 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <img src="images/faculty/Praveena Gangadharan.png" alt="Faculty Member" class="w-full rounded-lg mb-4" style="max-height: 300px; object-fit: contain;">
+                <h3 class="text-xl font-bold mb-2">Dr. Praveena Gangadharan</h3>
+                <p class="text-gray-600 mb-2">Assistant Professor</p>
+                <p class="text-gray-600 mb-4">Research Area: Sanitation, Resource Recovery from urine, Fecal sludge management, biosolids, Bioelectrochemical systems for wastewater treatment, groundwater treatment</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <!-- Faculty Member 14 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <img src="images/faculty/Rakesh J Pillai.png" alt="Faculty Member" class="w-full rounded-lg mb-4" style="max-height: 300px; object-fit: contain;">
+                <h3 class="text-xl font-bold mb-2">Dr. Rakesh J Pillai</h3>
+                <p class="text-gray-600 mb-2">Associate Professor</p>
+                <p class="text-gray-600 mb-4">Research Area: Cyclic behaviour of soils, Constitutive Modelling in Geomechanics, Ground Improvement for pavement applications</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <!-- Faculty Member 15 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <img src="images/faculty/Sanjukta Chakraborty.png" alt="Faculty Member" class="w-full rounded-lg mb-4" style="max-height: 300px; object-fit: contain;">
+                <h3 class="text-xl font-bold mb-2">Dr. Sanjukta Chakraborty</h3>
+                <p class="text-gray-600 mb-2">Assistant Professor</p>
+                <p class="text-gray-600 mb-4">Research Area: Vibration control of structures using pssive and feedback control mechanisms, Optimal control, Base isolation, Substructure shaking table test</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <!-- Faculty Member 16 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <img src="images/faculty/Sarmistha Singh.png" alt="Faculty Member" class="w-full rounded-lg mb-4" style="max-height: 300px; object-fit: contain;">
+                <h3 class="text-xl font-bold mb-2">Dr. Sarmistha Singh</h3>
+                <p class="text-gray-600 mb-2">Assistant Professor</p>
+                <p class="text-gray-600 mb-4">Research Area: Hydroclimatology, Extreme Events Analysis, Climatic Oscillation and Climate Change Impacts Study, Remote Sensing in Disaster Management, Water Resources Management, Non-point Source Pollution, Water Policy Analysis</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <!-- Faculty Member 17 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <img src="images/faculty/Senthil Kumar V..png" alt="Faculty Member" class="w-full rounded-lg mb-4" style="max-height: 300px; object-fit: contain;">
+                <h3 class="text-xl font-bold mb-2">Dr. Senthil Kumar</h3>
+                <p class="text-gray-600 mb-2">Associate Professor</p>
+                <p class="text-gray-600 mb-4">Research Area: Construction Engineering and Management</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <!-- Faculty Member 18 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <img src="images/faculty/Subhasis Mitra.png" alt="Faculty Member" class="w-full rounded-lg mb-4" style="max-height: 300px; object-fit: contain;">
+                <h3 class="text-xl font-bold mb-2">Dr. Subhasis Mitra</h3>
+                <p class="text-gray-600 mb-2">Assistant Professor</p>
+                <p class="text-gray-600 mb-4">Research Area: Hydrometeorological forecasting, Climate change and hydroclimatological extremes</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <!-- Faculty Member 19 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <img src="images/faculty/Subrat Kumar Mallick.png" alt="Faculty Member" class="w-full rounded-lg mb-4" style="max-height: 300px; object-fit: contain;">
+                <h3 class="text-xl font-bold mb-2">Dr. Subrat Kumar Mallick</h3>
+                <p class="text-gray-600 mb-2">Assistant Professor</p>
+                <p class="text-gray-600 mb-4">Research Area: Water/Wastewater treatment</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <!-- Faculty Member 20 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <img src="images/faculty/Sudheesh T.K..png" alt="Faculty Member" class="w-full rounded-lg mb-4" style="max-height: 300px; object-fit: contain;">
+                <h3 class="text-xl font-bold mb-2">Dr. Sudheesh T.K.</h3>
+                <p class="text-gray-600 mb-2">Associate Professor & Head of the Department</p>
+                <p class="text-gray-600 mb-4">Research Area: Geotechnical Engineering: Deep Foundations; Slope & Embankment Stabilisation; and Analytical Methods in Geomechanics</p>
                 <div class="flex space-x-4">
                     <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fab fa-linkedin"></i></a>
                     <a href="#" class="text-primary-500 hover:text-primary-600"><i class="fas fa-envelope"></i></a>
@@ -324,6 +558,43 @@
     <script>
         $(document).ready(function() {
             // Add any specific scripts for the faculty page here if needed
+        });
+    </script>
+
+    <!-- Mobile Navigation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobileMenuButton');
+            const navLinks = document.getElementById('navLinks');
+            const activitiesDropdown = document.getElementById('activitiesDropdown');
+            const teamDropdown = document.getElementById('teamDropdown');
+
+            // Toggle mobile menu
+            mobileMenuButton.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+
+            // Handle dropdowns on mobile
+            if (window.innerWidth <= 768) {
+                activitiesDropdown.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    this.classList.toggle('active');
+                });
+
+                teamDropdown.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    this.classList.toggle('active');
+                });
+            }
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!navLinks.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    activitiesDropdown.classList.remove('active');
+                    teamDropdown.classList.remove('active');
+                }
+            });
         });
     </script>
 </body>

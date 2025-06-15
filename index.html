@@ -349,21 +349,17 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="text-2xl font-bold text-blue-600">ACE</a>
-            
-            <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+            <button class="mobile-menu-button" id="mobileMenuButton">
                 <i class="fas fa-bars"></i>
             </button>
-
-            <!-- Desktop Navigation -->
-            <div class="nav-links">
+            <div class="nav-links" id="navLinks">
                 <a href="index.html" class="nav-link active">Home</a>
                 <a href="about.html" class="nav-link">About</a>
                 <a href="faculty.html" class="nav-link">Faculty</a>
 
                 <!-- Activities Dropdown -->
-                <div class="relative group">
-                    <span class="nav-link cursor-pointer">Activities <i class="fas fa-chevron-down text-xs ml-1"></i></span>
+                <div class="relative group" id="activitiesDropdown">
+                    <span class="nav-link cursor-pointer group-hover:text-primary-600">Activities <i class="fas fa-chevron-down text-xs ml-1"></i></span>
                     <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 rounded-md z-10">
                         <a href="events.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Events</a>
                         <a href="industrial_trips.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Industrial Trips</a>
@@ -373,46 +369,11 @@
                 </div>
 
                 <!-- Team Dropdown -->
-                <div class="relative group">
-                    <span class="nav-link cursor-pointer group-hover:text-blue-700">Team <i class="fas fa-chevron-down text-xs ml-1"></i></span>
+                <div class="relative group" id="teamDropdown">
+                    <a href="team.html" class="nav-link group-hover:text-primary-600">Team <i class="fas fa-chevron-down text-xs ml-1"></i></a>
                     <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 rounded-md z-10">
-                        <a href="team_2024-2025.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Team 2024-2025</a>
-                        <a href="team_2025-2026.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Team 2025-2026</a>
-                    </div>
-                </div>
-
-                <a href="repository.html" class="nav-link">Repository</a>
-                <a href="gallery.html" class="nav-link">Gallery</a>
-                <a href="contact.html" class="nav-link">Contact Us</a>
-            </div>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobileMenu">
-            <div class="mobile-nav-links">
-                <a href="index.html" class="nav-link active">Home</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="faculty.html" class="nav-link">Faculty</a>
-                
-                <div>
-                    <div class="nav-link dropdown-trigger" onclick="toggleMobileDropdown('activities')">
-                        Activities <i class="fas fa-chevron-down text-xs ml-1" id="activities-icon"></i>
-                    </div>
-                    <div class="mobile-dropdown hidden" id="activities-dropdown">
-                        <a href="events.html">Events</a>
-                        <a href="industrial_trips.html">Industrial Trips</a>
-                        <a href="talks.html">Talks</a>
-                        <a href="workshops.html">Workshops</a>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="nav-link dropdown-trigger" onclick="toggleMobileDropdown('team')">
-                        Team <i class="fas fa-chevron-down text-xs ml-1" id="team-icon"></i>
-                    </div>
-                    <div class="mobile-dropdown hidden" id="team-dropdown">
-                        <a href="team_2024-2025.html">Team 2024-2025</a>
-                        <a href="team_2025-2026.html">Team 2025-2026</a>
+                        <a href="team_2024-2025.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Team 2024-2025</a>
+                        <a href="team_2025-2026.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Team 2025-2026</a>
                     </div>
                 </div>
 
@@ -542,94 +503,37 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
     
     <script>
-        // Mobile menu functionality
-        function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            mobileMenu.classList.toggle('active');
-        }
-
-        function toggleMobileDropdown(dropdownName) {
-            // Prevent any default behavior and stop event propagation
-            if (event) {
-                event.preventDefault();
-                event.stopPropagation();
-            }
-            
-            const dropdown = document.getElementById(dropdownName + '-dropdown');
-            const icon = document.getElementById(dropdownName + '-icon');
-            
-            if (dropdown && icon) {
-                dropdown.classList.toggle('hidden');
-                icon.classList.toggle('fa-chevron-down');
-                icon.classList.toggle('fa-chevron-up');
-            }
-            
-            // Prevent any navigation
-            return false;
-        }
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const mobileMenu = document.getElementById('mobileMenu');
-            const menuBtn = document.querySelector('.mobile-menu-btn');
-            const navbar = document.querySelector('.navbar');
-            
-            if (!navbar.contains(event.target)) {
-                mobileMenu.classList.remove('active');
-            }
-        });
-
-        // Prevent dropdown triggers from navigating
         document.addEventListener('DOMContentLoaded', function() {
-            const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
-            dropdownTriggers.forEach(trigger => {
-                trigger.addEventListener('click', function(e) {
+            const mobileMenuButton = document.getElementById('mobileMenuButton');
+            const navLinks = document.getElementById('navLinks');
+            const activitiesDropdown = document.getElementById('activitiesDropdown');
+            const teamDropdown = document.getElementById('teamDropdown');
+
+            // Toggle mobile menu
+            mobileMenuButton.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+
+            // Handle dropdowns on mobile
+            if (window.innerWidth <= 768) {
+                activitiesDropdown.addEventListener('click', function(e) {
                     e.preventDefault();
-                    e.stopPropagation();
-                    return false;
+                    this.classList.toggle('active');
                 });
-            });
-        });
 
-        $(document).ready(function() {
-            // Gallery filtering
-            $('.filter-btn').click(function() {
-                const filter = $(this).data('filter');
-                
-                // Update active button
-                $('.filter-btn').removeClass('active');
-                $(this).addClass('active');
-                
-                // Filter gallery items
-                if (filter === 'all') {
-                    $('.gallery-item').show();
-                } else {
-                    $('.gallery-item').hide();
-                    $('.' + filter).show();
-                }
-            });
-
-            // Smooth scrolling only for anchor links (links starting with #)
-            $('.nav-link').click(function(e) {
-                const href = $(this).attr('href');
-                if (href && href.startsWith('#')) {
+                teamDropdown.addEventListener('click', function(e) {
                     e.preventDefault();
-                    $('html, body').animate({
-                        scrollTop: $(href).offset().top - 70
-                    }, 500);
+                    this.classList.toggle('active');
+                });
+            }
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!navLinks.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    activitiesDropdown.classList.remove('active');
+                    teamDropdown.classList.remove('active');
                 }
-            });
-
-            // Close mobile menu when nav link is clicked (but not dropdowns)
-            $('.mobile-nav-links .nav-link:not(.dropdown-trigger)').click(function() {
-                $('#mobileMenu').removeClass('active');
-            });
-
-            // Prevent dropdown triggers from navigating (jQuery version)
-            $('.dropdown-trigger').click(function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
             });
         });
     </script>
