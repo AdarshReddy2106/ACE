@@ -5,10 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery - Association of Civil Engineering</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* Custom Orange Theme Colors */
+        :root {
+            --primary-orange: #ED6C4B;
+            --light-orange: #FFF5F2;
+            --dark-orange: #D55A3A;
+            --accent-orange: #FF8B69;
+        }
+
         /* Navigation */
         .navbar {
             background: white;
@@ -38,16 +45,16 @@
         }
 
         .nav-link:hover {
-            color: #ED6C4B;
+            color: var(--primary-orange);
         }
 
         .nav-link.active {
-            color: #ED6C4B;
-            border-bottom: 2px solid #ED6C4B;
+            color: var(--primary-orange);
+            border-bottom: 2px solid var(--primary-orange);
         }
 
- /* Dropdown styles */
- .relative {
+        /* Dropdown styles */
+        .relative {
             position: relative;
         }
 
@@ -104,81 +111,195 @@
         .hover\:bg-gray-200:hover {
             background-color: #F8F8F8;
         }
-        
-        /* Gallery */
-        .gallery-container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+
+        /* Main Background */
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
         }
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .gallery-item {
-            background: white;
-            border-radius: 0.5rem;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .gallery-item p {
-            padding: 1rem;
-            text-align: center;
-            color: #4B5563;
-        }
-
-        .filter-buttons {
+        /* Year Filter Buttons */
+        .year-filters {
             display: flex;
             justify-content: center;
             gap: 1rem;
             margin: 2rem 0;
+            flex-wrap: wrap;
         }
 
-        .filter-btn {
-            padding: 0.5rem 1rem;
-            border-radius: 9999px;
-            border: none;
+        .year-btn {
+            padding: 0.75rem 2rem;
+            border-radius: 12px;
+            border: 2px solid var(--primary-orange);
+            background: transparent;
+            color: var(--primary-orange);
+            font-weight: 600;
+            font-size: 1rem;
             cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 140px;
+        }
+
+        .year-btn.active {
+            background: var(--primary-orange);
+            color: white;
+            box-shadow: 0 4px 15px rgba(237, 108, 75, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .year-btn:hover:not(.active) {
+            background: var(--primary-orange);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Gallery Container */
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Modern Gallery Card Styles */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            justify-items: center;
+            padding: 1rem 0;
+        }
+
+        .photo-item {
+            background: #232946;
+            border-radius: 1.25rem;
+            overflow: hidden;
+            box-shadow: 0 6px 32px 0 rgba(44,62,80,0.18), 0 1.5px 6px 0 rgba(44,62,80,0.10);
+            transition: transform 0.22s cubic-bezier(.4,2,.6,1), box-shadow 0.22s;
+            cursor: pointer;
+            max-width: 340px;
+            width: 100%;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .photo-item:hover {
+            transform: translateY(-8px) scale(1.035);
+            box-shadow: 0 12px 40px 0 rgba(44,62,80,0.22), 0 2px 8px 0 rgba(44,62,80,0.13);
+            border-color: var(--primary-orange);
+            background: #1a1a2e;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 1.1rem;
+            transition: opacity 0.2s;
+        }
+
+        /* Hide caption always */
+        .photo-caption, #lightboxCaption {
+            display: none !important;
+        }
+
+        /* Category Section */
+        .category-section {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(6px);
+            border-radius: 1.5rem;
+            padding: 2.5rem 1.5rem;
+            margin: 2.5rem 0;
+            border: 1.5px solid rgba(255,255,255,0.08);
+            box-shadow: 0 2px 12px 0 rgba(44,62,80,0.07);
+        }
+
+        .category-title {
+            color: #fff;
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: left;
+            margin-bottom: 2rem;
+            letter-spacing: 0.01em;
+            text-shadow: 0 2px 8px rgba(44,62,80,0.13);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-orange), var(--dark-orange));
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-orange);
+            color: white;
+            padding: 3rem 0 2rem 0;
+            margin-top: 4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .year-filters {
+                gap: 0.5rem;
+            }
+            
+            .year-btn {
+                min-width: 120px;
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .category-title {
+                font-size: 1.5rem;
+            }
+            
+            .photo-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1rem;
+            }
+        }
+
+        /* Hidden state for gallery items */
+        .gallery-item {
             transition: all 0.3s ease;
         }
 
-        .filter-btn.active {
-            background: #ED6C4B;
-            color: white;
-        }
-
-        .filter-btn:not(.active) {
-            background: #F8F8F8;
-            color: #4B5563;
-        }
-
-        .filter-btn:hover:not(.active) {
-            background: #ED6C4B;
-            color: white;
+        .gallery-item.hidden {
+            display: none;
         }
     </style>
 </head>
-<body class="bg-secondary-500">
+<body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="gallery.html" class="text-2xl font-bold text-blue-600">ACE</a>
+            <a href="index.html" class="text-2xl font-bold text-blue-600">ACE</a>
             <div class="nav-links">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="about.html" class="nav-link">About</a>
@@ -211,98 +332,109 @@
         </div>
     </nav>
 
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container mx-auto px-4">
+            <h1>Gallery</h1>
+            <p>A glimpse into our vibrant activities, events, and achievements through the years.</p>
+        </div>
+    </header>
+
     <!-- Gallery Section -->
-    <section class="py-16">
+    <section class="py-8">
         <div class="gallery-container">
-            <h2 class="text-3xl font-bold text-center">Our Gallery</h2>
+            <!-- Year Filter Buttons -->
+            <div class="year-filters">
+                <button class="year-btn active" data-year="2024-2025">2024-2025</button>
+                <button class="year-btn" data-year="2023-2024">2023-2024</button>
+            </div>
+
+            <!-- 2024-2025 Academic Year -->
+            <div class="gallery-item" data-year="2024-2025">
+                <div class="category-section">
+                    <h2 class="category-title"> Site Visit to Azhikode - Munambam Bridge</h2>
+                    <div class="photo-grid">
+                        <div class="photo-item" onclick="openLightbox('./images/Gallery/FT.png')">
+                            <img src="./images/Gallery/FT.png" alt="Bridge">
+                        </div>
+                        <div class="photo-item" onclick="openLightbox('./images/Gallery/grp.png')">
+                            <img src="./images/Gallery/grp.png" alt="">
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="category-section">
+                    <h2 class="category-title">Freshers Event</h2>
+                    <div class="photo-grid">
+                        <div class="photo-item" onclick="openLightbox('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=600&fit=crop', 'Construction Site Visit')">
+                            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=200&fit=crop" alt="Construction Site">
+                        </div>
+                        <div class="photo-item" onclick="openLightbox('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop', 'Infrastructure Tour')">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=200&fit=crop" alt="Infrastructure">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-section">
+                    <h2 class="category-title">Expert Talk By Prof. Bharadwaj R. K. Mantha.</h2>
+                    <h3 class="category-title">Title: But, What About Cybersecurity in AECFM?</h3>
+                    <div class="photo-grid">
+                        <div class="photo-item" onclick="openLightbox('./images/Gallery/talk.jpg')">
+                            <img src="./images/Gallery/talk.jpg" alt="">
+                        </div>
+                        <div class="photo-item" onclick="openLightbox('./images/Gallery/cg.jpg')">
+                            <img src="./images/Gallery/cg.jpg" alt="Chief Guest">
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2023-2024 Academic Year -->
+            <div class="gallery-item hidden" data-year="2023-2024">
+                <div class="category-section">
+                    <h2 class="category-title">Freshers Event</h2>
+                    <div class="photo-grid">
+                        <div class="photo-item" onclick="openLightbox('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=600&fit=crop', 'Construction Site Visit')">
+                            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=200&fit=crop" alt="Construction Site">
+                        </div>
+                        <div class="photo-item" onclick="openLightbox('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop', 'Infrastructure Tour')">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=200&fit=crop" alt="Infrastructure">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-section">
+                    <h2 class="category-title">Seminars</h2>
+                    <div class="photo-grid">
+                        <div class="photo-item" onclick="openLightbox('https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&h=600&fit=crop', 'Seminar Hall')">
+                            <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=400&h=200&fit=crop" alt="Seminar">
+                        </div>
+                        <div class="photo-item" onclick="openLightbox('https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&h=600&fit=crop', 'Expert Lecture')">
+                            <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=400&h=200&fit=crop" alt="Expert Lecture">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional years can be added similarly -->
             
-            <!-- Filter Buttons -->
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="industrial-trips">Industrial Trips</button>
-                <button class="filter-btn" data-filter="talks">Talks</button>
-                <button class="filter-btn" data-filter="events">Events</button>
-            </div>
 
-            <!-- Gallery Grid -->
-            <div class="gallery-grid">
-                <!-- Industrial Trips -->
-                <div class="gallery-item industrial-trips">
-                    <a href="images/gallery/industrial-trip-1.jpg" data-lightbox="industrial-trips" data-title="Industrial Visit to Tech Park">
-                        <img src="images/gallery/industrial-trip-1.jpg" alt="Industrial Trip">
-                    </a>
-                    <p>Industrial Visit to Tech Park</p>
-                </div>
-
-                <!-- Talks -->
-                <div class="gallery-item talks">
-                    <a href="images/gallery/talk-1.jpg" data-lightbox="talks" data-title="Guest Lecture by Industry Expert">
-                        <img src="images/gallery/talk-1.jpg" alt="Guest Lecture">
-                    </a>
-                    <p>Guest Lecture by Industry Expert</p>
-                </div>
-
-                <!-- Events -->
-                <div class="gallery-item events">
-                    <a href="images/gallery/event-1.jpg" data-lightbox="events" data-title="Annual Technical Fest">
-                        <img src="images/gallery/event-1.jpg" alt="Technical Fest">
-                    </a>
-                    <p>Annual Technical Fest</p>
-                </div>
-
-                <!-- Industrial Trips -->
-                <div class="gallery-item industrial-trips">
-                    <a href="images/gallery/industrial-trip-2.jpg" data-lightbox="industrial-trips" data-title="Site Visit to Construction Area">
-                        <img src="images/gallery/industrial-trip-2.jpg" alt="Construction Site Visit">
-                    </a>
-                    <p>Site Visit to Construction Area</p>
-                </div>
-
-                <!-- Talks -->
-                <div class="gallery-item talks">
-                    <a href="images/gallery/talk-2.jpg" data-lightbox="talks" data-title="Seminar on Sustainable Practices">
-                        <img src="images/gallery/talk-2.jpg" alt="Sustainable Seminar">
-                    </a>
-                    <p>Seminar on Sustainable Practices</p>
-                </div>
-
-                <!-- Events -->
-                <div class="gallery-item events">
-                    <a href="images/gallery/event-2.jpg" data-lightbox="events" data-title="Civil Engineering Symposium">
-                        <img src="images/gallery/event-2.jpg" alt="Civil Engineering Symposium">
-                    </a>
-                    <p>Civil Engineering Symposium</p>
-                </div>
-
-                <!-- Industrial Trips -->
-                <div class="gallery-item industrial-trips">
-                    <a href="images/gallery/industrial-trip-3.jpg" data-lightbox="industrial-trips" data-title="Dam Construction Site Visit">
-                        <img src="images/gallery/industrial-trip-3.jpg" alt="Dam Site Visit">
-                    </a>
-                    <p>Dam Construction Site Visit</p>
-                </div>
-
-                <!-- Talks -->
-                <div class="gallery-item talks">
-                    <a href="images/gallery/talk-3.jpg" data-lightbox="talks" data-title="Webinar on Smart Cities">
-                        <img src="images/gallery/talk-3.jpg" alt="Smart Cities Webinar">
-                    </a>
-                    <p>Webinar on Smart Cities</p>
-                </div>
-
-                <!-- Events -->
-                <div class="gallery-item events">
-                    <a href="images/gallery/event-3.jpg" data-lightbox="events" data-title="Student Design Competition">
-                        <img src="images/gallery/event-3.jpg" alt="Design Competition">
-                    </a>
-                    <p>Student Design Competition</p>
-                </div>
-            </div>
         </div>
     </section>
 
+    <!-- Custom Lightbox Modal -->
+    <div id="lightboxModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center hidden">
+        <div class="relative max-w-4xl max-h-full p-4">
+            <button onclick="closeLightbox()" class="absolute top-2 right-2 text-white text-3xl font-bold z-10 bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center hover:bg-opacity-70">×</button>
+            <img id="lightboxImage" src="" alt="" class="max-w-full max-h-full object-contain rounded-lg">
+            <div id="lightboxCaption" class="text-white text-center mt-4 text-lg"></div>
+        </div>
+    </div>
+
     <!-- Footer -->
-    <footer class="text-white py-8">
+    <footer class="footer">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
@@ -313,17 +445,17 @@
                 <div>
                     <h3 class="text-xl font-bold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="events.html">Events</a></li>
-                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html" class="hover:underline">About Us</a></li>
+                        <li><a href="events.html" class="hover:underline">Events</a></li>
+                        <li><a href="resources.html" class="hover:underline">Resources</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="text-xl font-bold mb-4">Follow Us</h3>
                     <div class="flex space-x-4">
-                        <a href="#">Twitter</a>
-                        <a href="#">LinkedIn</a>
-                        <a href="#">Facebook</a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook fa-lg"></i></a>
                     </div>
                 </div>
             </div>
@@ -333,39 +465,63 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
     <script>
-        $(document).ready(function() {
-            // Gallery filtering
-            $('.filter-btn').click(function() {
-                const filter = $(this).data('filter');
-                
-                // Update active button
-                $('.filter-btn').removeClass('active');
-                $(this).addClass('active');
-                
-                // Filter gallery items
-                if (filter === 'all') {
-                    $('.gallery-item').show();
-                } else {
-                    $('.gallery-item').hide();
-                    $('.' + filter).show();
-                }
-            });
+        // Year filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const yearBtns = document.querySelectorAll('.year-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
 
-            // Smooth scrolling only for anchor links (links starting with #)
-            $('.nav-link').click(function(e) {
-                const href = $(this).attr('href');
-                if (href.startsWith('#')) {
-                    e.preventDefault();
-                    $('html, body').animate({
-                        scrollTop: $(href).offset().top - 70
-                    }, 500);
-                }
+            yearBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const selectedYear = this.getAttribute('data-year');
+                    
+                    // Update active button
+                    yearBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show/hide gallery items
+                    galleryItems.forEach(item => {
+                        if (item.getAttribute('data-year') === selectedYear) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    });
+                });
             });
+        });
+
+        // Custom lightbox functionality
+        function openLightbox(imageSrc, caption) {
+            const modal = document.getElementById('lightboxModal');
+            const image = document.getElementById('lightboxImage');
+            const captionEl = document.getElementById('lightboxCaption');
+            
+            image.src = imageSrc;
+            captionEl.textContent = caption;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightboxModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close lightbox when clicking outside the image
+        document.getElementById('lightboxModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
         });
     </script>
 </body>
-</html> 
+</html>
