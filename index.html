@@ -256,6 +256,60 @@
             line-height: 1.2;
         }
 
+        /* Improved About & Vision/Mission Card Styles */
+        @media (min-width: 768px) {
+            .about-card, .vision-card {
+                max-width: 900px;
+                min-width: 700px;
+                padding: 3.5rem 3rem;
+            }
+        }
+        .about-card, .vision-card {
+            background: rgba(255,255,255,0.98);
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 40px 0 rgba(44,62,80,0.13), 0 1.5px 6px 0 rgba(44,62,80,0.10);
+            margin: 2.5rem auto;
+            padding: 2.5rem 1.5rem;
+            border: 1.5px solid #e5e7eb;
+            transition: box-shadow 0.2s;
+        }
+        .about-card:hover, .vision-card:hover {
+            box-shadow: 0 16px 48px 0 rgba(44,62,80,0.18);
+        }
+        .about-card h2, .vision-card h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #232946;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            letter-spacing: 0.01em;
+            font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+        }
+        .about-card p, .vision-card p {
+            font-size: 1.35rem;
+            color: #232946;
+            line-height: 2.1;
+            margin-bottom: 1.8rem;
+            text-align: center;
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+        }
+        .about-card p:last-child, .vision-card p:last-child {
+            margin-bottom: 0;
+        }
+        @media (max-width: 900px) {
+            .about-card, .vision-card {
+                max-width: 98vw;
+                min-width: 0;
+                padding: 1.5rem 0.5rem;
+            }
+            .about-card h2, .vision-card h2 {
+                font-size: 2rem;
+            }
+            .about-card p, .vision-card p {
+                font-size: 1rem;
+            }
+        }
+
         /* Mobile Responsive Styles */
         @media (max-width: 768px) {
             .mobile-menu-btn {
@@ -400,19 +454,34 @@
     </section>
 
     <!-- About Section -->
-    <div class="bg-white py-16">
+    <div class="bg-gradient-to-b from-white to-secondary-100 py-20">
         <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl font-bold mb-6 text-gray-800">About ACE</h2>
-                <p class="text-lg text-gray-600 mb-8">
-                    The Association of Civil Engineering (ACE) at IIT Palakkad is a vibrant community dedicated to fostering excellence in civil engineering education and research. Our association brings together students, faculty, and industry professionals to create a dynamic platform for learning, innovation, and professional growth.
+            <div class="max-w-3xl mx-auto text-center about-card shadow-lg rounded-2xl bg-white/90 p-10 border border-secondary-200">
+                <h2 class="text-4xl font-extrabold mb-6 text-primary-500 tracking-tight">About ACE</h2>
+                <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                    The <span class="font-semibold text-primary-500">Association of Civil Engineering (ACE)</span> at IIT Palakkad is a vibrant community dedicated to fostering excellence in civil engineering education and research. Our association brings together students, faculty, and industry professionals to create a dynamic platform for learning, innovation, and professional growth.
                 </p>
-                <p class="text-lg text-gray-600">
+                <p class="text-lg text-gray-700 leading-relaxed">
                     Through workshops, seminars, and hands-on projects, we aim to bridge the gap between academic knowledge and practical applications, preparing our members for successful careers in civil engineering.
                 </p>
             </div>
         </div>
     </div>
+
+    <!-- Vision and Mission Section -->
+    <section class="bg-gradient-to-b from-secondary-100 to-secondary-200 py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center vision-card shadow-lg rounded-2xl bg-white/90 p-10 border border-secondary-200">
+                <h2 class="text-4xl font-extrabold mb-6 text-primary-500 tracking-tight">Our Vision &amp; Mission</h2>
+                <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                    To be a leader in civil engineering education and research, preparing graduates to address global challenges.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Our mission is to provide an exceptional learning environment that fosters critical thinking, creativity, and a strong foundation in civil engineering principles.
+                </p>
+            </div>
+        </div>
+    </section>
 
     <!-- Featured Sections -->
     <section id="courses" class="container mx-auto px-4 py-16">
@@ -443,18 +512,7 @@
         </div>
     </section>
 
-    <!-- Vision and Mission Section -->
-    <section class="bg-secondary-500 py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-6 text-gray-800">Our Vision & Mission</h2>
-            <p class="text-lg text-gray-600 mb-8">
-                To be a leader in civil engineering education and research, preparing graduates to address global challenges.
-            </p>
-            <p class="text-lg text-gray-600">
-                Our mission is to provide an exceptional learning environment that fosters critical thinking, creativity, and a strong foundation in civil engineering principles.
-            </p>
-        </div>
-    </section>
+    
 
     <!-- Call to Action Section -->
     <section class="py-16 bg-primary-500 text-white text-center">

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Association of Civil Engineering</title>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -13,6 +13,7 @@
             background: white;
             padding: 1rem;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
         }
 
         .nav-container {
@@ -34,6 +35,7 @@
             color: #4B5563;
             font-weight: 500;
             padding: 0.5rem 1rem;
+            white-space: nowrap;
         }
 
         .nav-link:hover {
@@ -44,8 +46,74 @@
             color: #ED6C4B;
             border-bottom: 2px solid #ED6C4B;
         }
- /* Dropdown styles */
- .relative {
+
+        /* Mobile Navigation */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #4B5563;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 50;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-nav-links {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0;
+            padding: 1rem 0;
+        }
+
+        .mobile-nav-links .nav-link {
+            padding: 1rem;
+            border-bottom: 1px solid #E5E7EB;
+            display: block;
+            text-decoration: none;
+        }
+
+        .mobile-nav-links .nav-link:last-child {
+            border-bottom: none;
+        }
+
+        /* Style for dropdown triggers in mobile */
+        .mobile-nav-links .nav-link.dropdown-trigger {
+            cursor: pointer;
+        }
+
+        /* Mobile dropdown adjustments */
+        .mobile-dropdown {
+            background: #F9FAFB;
+            padding-left: 2rem;
+        }
+
+        .mobile-dropdown a {
+            padding: 0.75rem 1rem;
+            display: block;
+            color: #6B7280;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .mobile-dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        /* Desktop dropdown styles */
+        .relative {
             position: relative;
         }
 
@@ -102,32 +170,114 @@
         .hover\:bg-gray-200:hover {
             background-color: #F8F8F8;
         }
-        /* About Specific Styles */
+
+        /* About Section Improvements */
         .about-container {
-            max-width: 1000px;
-            margin: 2rem auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 60vh;
+            background: #f8fafc;
             padding: 0 1rem;
         }
-
         .about-section {
             background: white;
-            padding: 2rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 1.25rem;
+            box-shadow: 0 4px 24px 0 rgba(44,62,80,0.10);
+            max-width: 950px;
+            width: 100%;
+            padding: 3rem 2.5rem;
+            margin: 2rem 0;
+            border: 1.5px solid #f3f4f6;
+            transition: box-shadow 0.2s;
+        }
+        .about-section:hover {
+            box-shadow: 0 8px 32px 0 rgba(44,62,80,0.16);
+        }
+        .about-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #232946;
+            text-align: center;
             margin-bottom: 2rem;
+            letter-spacing: 0.01em;
+        }
+        .about-section p {
+            font-size: 1.18rem;
+            color: #374151;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+        }
+        .about-section p:last-child {
+            margin-bottom: 0;
         }
 
-        .about-section h2 {
-            font-size: 2rem;
-            font-weight: bold;
+        /* Footer improvements */
+        footer {
+            background: #ED6C4B;
+            color: #fff;
+            border-radius: 0 0 0.75rem 0.75rem;
+            margin-top: 2rem;
+            box-shadow: 0 -2px 12px 0 rgba(44,62,80,0.07);
+        }
+        footer h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
             margin-bottom: 1rem;
         }
-
-        .about-section p {
-            color: #4B5563;
-            line-height: 1.6;
+        footer a {
+            color: #fff;
+            opacity: 0.92;
+            transition: opacity 0.2s, text-decoration 0.2s;
+            text-decoration: none;
+        }
+        footer a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        footer ul {
+            padding-left: 0;
+            list-style: none;
+        }
+        footer .flex a {
+            margin-right: 1.2rem;
+        }
+        footer .flex a:last-child {
+            margin-right: 0;
+        }
+        footer .border-t {
+            border-color: rgba(255,255,255,0.25);
+        }
+        @media (max-width: 900px) {
+            .about-section {
+                padding: 2rem 1rem;
+            }
+            .about-section h2 {
+                font-size: 2rem;
+            }
+            .about-section p {
+                font-size: 1rem;
+            }
         }
 
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+            }
+            .nav-container {
+                padding: 0 0.5rem;
+            }
+            .navbar {
+                padding: 0.75rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-secondary-500">
@@ -135,13 +285,16 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="text-2xl font-bold text-blue-600">ACE</a>
-            <div class="nav-links">
+            <button class="mobile-menu-btn" id="mobileMenuButton" aria-label="Open navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="about.html" class="nav-link active">About</a>
                 <a href="faculty.html" class="nav-link">Faculty</a>
 
                 <!-- Activities Dropdown -->
-                <div class="relative group">
+                <div class="relative group" id="activitiesDropdown">
                     <span class="nav-link cursor-pointer group-hover:text-primary-600">Activities <i class="fas fa-chevron-down text-xs ml-1"></i></span>
                     <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 rounded-md z-10">
                         <a href="events.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Events</a>
@@ -152,7 +305,7 @@
                 </div>
 
                 <!-- Team Dropdown -->
-                <div class="relative group">
+                <div class="relative group" id="teamDropdown">
                     <span class="nav-link cursor-pointer group-hover:text-primary-600">Team <i class="fas fa-chevron-down text-xs ml-1"></i></span>
                     <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 rounded-md z-10">
                         <a href="team_2024-2025.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Team 2024-2025</a>
@@ -248,6 +401,40 @@
                 }
             });
         });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobileMenuButton');
+            const navLinks = document.getElementById('navLinks');
+            const activitiesDropdown = document.getElementById('activitiesDropdown');
+            const teamDropdown = document.getElementById('teamDropdown');
+
+            // Toggle mobile menu
+            mobileMenuButton.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+
+            // Handle dropdowns on mobile
+            if (window.innerWidth <= 768) {
+                activitiesDropdown.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    this.classList.toggle('active');
+                });
+
+                teamDropdown.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    this.classList.toggle('active');
+                });
+            }
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!navLinks.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    activitiesDropdown.classList.remove('active');
+                    teamDropdown.classList.remove('active');
+                }
+            });
+        });
     </script>
 </body>
-</html> 
+</html>
