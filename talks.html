@@ -8,113 +8,99 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Navigation */
-        .navbar {
-            background: white;
-            padding: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        body {
+            background: #f4f5f8;
         }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        .talk-card {
+            background: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 6px 32px 0 rgba(44,62,80,0.10), 0 1.5px 6px 0 rgba(44,62,80,0.07);
+            max-width: 98vw;
+            margin: 2.5rem auto;
+            padding: 2.5rem 2rem 2.5rem 2rem;
         }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
+        .talk-header {
+            background: #c80043;
+            color: #fff;
+            border-radius: 0.6rem;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            font-size: 2.3rem;
+            font-family: 'Montserrat', 'Inter', Arial, sans-serif;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            letter-spacing: 0.01em;
         }
-
-        .nav-link {
-            text-decoration: none;
-            color: #4B5563;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-        }
-
-        .nav-link:hover {
-            color: #ED6C4B;
-        }
-
-        .nav-link.active {
-            color: #ED6C4B;
-            border-bottom: 2px solid #ED6C4B;
-        }
-
- /* Dropdown styles */
- .relative {
-            position: relative;
-        }
-
-        .group:hover .group-hover\:block {
+        .talk-profile-img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem auto;
             display: block;
+            border: 6px solid #f4f5f8;
+            background: #eee;
         }
-
-        .hidden {
-            display: none;
+        .talk-speaker {
+            color: #c80043;
+            font-size: 2rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            font-family: 'Montserrat', 'Inter', Arial, sans-serif;
         }
-
-        .absolute {
-            position: absolute;
+        .talk-speaker-title {
+            color: #444;
+            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 2.2rem;
         }
-
-        .z-10 {
-            z-index: 10;
+        .talk-section-title {
+            color: #c80043;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 0.7rem;
+            font-family: 'Montserrat', 'Inter', Arial, sans-serif;
         }
-
-        .mt-2 {
-            margin-top: 0.5rem;
+        .talk-section-content {
+            color: #232946;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-align: justify;
         }
-
-        .py-2 {
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
-        }
-
-        .rounded-md {
-            border-radius: 0.375rem;
-        }
-
-        .shadow-md {
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-
-        .bg-white {
-            background-color: white;
-        }
-
-        .block {
-            display: block;
-        }
-
-        .px-4 {
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-
-        .text-gray-800 {
-            color: #1F2937;
-        }
-
-        .hover\:bg-gray-200:hover {
-            background-color: #F8F8F8;
+        @media (max-width: 700px) {
+            .talk-card {
+                padding: 1rem 0.3rem;
+            }
+            .talk-header {
+                font-size: 1.2rem;
+                padding: 1rem 0.2rem;
+            }
+            .talk-profile-img {
+                width: 120px;
+                height: 120px;
+            }
+            .talk-speaker {
+                font-size: 1.2rem;
+            }
+            .talk-section-title {
+                font-size: 1.1rem;
+            }
+            .talk-section-content {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
-<body class="bg-secondary-500">
+<body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="text-2xl font-bold text-blue-600">ACE</a>
             <div class="nav-links">
                 <a href="index.html" class="nav-link">Home</a>
-                
-
-                <!-- Activities Dropdown -->
                 <div class="relative group">
                     <span class="nav-link cursor-pointer group-hover:text-primary-600">Activities <i class="fas fa-chevron-down text-xs ml-1"></i></span>
                     <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 rounded-md z-10">
@@ -124,8 +110,6 @@
                         <a href="workshops.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Workshops</a>
                     </div>
                 </div>
-
-                <!-- Team Dropdown -->
                 <div class="relative group">
                     <span class="nav-link cursor-pointer group-hover:text-primary-600">Team <i class="fas fa-chevron-down text-xs ml-1"></i></span>
                     <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 rounded-md z-10">
@@ -133,7 +117,6 @@
                         <a href="team_2025-2026.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Team 2025-2026</a>
                     </div>
                 </div>
-
                 <a href="repository.html" class="nav-link">Repository</a>
                 <a href="gallery.html" class="nav-link">Gallery</a>
                 <a href="contact.html" class="nav-link">Contact Us</a>
@@ -141,64 +124,56 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="bg-primary-500 text-white py-16">
-        <div class="container mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Talks</h1>
-            <p class="text-xl max-w-2xl">Browse through the talks and guest lectures organized by the Association of Civil Engineering.</p>
+    <!-- Expert Talk 1 -->
+    <div class="talk-card mt-8">
+        <div class="talk-header">Expert Talk: "Urban Governance and Smart Cities"</div>
+        <img src="images/Gallery/Expert talk 2024/DSC05818.JPG" alt="Shri Sivaguru Prabhakaran IAS" class="talk-profile-img">
+        <div class="talk-speaker">Shri Sivaguru Prabhakaran IAS</div>
+        <div class="talk-speaker-title">Commissioner, Coimbatore Municipal Corporation</div>
+        <div class="talk-section-title">Abstract:</div>
+        <div class="talk-section-content">
+            Shri Sivaguru Prabhakaran IAS delivered an insightful talk on the challenges and opportunities in urban governance, focusing on the development of smart cities. He discussed the importance of sustainable planning, citizen engagement, and the integration of technology in municipal administration.
         </div>
-    </header>
-
-    <!-- Talks Section -->
-    <section class="container mx-auto px-4 py-16">
-        <div class="mb-12">
-            <h2 class="text-2xl font-bold mb-4 text-gray-800">[Talk Title]</h2>
-            <p class="text-gray-700 mb-6">[Brief description of the talk, speaker, date, key topics, etc.]</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Placeholder for images or speaker photos -->
-                <div class="bg-secondary-200 h-48 flex items-center justify-center text-gray-600 rounded-md">Image/Speaker Placeholder</div>
-                <div class="bg-secondary-200 h-48 flex items-center justify-center text-gray-600 rounded-md">Image/Speaker Placeholder</div>
-                <div class="bg-secondary-200 h-48 flex items-center justify-center text-gray-600 rounded-md">Image/Speaker Placeholder</div>
-                <!-- Add more placeholders or actual content here -->
-            </div>
+        <div class="talk-section-title">About the Speaker:</div>
+        <div class="talk-section-content">
+            Shri Sivaguru Prabhakaran is the Commissioner of the Coimbatore Municipal Corporation and has played a pivotal role in implementing innovative urban solutions in Tamil Nadu. His leadership has contributed to the transformation of Coimbatore into a model smart city.
         </div>
-        <!-- Add more talk blocks here -->
-    </section>
+    </div>
 
-    <!-- Past Talks -->
-    <section class="bg-secondary-100 py-16">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-8">Past Talks</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Past Talk 1 -->
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <span class="text-gray-600 text-sm">February 28, 2024</span>
-                    <h3 class="text-lg font-bold mb-2">Innovations in Bridge Design</h3>
-                    <p class="text-gray-600 mb-4">A comprehensive overview of modern bridge design techniques and materials.</p>
-                    <a href="#" class="text-primary-500 hover:text-primary-600">Watch Recording →</a>
-                </div>
-
-                <!-- Past Talk 2 -->
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <span class="text-gray-600 text-sm">February 15, 2024</span>
-                    <h3 class="text-lg font-bold mb-2">Water Resource Management</h3>
-                    <p class="text-gray-600 mb-4">Strategies for sustainable water resource management in urban areas.</p>
-                    <a href="#" class="text-primary-500 hover:text-primary-600">Watch Recording →</a>
-                </div>
-
-                <!-- Past Talk 3 -->
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <span class="text-gray-600 text-sm">February 1, 2024</span>
-                    <h3 class="text-lg font-bold mb-2">Geotechnical Engineering</h3>
-                    <p class="text-gray-600 mb-4">Advanced techniques in soil analysis and foundation design.</p>
-                    <a href="#" class="text-primary-500 hover:text-primary-600">Watch Recording →</a>
-                </div>
-            </div>
+    <!-- Expert Talk 2 -->
+    <div class="talk-card mt-8">
+        <div class="talk-header">Expert Talk: "Water Resources and Irrigation Management"</div>
+        <img src="images/Gallery/Expert talk 2024/DSC05893.JPG" alt="Shri Priyesh R" class="talk-profile-img">
+        <div class="talk-speaker">Shri Priyesh R</div>
+        <div class="talk-speaker-title">Chief Engineer (IDRB), Irrigation Department of Kerala</div>
+        <div class="talk-section-title">Abstract:</div>
+        <div class="talk-section-content">
+            Shri Priyesh R shared his expertise on water resource management and the critical role of irrigation in sustainable agriculture. The talk covered modern irrigation techniques, water conservation strategies, and the challenges faced by Kerala in managing its water resources.
         </div>
-    </section>
+        <div class="talk-section-title">About the Speaker:</div>
+        <div class="talk-section-content">
+            As Chief Engineer at the Irrigation Department of Kerala, Shri Priyesh R has overseen several key projects aimed at improving water distribution and efficiency. His work has been instrumental in advancing the state's irrigation infrastructure.
+        </div>
+    </div>
+
+    <!-- Expert Talk 3 -->
+    <div class="talk-card mt-8">
+        <div class="talk-header">Expert Talk: "But, What About Cybersecurity in AECFM?"</div>
+        <img src="images/Gallery/Expert talk 2024/r.k.jpg" alt="Prof. Bharadwaj R. K. Mantha" class="talk-profile-img">
+        <div class="talk-speaker">Prof. Bharadwaj R. K. Mantha</div>
+        <div class="talk-speaker-title">Professor, IIT Bombay</div>
+        <div class="talk-section-title">Abstract:</div>
+        <div class="talk-section-content">
+            Prof. Bharadwaj R. K. Mantha discussed the emerging importance of cybersecurity in Architecture, Engineering, Construction, and Facility Management (AECFM). The session highlighted vulnerabilities, best practices, and the need for awareness among civil engineers regarding digital threats.
+        </div>
+        <div class="talk-section-title">About the Speaker:</div>
+        <div class="talk-section-content">
+            Prof. Bharadwaj R. K. Mantha is a faculty member at IIT Bombay with research interests in construction management, digital technologies in civil engineering, and cybersecurity in AECFM. He is recognized for his contributions to both academia and industry.
+        </div>
+    </div>
 
     <!-- Footer -->
-    <footer class="text-white py-8">
+    <footer class="text-white py-8 mt-12" style="background:#c80043;">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
@@ -209,17 +184,17 @@
                 <div>
                     <h3 class="text-xl font-bold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="events.html">Events</a></li>
-                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html" class="hover:underline">About Us</a></li>
+                        <li><a href="events.html" class="hover:underline">Events</a></li>
+                        <li><a href="resources.html" class="hover:underline">Resources</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="text-xl font-bold mb-4">Follow Us</h3>
                     <div class="flex space-x-4">
-                        <a href="#">Twitter</a>
-                        <a href="#">LinkedIn</a>
-                        <a href="#">Facebook</a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook fa-lg"></i></a>
                     </div>
                 </div>
             </div>
@@ -233,4 +208,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
     <script src="js/script.js"></script>
 </body>
-</html> 
+</html>
