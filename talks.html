@@ -8,6 +8,110 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* Custom Orange Theme Colors */
+        :root {
+            --primary-orange: #ED6C4B;
+            --light-orange: #FFF5F2;
+            --dark-orange: #D55A3A;
+            --accent-orange: #FF8B69;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #4B5563;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+        }
+
+        .nav-link:hover {
+            color: #ED6C4B;
+        }
+
+        .nav-link.active {
+            color: #ED6C4B;
+            border-bottom: 2px solid #ED6C4B;
+        }
+
+        /* Dropdown styles */
+        .relative {
+            position: relative;
+        }
+
+        .group:hover .group-hover\:block {
+            display: block;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .absolute {
+            position: absolute;
+        }
+
+        .z-10 {
+            z-index: 10;
+        }
+
+        .mt-2 {
+            margin-top: 0.5rem;
+        }
+
+        .py-2 {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .rounded-md {
+            border-radius: 0.375rem;
+        }
+
+        .shadow-md {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .bg-white {
+            background-color: white;
+        }
+
+        .block {
+            display: block;
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .text-gray-800 {
+            color: #1F2937;
+        }
+
+        .hover\:bg-gray-200:hover {
+            background-color: #F8F8F8;
+        }
+
         body {
             background: #f4f5f8;
         }
@@ -94,29 +198,26 @@
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-50">
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="text-2xl font-bold text-blue-600">ACE</a>
             <div class="nav-links">
                 <a href="index.html" class="nav-link">Home</a>
+                <a href="faculty.html" class="nav-link">Faculty</a>
+                <!-- Activities Dropdown -->
                 <div class="relative group">
-                    <span class="nav-link cursor-pointer group-hover:text-primary-600">Activities <i class="fas fa-chevron-down text-xs ml-1"></i></span>
+                    <span class="nav-link cursor-pointer group-hover:text-blue-700">Activities <i class="fas fa-chevron-down text-xs ml-1"></i></span>
                     <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 rounded-md z-10">
-                        <a href="events.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Events</a>
-                        <a href="industrial_trips.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Industrial Trips</a>
-                        <a href="talks.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Talks</a>
-                        <a href="workshops.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Workshops</a>
+                        <a href="events.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Events</a>
+                        <a href="industrial_trips.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Industrial Trips</a>
+                        <a href="talks.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Talks</a>
+                        <a href="workshops.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Workshops</a>
                     </div>
                 </div>
-<<<<<<< HEAD
-
                 <!-- Team Dropdown -->
                 <div class="relative group" id="teamDropdown">
-=======
-                <div class="relative group">
->>>>>>> 25955ff15203ec98ee14e87b3176ae5a0cb4ef85
                     <span class="nav-link cursor-pointer group-hover:text-primary-600">Team <i class="fas fa-chevron-down text-xs ml-1"></i></span>
                     <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 rounded-md z-10">
                         <a href="team_2023-2024.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Team 2023-2024</a>
