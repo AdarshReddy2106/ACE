@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
     <style>
         /* Navigation */
         .navbar {
@@ -103,6 +104,23 @@
         .hover\:bg-gray-200:hover {
             background-color: #F8F8F8;
         }
+
+        .excited-text {
+            font-family: 'Luckiest Guy', cursive, sans-serif;
+            font-size: 4rem;
+            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 0 6px 24px rgba(0,0,0,0.25), 0 1.5px 4px rgba(0,0,0,0.12);
+            animation: bounce 1.5s infinite alternate cubic-bezier(.68,-0.55,.27,1.55);
+        }
+        @keyframes bounce {
+            0% { transform: scale(1) translateY(0); }
+            50% { transform: scale(1.08) translateY(-18px); }
+            100% { transform: scale(1) translateY(0); }
+        }
+        @media (max-width: 600px) {
+            .excited-text { font-size: 2.2rem; }
+        }
     </style>
 </head>
 <body class="bg-secondary-500">
@@ -130,6 +148,7 @@
                 <div class="relative group" id="teamDropdown">
                     <span class="nav-link cursor-pointer group-hover:text-primary-600">Team <i class="fas fa-chevron-down text-xs ml-1"></i></span>
                     <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 rounded-md z-10">
+                        <a href="team_2023-2024.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Team 2023-2024</a>
                         <a href="team_2024-2025.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Team 2024-2025</a>
                         <a href="team_2025-2026.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Team 2025-2026</a>
                     </div>
@@ -143,124 +162,19 @@
     </nav>
 
     <!-- Page Header -->
-    <header class="bg-primary-500 text-white py-16">
+    <header class="bg-blue-600 text-white py-16">
         <div class="container mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Our Team</h1>
-            <p class="text-xl max-w-2xl">Meet the dedicated team behind the Association of Civil Engineering, working to advance the field and support our members.</p>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg tracking-wide">Team 2025-2026</h1>
+            <p class="text-xl max-w-2xl font-medium">Meet the dedicated team for the 2025-2026 academic year.</p>
         </div>
     </header>
 
-    <!-- Team Grid -->
-    <section class="container mx-auto px-4 py-16">
-        <!-- Executive Team -->
-        <div class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 text-center">Executive Team</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- President -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="images/team/president.jpg" alt="Dr. Robert Wilson" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Dr. Robert Wilson</h3>
-                        <p class="text-primary-500 mb-2">President</p>
-                        <p class="text-gray-600 mb-4">Leading the association with over 20 years of experience in civil engineering.</p>
-                        <a href="mailto:robert.wilson@ace.edu" class="text-primary-500 hover:text-primary-600">robert.wilson@ace.edu</a>
-                    </div>
-                </div>
-
-                <!-- Vice President -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="images/team/vice-president.jpg" alt="Dr. Emily Brown" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Dr. Emily Brown</h3>
-                        <p class="text-primary-500 mb-2">Vice President</p>
-                        <p class="text-gray-600 mb-4">Specializing in sustainable infrastructure development and community engagement.</p>
-                        <a href="mailto:emily.brown@ace.edu" class="text-primary-500 hover:text-primary-600">emily.brown@ace.edu</a>
-                    </div>
-                </div>
-
-                <!-- Secretary -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="images/team/secretary.jpg" alt="Prof. David Lee" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Prof. David Lee</h3>
-                        <p class="text-primary-500 mb-2">Secretary</p>
-                        <p class="text-gray-600 mb-4">Expert in project management and organizational development.</p>
-                        <a href="mailto:david.lee@ace.edu" class="text-primary-500 hover:text-primary-600">david.lee@ace.edu</a>
-                    </div>
-                </div>
-            </div>
+    <!-- Coming Soon Box -->
+    <main class="flex items-center justify-center min-h-[60vh]">
+        <div class="w-full max-w-2xl mx-auto my-20 p-16 rounded-3xl shadow-xl bg-gradient-to-br from-blue-400 via-purple-300 to-pink-300 flex items-center justify-center">
+            <span class="excited-text text-center">Coming Soon!</span>
         </div>
-
-        <!-- Support Team -->
-        <div>
-            <h2 class="text-3xl font-bold mb-8 text-center">Support Team</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Team Member 1 -->
-                <div class="bg-white rounded-lg shadow-md p-6 text-center">
-                    <img src="images/team/member1.jpg" alt="Sarah Martinez" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-                    <h3 class="text-lg font-bold mb-2">Sarah Martinez</h3>
-                    <p class="text-primary-500 mb-2">Events Coordinator</p>
-                    <p class="text-gray-600 text-sm">Organizing conferences and workshops</p>
-                </div>
-
-                <!-- Team Member 2 -->
-                <div class="bg-white rounded-lg shadow-md p-6 text-center">
-                    <img src="images/team/member2.jpg" alt="James Wilson" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-                    <h3 class="text-lg font-bold mb-2">James Wilson</h3>
-                    <p class="text-primary-500 mb-2">Membership Manager</p>
-                    <p class="text-gray-600 text-sm">Handling member relations</p>
-                </div>
-
-                <!-- Team Member 3 -->
-                <div class="bg-white rounded-lg shadow-md p-6 text-center">
-                    <img src="images/team/member3.jpg" alt="Lisa Chen" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-                    <h3 class="text-lg font-bold mb-2">Lisa Chen</h3>
-                    <p class="text-primary-500 mb-2">Communications Officer</p>
-                    <p class="text-gray-600 text-sm">Managing public relations</p>
-                </div>
-
-                <!-- Team Member 4 -->
-                <div class="bg-white rounded-lg shadow-md p-6 text-center">
-                    <img src="images/team/member4.jpg" alt="Michael Patel" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-                    <h3 class="text-lg font-bold mb-2">Michael Patel</h3>
-                    <p class="text-primary-500 mb-2">Technical Support</p>
-                    <p class="text-gray-600 text-sm">IT and systems management</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="text-white py-8">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
-                    <p>Email: contact@ace.edu</p>
-                    <p>Phone: (123) 456-7890</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="events.html">Events</a></li>
-                        <li><a href="resources.html">Resources</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Follow Us</h3>
-                    <div class="flex space-x-4">
-                        <a href="#">Twitter</a>
-                        <a href="#">LinkedIn</a>
-                        <a href="#">Facebook</a>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-8 pt-8 border-t border-white/20 text-center">
-                <p>&copy; <script>document.write(new Date().getFullYear())</script> Association of Civil Engineering. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    </main>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
