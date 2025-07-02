@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/dropdown.css">
     <style>
         /* Custom Orange Theme Colors */
         :root {
@@ -208,28 +209,32 @@
             <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Open navigation menu">
                 <i class="fas fa-bars"></i>
             </button>
-            <div class="nav-links">
+            <div class="nav-links" id="navLinks">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="faculty.html" class="nav-link">Faculty</a>
 
                 <!-- Activities Dropdown -->
-                <div class="relative group">
-                    <span class="nav-link cursor-pointer group-hover:text-primary-600">Activities <i class="fas fa-chevron-down text-xs ml-1"></i></span>
-                    <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 rounded-md z-10">
-                        <a href="events.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Events</a>
-                        <a href="industrial_trips.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Industrial Trips</a>
-                        <a href="talks.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Talks</a>
-                        <a href="workshops.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Workshops</a>
+                <div class="relative dropdown" id="activitiesDropdown">
+                    <button class="dropdown-toggle nav-link" id="activitiesToggle" type="button">
+                        Activities <i class="fas fa-chevron-down text-xs ml-1"></i>
+                    </button>
+                    <div class="dropdown-menu" id="activitiesMenu">
+                        <a href="events.html">Events</a>
+                        <a href="industrial_trips.html">Industrial Trips</a>
+                        <a href="talks.html">Talks</a>
+                        <a href="workshops.html">Workshops</a>
                     </div>
                 </div>
 
                 <!-- Team Dropdown -->
-                <div class="relative group" id="teamDropdown">
-                    <span class="nav-link cursor-pointer group-hover:text-primary-600">Team <i class="fas fa-chevron-down text-xs ml-1"></i></span>
-                    <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 rounded-md z-10">
-                        <a href="team_2023-2024.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Team 2023-2024</a>
-                        <a href="team_2024-2025.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Team 2024-2025</a>
-                        <a href="team_2025-2026.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Team 2025-2026</a>
+                <div class="relative dropdown" id="teamDropdown">
+                    <button class="dropdown-toggle nav-link" id="teamToggle" type="button">
+                        Team <i class="fas fa-chevron-down text-xs ml-1"></i>
+                    </button>
+                    <div class="dropdown-menu" id="teamMenu">
+                        <a href="team_2023-2024.html">Team 2023-2024</a>
+                        <a href="team_2024-2025.html">Team 2024-2025</a>
+                        <a href="team_2025-2026.html">Team 2025-2026</a>
                     </div>
                 </div>
 
@@ -413,63 +418,10 @@
         </div>
     </footer>
 
-    <script>
-        // Year filtering functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const yearBtns = document.querySelectorAll('.year-btn');
-            const galleryItems = document.querySelectorAll('.gallery-item');
-
-            yearBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const selectedYear = this.getAttribute('data-year');
-                    
-                    // Update active button
-                    yearBtns.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Show/hide gallery items
-                    galleryItems.forEach(item => {
-                        if (item.getAttribute('data-year') === selectedYear) {
-                            item.classList.remove('hidden');
-                        } else {
-                            item.classList.add('hidden');
-                        }
-                    });
-                });
-            });
-        });
-
-        // Custom lightbox functionality
-        function openLightbox(imageSrc, caption) {
-            const modal = document.getElementById('lightboxModal');
-            const image = document.getElementById('lightboxImage');
-            const captionEl = document.getElementById('lightboxCaption');
-            
-            image.src = imageSrc;
-            captionEl.textContent = caption;
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeLightbox() {
-            const modal = document.getElementById('lightboxModal');
-            modal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close lightbox when clicking outside the image
-        document.getElementById('lightboxModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeLightbox();
-            }
-        });
-
-        // Close lightbox with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeLightbox();
-            }
-        });
-    </script>
+    <!-- Move all inline JS to a separate file: js/gallery.js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/gallery.js"></script>
+    
 </body>
 </html>
