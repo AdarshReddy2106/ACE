@@ -68,28 +68,28 @@
             <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Open navigation menu">
                 <i class="fas fa-bars"></i>
             </button>
-            <div class="nav-links">
+            <div class="nav-links" id="navLinks">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="faculty.html" class="nav-link">Faculty</a>
 
                 <!-- Activities Dropdown -->
-                <div class="dropdown" id="activitiesDropdown">
-                    <span class="nav-link dropdown-toggle" id="activitiesToggle">
+                <div class="relative dropdown" id="activitiesDropdown">
+                    <button class="dropdown-toggle nav-link" id="activitiesToggle" type="button">
                         Activities <i class="fas fa-chevron-down text-xs ml-1"></i>
-                    </span>
+                    </button>
                     <div class="dropdown-menu" id="activitiesMenu">
-                        <a href="events.html">Events</a>
-                        <a href="industrial_trips.html">Industrial Trips</a>
-                        <a href="talks.html">Talks</a>
-                        <a href="workshops.html">Workshops</a>
+                        <a href="events.html" class="nav-link active">Events</a>
+                        <a href="industrial_trips.html" class="nav-link">Industrial Trips</a>
+                        <a href="talks.html" class="nav-link">Talks</a>
+                        <a href="workshops.html" class="nav-link">Workshops</a>
                     </div>
                 </div>
 
                 <!-- Team Dropdown -->
-                <div class="dropdown" id="teamDropdown">
-                    <span class="nav-link dropdown-toggle" id="teamToggle">
+                <div class="relative dropdown" id="teamDropdown">
+                    <button class="dropdown-toggle nav-link" id="teamToggle" type="button">
                         Team <i class="fas fa-chevron-down text-xs ml-1"></i>
-                    </span>
+                    </button>
                     <div class="dropdown-menu" id="teamMenu">
                         <a href="team_2023-2024.html">Team 2023-2024</a>
                         <a href="team_2024-2025.html">Team 2024-2025</a>
@@ -161,81 +161,6 @@
     <script src="js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            // Dropdown functionality
-            function toggleDropdown(dropdownId) {
-                const dropdown = $('#' + dropdownId);
-                const isVisible = dropdown.hasClass('show');
-                
-                // Close all dropdowns first
-                $('.dropdown-menu').removeClass('show');
-                
-                // Toggle current dropdown if it wasn't visible
-                if (!isVisible) {
-                    dropdown.addClass('show');
-                }
-            }
-            
-            // Activities dropdown toggle
-            $('#activitiesToggle').click(function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                toggleDropdown('activitiesMenu');
-            });
-            
-            // Team dropdown toggle
-            $('#teamToggle').click(function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                toggleDropdown('teamMenu');
-            });
-            
-            // Close dropdowns when clicking outside
-            $(document).click(function(e) {
-                if (!$(e.target).closest('.dropdown').length) {
-                    $('.dropdown-menu').removeClass('show');
-                }
-            });
-            
-            // Prevent dropdown from closing when clicking inside the dropdown menu
-            $('.dropdown-menu').click(function(e) {
-                e.stopPropagation();
-            });
-            
-            // Close dropdown when clicking on a link inside it
-            $('.dropdown-menu a').click(function() {
-                $('.dropdown-menu').removeClass('show');
-            });
-
-            // Gallery filtering
-            $('.filter-btn').click(function() {
-                const filter = $(this).data('filter');
-                
-                // Update active button
-                $('.filter-btn').removeClass('active');
-                $(this).addClass('active');
-                
-                // Filter gallery items
-                if (filter === 'all') {
-                    $('.gallery-item').show();
-                } else {
-                    $('.gallery-item').hide();
-                    $('.' + filter).show();
-                }
-            });
-
-            // Smooth scrolling only for anchor links (links starting with #)
-            $('.nav-link').click(function(e) {
-                const href = $(this).attr('href');
-                if (href && href.startsWith('#')) {
-                    e.preventDefault();
-                    $('html, body').animate({
-                        scrollTop: $(href).offset().top - 70
-                    }, 500);
-                }
-            });
-        });
-    </script>
+    <script src="js/navigation.js"></script>
 </body>
 </html>

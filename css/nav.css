@@ -47,7 +47,6 @@
     border: none;
     color: inherit;
     font: inherit;
-    padding: 0.5rem 1rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -60,8 +59,6 @@
 }
 .dropdown-menu {
     min-width: 180px;
-    border-radius: 0 0 1rem 1rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     background: #fff;
     margin-top: 0.5rem;
     padding: 0.5rem 0;
@@ -100,8 +97,8 @@
         background: #fff;
         margin-top: 0.5rem;
         padding: 0.5rem 0;
-        border-radius: 0 0 1rem 1rem;
         z-index: 50;
+        margin-bottom: 0.5rem;
     }
     .dropdown.active .dropdown-menu {
         display: block;
