@@ -34,6 +34,7 @@
 }
 .nav-link.active {
     border-bottom: 2px solid #ED6C4B;
+    background-color: transparent
 }
 .mobile-menu-button {
     display: none;
