@@ -142,7 +142,6 @@
                         Activities <i class="fas fa-chevron-down text-xs ml-1"></i>
                     </button>
                     <div class="dropdown-menu" id="activitiesMenu">
-                        <a href="events.html">Events</a>
                         <a href="industrial_trips.html">Industrial Trips</a>
                         <a href="talks.html">Talks</a>
                         <a href="workshops.html">Workshops</a>
@@ -282,7 +281,8 @@
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
             
             try {
-                const response = await fetch('http://localhost:2050/api/contact', {
+                const api = 'http://localhost:2050/api/contact' ? "https://ace-iitpkd.vercel.app/api/contact" : 'http://localhost:2050/api/contact';
+                const response = await fetch(api, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

@@ -4,13 +4,128 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Industrial Trips - Association of Civil Engineering</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Source+Serif+Pro:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/nav.css">
     <style>
+        h2 {
+            background-color: red;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .it {
+            position: relative;
+            flex-direction: column;
+            background: pink;
+            display: flex;
+            height: auto;
+            margin: 2rem;
+            /* border-radius: 25%; */
+            border: solid black;
+        }
 
- 
+        .it .right{
+            display: flex;
+            flex-direction: row;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            margin-right:20rem;
+            gap: 3rem;
+        }
+        .it .left{
+            margin-left: 10%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .it h3 {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            text-align: center;
+        }
+
+        .it .description {
+            font-family: 'Source Serif Pro', serif;
+            font-size: 20px;
+            margin-left: 3.5rem;
+            margin-right: 3.5rem;
+        }
+        .it .list{  
+            width: max-content;
+            font-size: 25px;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+        .it .card {
+            margin-top: 10px;
+            height: 200px;
+            background: white ;
+            width: 200px;
+            margin-bottom: 3rem;
+            text-align: center;
+            justify-content: center;
+            border-radius: 25px;
+        }
+        .it .card p{
+            font-size: 200%;
+            font-weight: 600;
+        }
+        .it .images {
+            display: flex;
+            gap: 3rem;
+            border-radius: 5px;
+            max-width: 700px;
+            width: 100%;
+            margin-bottom: 2rem ;
+            flex-wrap: nowrap; /* Prevent stacking */
+            box-sizing: border-box;
+        }
+
+        .it .images img {
+            width: 68%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+            flex: 0 0 auto;
+            max-width: 100%;
+        }
+        
+        @media (max-width: 1150px) {
+            .it .images {
+                display: flex;
+                gap: 3rem;
+                border-radius: 5px;
+                max-width: 700px;
+                width: 100%;
+                margin-bottom: 2rem ;
+                flex-wrap: nowrap; /* Prevent stacking */
+                box-sizing: border-box;
+                
+            }
+            .it .images img {
+                width: 78%;
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .it .images {
+                gap: 1rem;
+                max-width: 100%;
+                flex-wrap: wrap; /* Allow stacking if needed */
+                justify-content: center;
+            }
+            .it .images img {
+                width: 90vw;      /* Responsive width */
+                max-width: 400px; /* Limit max width */
+                height: auto;     /* Maintain aspect ratio */
+            }
+        }
+
     </style>
 </head>
 <body class="bg-secondary-500">
@@ -57,29 +172,47 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="bg-primary-500 text-white py-16">
-        <div class="container mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Industrial Trips</h1>
-            <p class="text-xl max-w-2xl">Details about industrial trips organized by the Association of Civil Engineering.</p>
-        </div>
-    </header>
+    <!-- Header -->
+     <div>
+        <h2>
+            Industrial Trips
+        </h2>
 
-    <!-- Industrial Trips Section -->
-    <section class="container mx-auto px-4 py-16">
-        <div class="mb-12">
-            <h2 class="text-2xl font-bold mb-4 text-gray-800">[Trip Destination/Company]</h2>
-            <p class="text-gray-700 mb-6">[Brief description of the trip, date, key takeaways, etc.]</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Placeholder for images -->
-                <div class="bg-secondary-200 h-48 flex items-center justify-center text-gray-600 rounded-md">Image Placeholder</div>
-                <div class="bg-secondary-200 h-48 flex items-center justify-center text-gray-600 rounded-md">Image Placeholder</div>
-                <div class="bg-secondary-200 h-48 flex items-center justify-center text-gray-600 rounded-md">Image Placeholder</div>
-                <!-- Add more image placeholders or actual image tags here -->
-            </div>
+     </div>
+
+     <!-- Trips Section -->
+     <section>
+        <div class="it">
+           <h3>Azhikode - Munambam Bridge</h3>
+           <div class="description">
+                <p>An immersive site visit to the Azhikode-Munambam Bridge construction project gave students
+                    firsthand exposure to modern bridge engineering techniques and marine construction challenges. The trip also offered insight into project management, safety measures, and structural design principles in a real-world setting.
+                </p>
+           </div>
+           <div class="right">
+                <div class="left">
+                        <div class="list">
+                                <i class="fas fa-calendar"></i>
+                                <span>March 2025</span>
+                        </div>
+                        <div class="list">
+                                <i class="fas fa-calendar"></i>
+                                <span>Full day</span>
+                        </div>
+                        
+                        <div class="card">
+                                <p>Students Participated</p>
+                                <p>100+</p>
+                        </div>
+                </div>
+                
+                <div class="images">
+                        <img src="images/Gallery/FT.png" alt="">
+                        <img src="images/Gallery/grp.png" alt="">
+                </div>
+           </div>
         </div>
-        <!-- Add more trip blocks here -->
-    </section>
+     </section>
 
     <!-- Footer -->
     <footer class="text-white py-8">
@@ -94,7 +227,6 @@
                     <h3 class="text-xl font-bold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="events.html">Events</a></li>
                         <li><a href="resources.html">Resources</a></li>
                     </ul>
                 </div>
@@ -118,4 +250,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
     <script src="js/navigation.js"></script>
 </body>
-</html> 
+</html>
