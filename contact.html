@@ -9,12 +9,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/nav.css">
     <style>
+        body {
+            background: linear-gradient(135deg, #fff7ed 0%, #ffe5d0 100%);
+        }
         .contact-form {
-            background: white;
+            background: linear-gradient(120deg, #fff, #fff7ed 80%);
             padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(253, 146, 34, 0.10), 0 1.5px 6px 0 rgba(44,62,80,0.10);
             margin-bottom: 2rem;
+            border: 2px solid #ff914d;
         }
         
         .form-group {
@@ -24,23 +28,25 @@
         .form-label {
             display: block;
             margin-bottom: 0.5rem;
-            color: #374151;
-            font-weight: 600;
+            color: #ed6c4b;
+            font-weight: 700;
+            letter-spacing: 0.01em;
         }
         
         .form-input {
             width: 100%;
             padding: 0.75rem;
             border: 2px solid #e5e7eb;
-            border-radius: 6px;
+            border-radius: 8px;
             font-size: 1rem;
             transition: border-color 0.3s, box-shadow 0.3s;
+            background: #f8fafc;
         }
         
         .form-input:focus {
             outline: none;
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            border-color: #ed6c4b;
+            box-shadow: 0 0 0 3px rgba(237, 108, 75, 0.15);
         }
         
         .form-textarea {
@@ -51,19 +57,21 @@
         .submit-btn {
             width: 100%;
             padding: 0.75rem 1.5rem;
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            background: linear-gradient(90deg, #ffb347, #ff6a00);
             color: white;
             border: none;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: 600;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.10);
         }
         
         .submit-btn:hover {
-            background: linear-gradient(135deg, #2563eb, #1e40af);
-            transform: translateY(-1px);
+            background: linear-gradient(90deg, #ff914d, #ed6c4b);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.15);
         }
         
         .submit-btn:disabled {
@@ -75,7 +83,7 @@
         .status-message {
             margin-top: 1rem;
             padding: 0.75rem;
-            border-radius: 6px;
+            border-radius: 8px;
             text-align: center;
             font-weight: 600;
             transition: opacity 0.3s;
@@ -84,19 +92,19 @@
         .status-success {
             background-color: #d1fae5;
             color: #065f46;
-            border: 1px solid #a7f3d0;
+            border: 1.5px solid #fbbf24;
         }
         
         .status-error {
             background-color: #fee2e2;
             color: #991b1b;
-            border: 1px solid #fecaca;
+            border: 1.5px solid #f87171;
         }
         
         .status-loading {
             background-color: #dbeafe;
             color: #1e40af;
-            border: 1px solid #bfdbfe;
+            border: 1.5px solid #fdba74;
         }
         
         .hidden {
@@ -104,22 +112,53 @@
         }
         
         .contact-info {
-            background: white;
+            background: linear-gradient(120deg, #fff, #fff7ed 80%);
             padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(253, 146, 34, 0.08), 0 1.5px 6px 0 rgba(44,62,80,0.10);
+            border: 2px solid #ffb347;
         }
         
         .contact-item {
             display: flex;
             align-items: center;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
+            transition: background 0.2s;
+            border-radius: 8px;
+            padding: 0.5rem 0.5rem 0.5rem 0;
+        }
+        
+        .contact-item:hover {
+            background: #fff1e0;
         }
         
         .contact-icon {
-            width: 20px;
-            margin-right: 0.75rem;
-            color: #3b82f6;
+            width: 28px;
+            height: 28px;
+            margin-right: 1rem;
+            color: #ed6c4b;
+            background: #fff1e0;
+            border-radius: 50%;
+            padding: 0.4rem;
+            font-size: 1.3rem;
+            transition: color 0.2s, background 0.2s;
+        }
+        
+        .contact-item:hover .contact-icon {
+            color: #fff;
+            background: #ed6c4b;
+        }
+        
+        @media (max-width: 900px) {
+            .contact-form, .contact-info {
+                padding: 1rem;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .contact-form, .contact-info {
+                padding: 0.5rem;
+            }
         }
     </style>
 </head>
@@ -171,10 +210,13 @@
     </nav>
 
     <!-- Page Header -->
-    <header class="bg-primary-500 text-white py-16">
-        <div class="container mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
-            <p class="text-xl max-w-2xl">Get in touch with the Association of Civil Engineering.</p>
+    <header class="text-white py-16 shadow-lg" style="background-color: #ed6c4b;">
+        <div class="container mx-auto px-4 flex flex-col items-center">
+            <div class="mb-4">
+                <i class="fas fa-address-book fa-3x"></i>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg tracking-wide">Contact Us</h1>
+            <p class="text-xl max-w-2xl font-medium">Get in touch with the Association of Civil Engineering.</p>
         </div>
     </header>
 
@@ -251,9 +293,9 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-4">
-            <p>&copy; 2024 Association of Civil Engineering. All rights reserved.</p>
+    <footer class="bg-gradient-to-r from-orange-500 via-orange-400 to-orange-300 text-white py-8 mt-12 shadow-inner">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-lg">&copy; 2024 Association of Civil Engineering. All rights reserved.</p>
         </div>
     </footer>
 
