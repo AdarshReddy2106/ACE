@@ -1,0 +1,283 @@
+h2 {
+    background-color: red;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.it {
+    position: relative;
+    flex-direction: column;
+    background: pink;
+    display: flex;
+    height: auto;
+    margin: 2rem;
+    /* border-radius: 25%; */
+    border: solid black;
+}
+
+.it .right{
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-right:25%;
+    gap: 3rem;
+}
+.it .left{
+    margin-top: 25px;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: column;
+}
+
+.it h3 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+
+.it .description {
+    font-family: 'Source Serif Pro', serif;
+    font-size: 20px;
+    margin-left: 3.5rem;
+    margin-right: 3.5rem;
+}
+.it .list{  
+    width: max-content;
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+.it .card {
+    margin-top: 10px;
+    height: 200px;
+    background: white ;
+    width: 200px;
+    margin-bottom: 3rem;
+    text-align: center;
+    justify-content: center;
+    border-radius: 25px;
+}
+.it .card p{
+    font-size: 200%;
+    font-weight: 600;
+}
+.it .images {
+    display: flex;
+    gap: 3rem;
+    border-radius: 5px;
+    max-width: 700px;
+    width: 100%;
+    margin-bottom: 2rem ;
+    flex-wrap: nowrap; /* Prevent stacking */
+    box-sizing: border-box;
+}
+
+.it .images img {
+    width: 68%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    flex: 0 0 auto;
+    max-width: 100%;
+}
+
+@media (max-width: 1150px) {
+    .it .right{
+        margin-right:15%;
+    }
+    .it .images {
+        display: flex;
+        gap: 1rem;
+        border-radius: 5px;
+        max-width: 500px;
+        width: 100%;
+        margin-bottom: 2rem ;
+        flex-wrap: nowrap; /* Prevent stacking */
+        box-sizing: border-box;
+        
+    }
+    .it .images img {
+        width: 60%;
+        max-height: 280px;
+        height: auto;
+    }
+}
+
+@media (max-width: 900px) {
+    /* Header improvements */
+    h2 {
+        font-size: 1.5rem;
+        padding: 0.75rem;
+        text-align: center;
+    }
+    
+    /* Main container adjustments */
+    .it {   
+        margin: 1rem;
+        padding: 1rem;
+        border-radius: 15px;
+    }
+    
+    /* Title adjustments */
+    .it h3 {
+        font-size: 1.5rem;
+        padding: 0.75rem;
+        text-align: center;
+    }
+    
+    /* Description text adjustments */
+    .it .description {
+        font-size: 16px;
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+        text-align: justify;
+        line-height: 1.6;
+    }
+    
+    /* Left section adjustments */
+    .it .left {
+        margin: 0;
+        flex-direction: row;
+        width: 85%;
+        align-items: center;
+        padding: 0 1rem;
+    }
+    
+    /* List items adjustments */
+    .it .list {
+        margin-left: 0;
+        font-size: 18px;
+        margin-bottom: 0;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        justify-content: flex-start;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .it .list i {
+        font-size: 16px;
+        color: #333;
+        width: 20px;
+        flex-shrink: 0;
+    }
+    
+    /* Card adjustments */
+    .it .card {
+        width: 100%;
+        max-width: 300px;
+        height: 120px;
+        margin-bottom: 0rem;
+        padding: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #ddd;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .it .card p:first-child {
+        font-size: 14px;
+        margin: 0 0 0.5rem 0;
+        font-weight: 500;
+        text-align: center;
+        line-height: 1.2;
+    }
+    
+    .it .card p:last-child {
+        font-size: 32px;
+        margin: 0;
+        font-weight: 700;
+        color: #333;
+    }
+    
+    /* Right section - already handled but improved */
+    .it .right {
+        flex-direction: column;
+        margin-right: 0;
+        margin-left: 0;
+        margin-bottom: 1rem;
+        gap: 1.5rem;
+        align-items: center;
+        padding: 0 1rem;
+    }
+    
+    /* Images container - improved */
+    .it .images {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: .5rem;
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+    
+    /* Individual images - improved */
+    .it .images img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        min-height: 250px;
+        max-height: 280px;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        border: 2px solid #fff;
+    }
+}
+
+/* Additional mobile-specific improvements for smaller screens */
+@media (max-width: 600px) {
+    .it {
+        margin: 0.5rem;
+        padding: 0.75rem;
+    }
+    
+    .it .description {
+        font-size: 14px;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    
+    .it .left {
+        margin-left: 0;
+        padding: 0 0.5rem;
+    }
+    
+    .it .list {
+        font-size: 16px;
+        max-width: 250px;
+    }
+    
+    .it .card {
+        max-width: 250px;
+        height: 100px;
+        margin: 0rem;
+    }
+    
+    .it .card p:first-child {
+        font-size: 12px;
+    }
+    
+    .it .card p:last-child {
+        font-size: 28px;
+    }
+    
+    .it .right {
+        padding: 0 0.5rem;
+    }
+    
+    .it .images img {
+        min-height: 180px;
+        max-height: 220px;
+        border-radius: 8px;
+    }
+}
