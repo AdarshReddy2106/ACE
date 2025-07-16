@@ -43,28 +43,31 @@
             <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Open navigation menu">
                 <i class="fas fa-bars"></i>
             </button>
-            <div class="nav-links">
+            <div class="nav-links" id="navLinks">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="faculty.html" class="nav-link">Faculty</a>
 
                 <!-- Activities Dropdown -->
-                <div class="relative group">
-                    <span class="nav-link cursor-pointer group-hover:text-blue-700">Activities <i class="fas fa-chevron-down text-xs ml-1"></i></span>
-                    <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 rounded-md z-10">
-                        <a href="events.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Events</a>
-                        <a href="industrial_trips.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Industrial Trips</a>
-                        <a href="talks.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Talks</a>
-                        <a href="workshops.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Workshops</a>
+                <div class="relative dropdown" id="activitiesDropdown">
+                    <button class="dropdown-toggle nav-link" id="activitiesToggle" type="button">
+                        Activities <i class="fas fa-chevron-down text-xs ml-1"></i>
+                    </button>
+                    <div class="dropdown-menu" id="activitiesMenu">
+                        <a href="industrial_trips.html" class="nav-link">Industrial Trips</a>
+                        <a href="talks.html" class="nav-link">Talks</a>
+                        <a href="workshops.html" class="nav-link">Workshops</a>
                     </div>
                 </div>
 
                 <!-- Team Dropdown -->
-                <div class="relative group" id="teamDropdown">
-                    <span class="nav-link cursor-pointer group-hover:text-primary-600">Team <i class="fas fa-chevron-down text-xs ml-1"></i></span>
-                    <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 rounded-md z-10">
-                        <a href="team_2023-2024.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Team 2023-2024</a>
-                        <a href="team_2024-2025.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Team 2024-2025</a>
-                        <a href="team_2025-2026.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Team 2025-2026</a>
+                <div class="relative dropdown" id="teamDropdown">
+                    <button class="dropdown-toggle nav-link" id="teamToggle" type="button">
+                        Team <i class="fas fa-chevron-down text-xs ml-1"></i>
+                    </button>
+                    <div class="dropdown-menu" id="teamMenu">
+                        <a href="team_2023-2024.html" class="nav-link">Team 2023-2024</a>
+                        <a href="team_2024-2025.html" class="nav-link active">Team 2024-2025</a>
+                        <a href="team_2025-2026.html" class="nav-link">Team 2025-2026</a>
                     </div>
                 </div>
 
@@ -329,7 +332,6 @@
                     <h3 class="text-xl font-bold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="events.html">Events</a></li>
                         <li><a href="resources.html">Resources</a></li>
                     </ul>
                 </div>
@@ -347,11 +349,8 @@
             </div>
         </div>
     </footer>
-
-    <script src="js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        // Add any specific scripts for the team page here if needed
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script src="js/navigation.js"></script>
 </body>
 </html> 

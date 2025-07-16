@@ -3,11 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Association of Civil Engineering</title>
+    <title>Contact Us - Association of Civil Engineering</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/nav.css">
+    <style>
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #374151;
+            font-weight: 600;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            transform: translateY(-1px);
+        }
+        
+        .submit-btn:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .status-message {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+        
+        .status-success {
+            background-color: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+        
+        .status-error {
+            background-color: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+        
+        .status-loading {
+            background-color: #dbeafe;
+            color: #1e40af;
+            border: 1px solid #bfdbfe;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-icon {
+            width: 20px;
+            margin-right: 0.75rem;
+            color: #3b82f6;
+        }
+    </style>
 </head>
 
 <body class="bg-secondary-500">
@@ -19,33 +133,36 @@
                 <i class="fas fa-bars"></i>
             </button>
             <div class="nav-links" id="navLinks">
-                <a href="index.html" class="nav-link active">Home</a>
+                <a href="index.html" class="nav-link">Home</a>
                 <a href="faculty.html" class="nav-link">Faculty</a>
 
                 <!-- Activities Dropdown -->
-                <div class="relative group" id="activitiesDropdown">
-                    <span class="nav-link cursor-pointer group-hover:text-primary-600">Activities <i class="fas fa-chevron-down text-xs ml-1"></i></span>
-                    <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 rounded-md z-10">
-                        <a href="events.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Events</a>
-                        <a href="industrial_trips.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Industrial Trips</a>
-                        <a href="talks.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Talks</a>
-                        <a href="workshops.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Workshops</a>
+                <div class="relative dropdown" id="activitiesDropdown">
+                    <button class="dropdown-toggle nav-link" id="activitiesToggle" type="button">
+                        Activities <i class="fas fa-chevron-down text-xs ml-1"></i>
+                    </button>
+                    <div class="dropdown-menu" id="activitiesMenu">
+                        <a href="industrial_trips.html">Industrial Trips</a>
+                        <a href="talks.html">Talks</a>
+                        <a href="workshops.html">Workshops</a>
                     </div>
                 </div>
 
                 <!-- Team Dropdown -->
-                <div class="relative group" id="teamDropdown">
-                    <span class="nav-link cursor-pointer group-hover:text-primary-600">Team <i class="fas fa-chevron-down text-xs ml-1"></i></span>
-                    <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 rounded-md z-10">
-                        <a href="team_2023-2024.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Team 2023-2024</a>
-                        <a href="team_2024-2025.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Team 2024-2025</a>
-                        <a href="team_2025-2026.html" class="block px-4 py-2 text-gray-800 hover:bg-secondary-200">Team 2025-2026</a>
+                <div class="relative dropdown" id="teamDropdown">
+                    <button class="dropdown-toggle nav-link" id="teamToggle" type="button">
+                        Team <i class="fas fa-chevron-down text-xs ml-1"></i>
+                    </button>
+                    <div class="dropdown-menu" id="teamMenu">
+                        <a href="team_2023-2024.html">Team 2023-2024</a>
+                        <a href="team_2024-2025.html">Team 2024-2025</a>
+                        <a href="team_2025-2026.html">Team 2025-2026</a>
                     </div>
                 </div>
 
                 <a href="repository.html" class="nav-link">Repository</a>
                 <a href="gallery.html" class="nav-link">Gallery</a>
-                <a href="contact.html" class="nav-link">Contact Us</a>
+                <a href="contact.html" class="nav-link active">Contact Us</a>
             </div>
         </div>
     </nav>
@@ -58,13 +175,75 @@
         </div>
     </header>
 
-    <!-- Contact Section - Placeholder Content -->
+    <!-- Contact Section -->
     <section class="container mx-auto px-4 py-16">
-        <div class="max-w-2xl mx-auto">
-            <h2 class="text-2xl font-bold mb-4 text-gray-800">Contact Information</h2>
-            <p class="text-gray-700 mb-4">[Placeholder for contact details like email, phone, address]</p>
-            <h3 class="text-xl font-bold mb-4 text-gray-800">Send us a Message</h3>
-            <p class="text-gray-700">[Placeholder for a contact form or instructions on how to send a message]</p>
+        <div class="max-w-4xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Contact Information -->
+                <div>
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">Get in Touch</h2>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Email</h3>
+                                <p class="text-gray-600">ace@university.edu</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone contact-icon"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Phone</h3>
+                                <p class="text-gray-600">+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Address</h3>
+                                <p class="text-gray-600">Civil Engineering Department<br>University Campus<br>City, State 12345</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock contact-icon"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Office Hours</h3>
+                                <p class="text-gray-600">Monday - Friday: 9:00 AM - 5:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div>
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">Send us a Message</h2>
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Name *</label>
+                                <input type="text" id="name" name="name" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email *</label>
+                                <input type="email" id="email" name="email" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message *</label>
+                                <textarea id="message" name="message" class="form-input form-textarea" required></textarea>
+                            </div>
+                            
+                            <button type="submit" id="submitBtn" class="submit-btn">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Send Message
+                            </button>
+                            
+                            <div id="status" class="status-message hidden"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -78,40 +257,73 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/navigation.js"></script>
+    
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuButton = document.getElementById('mobileMenuButton');
-            const navLinks = document.getElementById('navLinks');
-            const activitiesDropdown = document.getElementById('activitiesDropdown');
-            const teamDropdown = document.getElementById('teamDropdown');
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const statusDiv = document.getElementById('status');
 
-            // Toggle mobile menu
-            mobileMenuButton.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-            });
-
-            // Handle dropdowns on mobile
-            if (window.innerWidth <= 768) {
-                activitiesDropdown.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    this.classList.toggle('active');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(form);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                message: formData.get('message')
+            };
+            
+            // Show loading state
+            showStatus('Sending message...', 'loading');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+            
+            try {
+                const api = 'http://localhost:2050/api/contact' ? "https://ace-iitpkd.vercel.app/api/contact" : 'http://localhost:2050/api/contact';
+                const response = await fetch(api, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
                 });
-
-                teamDropdown.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    this.classList.toggle('active');
-                });
-            }
-
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!navLinks.contains(e.target) && !mobileMenuButton.contains(e.target)) {
-                    navLinks.classList.remove('active');
-                    activitiesDropdown.classList.remove('active');
-                    teamDropdown.classList.remove('active');
+                
+                const result = await response.json();
+                
+                if (response.ok) {
+                    showStatus('Message sent successfully! We\'ll get back to you soon.', 'success');
+                    form.reset();
+                } else {
+                    showStatus(result.error || 'Failed to send message. Please try again.', 'error');
                 }
-            });
+            } catch (error) {
+                showStatus('Network error. Please check your connection and try again.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Send Message';
+            }
+        });
+
+        function showStatus(message, type) {
+            statusDiv.textContent = message;
+            statusDiv.className = `status-message status-${type}`;
+            statusDiv.classList.remove('hidden');
+            
+            // Hide status after 5 seconds if it's a success message
+            if (type === 'success') {
+                setTimeout(() => {
+                    statusDiv.classList.add('hidden');
+                }, 5000);
+            }
+        }
+
+        // Add smooth scrolling for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            // Focus on first input when page loads
+            document.getElementById('name').focus();
         });
     </script>
 </body>
-</html> 
+</html>
