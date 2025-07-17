@@ -3,71 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery</title>
+    <title>Talks Gallery</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
     <style>
-        .gallery-categories {
-            display: flex;
-            justify-content: center;
-            align-items: stretch;
-            gap: 2.5rem;
-            margin: 4rem auto 6rem auto;
-            max-width: 1100px;
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem;
         }
-        .category-card {
-            background: #fff;
-            border-radius: 18px;
-            box-shadow: 0 4px 24px rgba(44,62,80,0.13);
-            padding: 0;
-            text-align: center;
-            font-size: 1.5rem;
-            transition: transform 0.22s cubic-bezier(.4,2,.6,1), box-shadow 0.22s;
-            cursor: pointer;
-            text-decoration: none;
-            color: #222;
-            width: 320px;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            border: 2px solid #e0e7ff;
-        }
-        .category-card:hover {
-            transform: translateY(-8px) scale(1.035);
-            box-shadow: 0 12px 40px 0 rgba(44,62,80,0.22), 0 2px 8px 0 rgba(44,62,80,0.13);
-            border-color: #3b82f6;
-            background: #f0f7ff;
-        }
-        .category-card img {
+        .image-grid img {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            border-top-left-radius: 16px;
-            border-top-right-radius: 16px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
-        .category-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 1.2rem 0 0.5rem 0;
-            color: #2563eb;
+        .back-link {
+            margin: 2rem 0 0 2rem;
+            display: inline-flex;
+            align-items: center;
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            background: #e0e7ff;
+            border-radius: 50px;
+            padding: 0.5rem 1.2rem;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+            transition: background 0.2s;
         }
-        .category-desc {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 1.5rem;
-            padding: 0 1.2rem;
+        .back-link:hover {
+            background: #c7d2fe;
         }
-        @media (max-width: 1000px) {
-            .gallery-categories {
-                flex-direction: column;
-                align-items: center;
-            }
-            .category-card {
-                width: 90vw;
-                max-width: 400px;
-            }
+        .back-link i {
+            margin-right: 0.5rem;
+        }
+        /* Always show Lightbox2 arrows */
+        .lb-prev, .lb-next {
+            opacity: 1 !important;
+            display: block !important;
+        }
+        .lb-prev {
+            left: 10px !important;
+        }
+        .lb-next {
+            right: 10px !important;
         }
     </style>
 </head>
@@ -114,26 +99,22 @@
     <!-- Hero Title Section -->
     <section class="bg-[#ED6C4B] py-16 mb-8" style="background-color:#ED6C4B;">
         <div class="container mx-auto px-4">
-            <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-6 drop-shadow-lg text-left">Gallery</h1>
-            <p class="text-2xl text-white font-semibold text-left">A glimpse into our vibrant activities, events, and achievements through the years.</p>
+            <a href="gallery.html" class="inline-flex items-center mb-6 px-5 py-2 rounded-full font-bold shadow-md border border-[#ED6C4B] bg-white text-[#ED6C4B] hover:bg-[#ED6C4B] hover:text-white transition" style="width:auto;">
+                <i class="fas fa-arrow-left mr-2"></i>Back to Gallery
+            </a>
+            <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-6 drop-shadow-lg text-left">Talks Gallery</h1>
+            <p class="text-2xl text-white font-semibold text-left">Expert lectures, guest speakers, and knowledge sharing sessions.</p>
         </div>
     </section>
-    <div class="gallery-categories">
-        <a class="category-card" href="gallery_talks.html">
-            <img src="images/gallery/Expert talk 2024/DSC05778.JPG" alt="Talks">
-            <div class="category-title">Talks</div>
-            <div class="category-desc">Expert lectures, guest speakers, and knowledge sharing sessions.</div>
-        </a>
-        <a class="category-card" href="gallery_trips.html">
-            <img src="images/gallery/Freshers 2024/DSC06028.JPG" alt="Trips">
-            <div class="category-title">Trips</div>
-            <div class="category-desc">Industrial visits, field trips, and memorable journeys.</div>
-        </a>
-        <a class="category-card" href="gallery_events.html">
-            <img src="images/gallery/cg.jpg" alt="Events">
-            <div class="category-title">Events</div>
-            <div class="category-desc">Events, celebrations, and special moments at ACE.</div>
-        </a>
+    <div class="image-grid">
+        <a href="images/gallery/talk.jpg" data-lightbox="talks"><img src="images/gallery/talk.jpg" alt="Talk"></a>
+        <a href="images/gallery/Expert talk 2024/DSC05778.JPG" data-lightbox="talks"><img src="images/gallery/Expert talk 2024/DSC05778.JPG" alt="Talk 1"></a>
+        <a href="images/gallery/Expert talk 2024/DSC05809.JPG" data-lightbox="talks"><img src="images/gallery/Expert talk 2024/DSC05809.JPG" alt="Talk 2"></a>
+        <a href="images/gallery/Expert talk 2024/DSC05818.JPG" data-lightbox="talks"><img src="images/gallery/Expert talk 2024/DSC05818.JPG" alt="Talk 3"></a>
+        <a href="images/gallery/Expert talk 2024/DSC05853.JPG" data-lightbox="talks"><img src="images/gallery/Expert talk 2024/DSC05853.JPG" alt="Talk 4"></a>
+        <a href="images/gallery/Expert talk 2024/DSC05893.JPG" data-lightbox="talks"><img src="images/gallery/Expert talk 2024/DSC05893.JPG" alt="Talk 5"></a>
+        <a href="images/gallery/Expert talk 2024/DSC05915.JPG" data-lightbox="talks"><img src="images/gallery/Expert talk 2024/DSC05915.JPG" alt="Talk 6"></a>
+        <a href="images/gallery/Expert talk 2024/r.k.jpg" data-lightbox="talks"><img src="images/gallery/Expert talk 2024/r.k.jpg" alt="Talk 7"></a>
     </div>
     <footer class="text-white py-8">
         <div class="container mx-auto px-4">
@@ -164,6 +145,7 @@
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
     <script src="js/navigation.js"></script>
 </body>
-</html>
+</html> 
