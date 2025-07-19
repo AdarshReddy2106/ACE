@@ -9,16 +9,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/nav.css">
     <style>
-        /* Custom Orange Theme Colors */
         :root {
-            --primary-orange: #ED6C4B;
-            --light-orange: #FFF5F2;
-            --dark-orange: #D55A3A;
-            --accent-orange: #FF8B69;
+            --background: #FFFFFF;
+            --foreground: #1A1A1A;
+            --primary-gold: #D4AF37;
+            --rich-gold: #B8860B;
+            --light-gold: #F4E4BC;
+            --metallic-gold: #FFD700;
+            --charcoal: #2C2C2C;
+            --off-white: #F8F8F8;
         }
 
         body {
-            background: #f4f5f8;
+            background: var(--off-white);
         }
         .talk-card {
             background: #fff;
@@ -29,7 +32,7 @@
             padding: 2.5rem 2rem 2.5rem 2rem;
         }
         .talk-header {
-            background: var(--primary-orange);
+            background: var(--primary-gold);
             color: #fff;
             border-radius: 0.6rem;
             padding: 1.5rem 1rem;
@@ -47,11 +50,11 @@
             border-radius: 50%;
             margin: 0 auto 1.5rem auto;
             display: block;
-            border: 6px solid #FFF5F2;
+            border: 6px solid var(--light-gold);
             background: #eee;
         }
         .talk-speaker {
-            color: var(--primary-orange);
+            color: var(--rich-gold);
             font-size: 2rem;
             font-weight: 600;
             text-align: center;
@@ -59,13 +62,13 @@
             font-family: 'Montserrat', 'Inter', Arial, sans-serif;
         }
         .talk-speaker-title {
-            color: #444;
+            color: var(--charcoal);
             font-size: 1.1rem;
             text-align: center;
             margin-bottom: 2.2rem;
         }
         .talk-section-title {
-            color: var(--accent-orange);
+            color: var(--primary-gold);
             font-size: 1.5rem;
             font-weight: 600;
             margin-top: 2.5rem;
@@ -73,7 +76,7 @@
             font-family: 'Montserrat', 'Inter', Arial, sans-serif;
         }
         .talk-section-content {
-            color: #232946;
+            color: var(--foreground);
             font-size: 1.15rem;
             line-height: 1.8;
             margin-bottom: 1.5rem;
@@ -104,12 +107,11 @@
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="flex items-center">
                 <img src="images/ace-logo.png" alt="ACE Logo" style="height:40px; margin-right:10px;">
-                <span class="text-2xl font-bold text-blue-600">ACE</span>
+                <span class="text-2xl font-bold" style="color: var(--primary-gold);">ACE</span>
             </a>
             <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Open navigation menu">
                 <i class="fas fa-bars"></i>
@@ -118,7 +120,6 @@
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="faculty.html" class="nav-link">Faculty</a>
 
-                <!-- Activities Dropdown -->
                 <div class="relative dropdown" id="activitiesDropdown">
                     <button class="dropdown-toggle nav-link" id="activitiesToggle" type="button">
                         Activities <i class="fas fa-chevron-down text-xs ml-1"></i>
@@ -130,7 +131,6 @@
                     </div>
                 </div>
 
-                <!-- Team Dropdown -->
                 <div class="relative dropdown" id="teamDropdown">
                     <button class="dropdown-toggle nav-link" id="teamToggle" type="button">
                         Team <i class="fas fa-chevron-down text-xs ml-1"></i>
@@ -149,7 +149,6 @@
         </div>
     </nav>
 
-    <!-- Expert Talk 1 -->
     <div class="talk-card mt-8">
         <div class="talk-header">Expert Talk: "Urban Governance and Smart Cities"</div>
         <img src="images/Gallery/Expert talk 2024/DSC05818.JPG" alt="Shri Sivaguru Prabhakaran IAS" class="talk-profile-img">
@@ -165,7 +164,6 @@
         </div>
     </div>
 
-    <!-- Expert Talk 2 -->
     <div class="talk-card mt-8">
         <div class="talk-header">Expert Talk: "Water Resources and Irrigation Management"</div>
         <img src="images/Gallery/Expert talk 2024/DSC05893.JPG" alt="Shri Priyesh R" class="talk-profile-img">
@@ -181,7 +179,6 @@
         </div>
     </div>
 
-    <!-- Expert Talk 3 -->
     <div class="talk-card mt-8">
         <div class="talk-header">Expert Talk: "But, What About Cybersecurity in AECFM?"</div>
         <img src="images/Gallery/Expert talk 2024/r.k.jpg" alt="Prof. Bharadwaj R. K. Mantha" class="talk-profile-img">
@@ -197,8 +194,7 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="text-white py-8 mt-12" style="background:#c80043;">
+    <footer class="text-white py-8 mt-12" style="background:var(--charcoal);">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>

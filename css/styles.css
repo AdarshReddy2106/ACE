@@ -1,7 +1,13 @@
-/* Base styles */
+/* Base styles - Updated color scheme */
 :root {
-    --background: #ffffff;
-    --foreground: #1f2937;
+    --background: #FFFFFF;
+    --foreground: #1A1A1A;
+    --primary-gold: #D4AF37;
+    --rich-gold: #B8860B;
+    --light-gold: #F4E4BC;
+    --metallic-gold: #FFD700;
+    --charcoal: #2C2C2C;
+    --off-white: #F8F8F8;
 }
 
 body {
@@ -47,7 +53,7 @@ h3 {
     }
 }
 
-/* Button styles */
+/* Button styles - Updated to gold theme */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -62,7 +68,7 @@ h3 {
 }
 
 .btn:focus-visible {
-    outline: 2px solid #ED6C4B;
+    outline: 2px solid var(--primary-gold);
     outline-offset: 2px;
 }
 
@@ -72,21 +78,24 @@ h3 {
 }
 
 .btn-primary {
-    background-color: #ED6C4B;
-    color: white;
+    background-color: var(--primary-gold);
+    color: #1A1A1A; /* Black text on gold */
+    border: 2px solid var(--primary-gold);
 }
 
 .btn-primary:hover {
-    background-color: #e06041;
+    background-color: var(--rich-gold);
+    border-color: var(--rich-gold);
 }
 
 .btn-secondary {
-    background-color: #F8F8F8;
-    color: #1f2937;
+    background-color: #FFFFFF;
+    color: var(--foreground);
+    border: 2px solid var(--primary-gold);
 }
 
 .btn-secondary:hover {
-    background-color: #e5e5e5;
+    background-color: var(--light-gold);
 }
 
 /* Container */
@@ -113,25 +122,25 @@ h3 {
     }
 }
 
-/* Utility classes */
+/* Utility classes - Updated to gold theme */
 .text-blue-600 {
-    color: #ED6C4B;
+    color: var(--primary-gold); /* Changed from blue to gold */
 }
 
 .hover\:text-blue-700:hover {
-    color: #e06041;
+    color: var(--rich-gold);
 }
 
 .hover\:text-blue-400:hover {
-    color: #f2826a;
+    color: var(--metallic-gold);
 }
 
 .bg-blue-600 {
-    background-color: #ED6C4B;
+    background-color: var(--primary-gold);
 }
 
 .bg-gray-50 {
-    background-color: #f8fafc;
+    background-color: var(--off-white);
 }
 
 .bg-white {
@@ -139,7 +148,7 @@ h3 {
 }
 
 .bg-gray-800 {
-    background-color: #1f2937;
+    background-color: #1A1A1A;
 }
 
 .text-white {
@@ -147,33 +156,33 @@ h3 {
 }
 
 .text-gray-600 {
-    color: #4b5563;
+    color: var(--charcoal);
 }
 
 .shadow-md {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(212, 175, 55, 0.1), 0 2px 4px -1px rgba(212, 175, 55, 0.06);
 }
 
 .rounded-lg {
     border-radius: 0.5rem;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - Gold theme */
 ::-webkit-scrollbar {
     width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #f3f4f6;
+    background-color: var(--off-white);
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #ED6C4B;
+    background-color: var(--primary-gold);
     border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #e06041;
+    background-color: var(--rich-gold);
 }
 
 /* Animations */
@@ -186,23 +195,23 @@ h3 {
     animation: fadeIn 0.5s ease-in;
 }
 
-/* Footer Styles */
+/* Footer Styles - Updated to black with gold accents */
 footer {
-    background-color: #ED6C4B !important;
+    background-color: #1A1A1A !important; /* Deep black */
     color: white !important;
     padding: 2rem 0;
+    border-top: 3px solid var(--primary-gold); /* Gold top border */
 }
 
 footer a {
-    color: white !important;
+    color: var(--light-gold) !important; /* Light gold links */
     transition: all 0.3s ease;
 }
 
 footer a:hover {
-    color: rgba(255, 255, 255, 0.8) !important;
+    color: var(--primary-gold) !important;
 }
 
 footer .border-t {
-    border-color: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(212, 175, 55, 0.2) !important;
 }
-

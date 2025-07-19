@@ -9,85 +9,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/nav.css">
     <style>
-
-        /* Gallery */
-        .gallery-container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+        :root {
+            --background: #FFFFFF;
+            --foreground: #1A1A1A;
+            --primary-gold: #D4AF37;
+            --rich-gold: #B8860B;
+            --light-gold: #F4E4BC;
+            --metallic-gold: #FFD700;
+            --charcoal: #2C2C2C;
+            --off-white: #F8F8F8;
         }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+        body {
+            background-color: var(--off-white);
         }
-
-        .gallery-item {
-            background: white;
-            border-radius: 0.5rem;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .gallery-item p {
-            padding: 1rem;
-            text-align: center;
-            color: #4B5563;
-        }
-
-        .filter-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .filter-btn {
-            padding: 0.5rem 1rem;
-            border-radius: 9999px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn.active {
-            background: #ED6C4B;
-            color: white;
-        }
-
-        .filter-btn:not(.active) {
-            background: #F8F8F8;
-            color: #4B5563;
-        }
-
-        .filter-btn:hover:not(.active) {
-            background: #ED6C4B;
-            color: white;
-        }
-
-        
     </style>
 </head>
-<body class="bg-secondary-500">
-    <!-- Navigation -->
+<body style="background-color: var(--off-white);">
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="flex items-center">
                 <img src="images/ace-logo.png" alt="ACE Logo" style="height:40px; margin-right:10px;">
-                <span class="text-2xl font-bold text-blue-600">ACE</span>
+                <span class="text-2xl font-bold" style="color: var(--primary-gold);">ACE</span>
             </a>
             <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Open navigation menu">
                 <i class="fas fa-bars"></i>
@@ -96,7 +38,6 @@
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="faculty.html" class="nav-link active">Faculty</a>
 
-                <!-- Activities Dropdown -->
                 <div class="relative dropdown" id="activitiesDropdown">
                     <button class="dropdown-toggle nav-link" id="activitiesToggle" type="button">
                         Activities <i class="fas fa-chevron-down text-xs ml-1"></i>
@@ -108,7 +49,6 @@
                     </div>
                 </div>
 
-                <!-- Team Dropdown -->
                 <div class="relative dropdown" id="teamDropdown">
                     <button class="dropdown-toggle nav-link" id="teamToggle" type="button">
                         Team <i class="fas fa-chevron-down text-xs ml-1"></i>
@@ -127,238 +67,217 @@
         </div>
     </nav>
 
-    <!-- Faculty Section -->
-    <section class="relative py-20 bg-gradient-to-br from-blue-50 via-white to-pink-50 min-h-screen overflow-hidden">
-        <div class="absolute -top-24 -left-24 w-96 h-96 bg-blue-200 opacity-20 rounded-full z-0"></div>
-        <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-pink-200 opacity-20 rounded-full z-0"></div>
+    <section class="relative py-20 bg-gradient-to-br from-off-white via-white to-light-gold min-h-screen overflow-hidden">
+        <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full z-0 opacity-20" style="background-color: var(--light-gold);"></div>
+        <div class="absolute -bottom-24 -right-24 w-96 h-96 rounded-full z-0 opacity-20" style="background-color: var(--light-gold);"></div>
         <div class="container mx-auto px-4 relative z-10">
             <div class="flex flex-col items-center mb-12">
-                <div class="bg-blue-100 rounded-full p-4 mb-4 shadow-lg">
-                    <i class="fas fa-chalkboard-teacher text-4xl text-blue-600"></i>
+                <div class="rounded-full p-4 mb-4 shadow-lg" style="background-color: var(--light-gold);">
+                    <i class="fas fa-chalkboard-teacher text-4xl" style="color: var(--primary-gold);"></i>
                 </div>
-                <h2 class="text-5xl font-extrabold text-blue-700 mb-4 drop-shadow-lg text-center">Our Faculty</h2>
+                <h2 class="text-5xl font-extrabold mb-4 drop-shadow-lg text-center" style="color: var(--rich-gold);">Our Faculty</h2>
                 <p class="text-lg text-gray-700 text-center max-w-2xl mb-2">Meet the passionate educators and researchers who drive innovation and excellence in Civil Engineering at IIT Palakkad.</p>
-                <p class="text-center text-blue-500 mb-8">To know more about our faculty members, please visit our <a href="https://iitpkd.ac.in/faculty-list?field_full_name_value=&field_department_target_id=3" target="_blank" rel="noopener" class="text-primary-500 hover:text-primary-600 underline">Faculty page in IIT Palakkad website</a>.</p>
+                <p class="text-center mb-8" style="color: var(--rich-gold);">To know more about our faculty members, please visit our <a href="https://iitpkd.ac.in/faculty-list?field_full_name_value=&field_department_target_id=3" target="_blank" rel="noopener" class="underline hover:text-yellow-700">Faculty page in IIT Palakkad website</a>.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Faculty Member 1 -->
-                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 border-blue-400 flex flex-col items-center p-6">
-                    <img src="images/faculty/Ankesh Kumar.png" alt="Faculty Member" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
-                    <h3 class="text-xl font-bold mb-1 text-blue-700">Dr. Ankesh Kumar</h3>
-                    <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-2">Assistant Professor</span>
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 flex flex-col items-center p-6" style="border-color: var(--primary-gold);">
+                    <img src="images/faculty/Ankesh Kumar.png" alt="Dr. Ankesh Kumar" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
+                    <h3 class="text-xl font-bold mb-1" style="color: var(--rich-gold);">Dr. Ankesh Kumar</h3>
+                    <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-2" style="background-color: var(--light-gold); color: var(--rich-gold);">Assistant Professor</span>
                     <p class="text-xs text-gray-600 mb-3 text-center">Geotechnical Engineering: Rock Mechanics and Underground Structures, Petroleum Related Rock Mechanics, Blast Resistant Design of U/G Structures, Geothermal Energy, Slope Stability, Machine Foundation</p>
                     <div class="flex space-x-4 mt-auto">
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <!-- Faculty Member 2 -->
-                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 border-blue-400 flex flex-col items-center p-6">
-                    <img src="images/faculty/Arun C O.png" alt="Faculty Member" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
-                    <h3 class="text-xl font-bold mb-1 text-blue-700">Dr. Arun C O</h3>
-                    <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-2">Associate Professor</span>
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 flex flex-col items-center p-6" style="border-color: var(--primary-gold);">
+                    <img src="images/faculty/Arun C O.png" alt="Dr. Arun C O" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
+                    <h3 class="text-xl font-bold mb-1" style="color: var(--rich-gold);">Dr. Arun C O</h3>
+                    <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-2" style="background-color: var(--light-gold); color: var(--rich-gold);">Associate Professor</span>
                     <p class="text-xs text-gray-600 mb-3 text-center">Structural mechanics, Computational Mechanics, Stochastic mechanics, Meshfree methods, Finite element method, Structural reliability, Damage mechanics, Fracture mechanics, Sloshing, Fragility analysis etc.</p>
                     <div class="flex space-x-4 mt-auto">
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <!-- Faculty Member 3 -->
-                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 border-blue-400 flex flex-col items-center p-6">
-                    <img src="images/faculty/Athira Gopinath.png" alt="Faculty Member" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
-                    <h3 class="text-xl font-bold mb-1 text-blue-700">Dr. Athira Gopinath</h3>
-                    <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-2">Assistant Professor</span>
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 flex flex-col items-center p-6" style="border-color: var(--primary-gold);">
+                    <img src="images/faculty/Athira Gopinath.png" alt="Dr. Athira Gopinath" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
+                    <h3 class="text-xl font-bold mb-1" style="color: var(--rich-gold);">Dr. Athira Gopinath</h3>
+                    <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-2" style="background-color: var(--light-gold); color: var(--rich-gold);">Assistant Professor</span>
                     <p class="text-xs text-gray-600 mb-3 text-center">Develoment of sustainable construction materials, Low-carbon binders, Material characterization, Biomass waste valorization</p>
                     <div class="flex space-x-4 mt-auto">
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <!-- Faculty Member 4 -->
-                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 border-blue-400 flex flex-col items-center p-6">
-                    <img src="images/faculty/Athira P.png" alt="Faculty Member" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
-                    <h3 class="text-xl font-bold mb-1 text-blue-700">Dr. Athira P</h3>
-                    <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-2">Associate Professor</span>
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 flex flex-col items-center p-6" style="border-color: var(--primary-gold);">
+                    <img src="images/faculty/Athira P.png" alt="Dr. Athira P" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
+                    <h3 class="text-xl font-bold mb-1" style="color: var(--rich-gold);">Dr. Athira P</h3>
+                    <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-2" style="background-color: var(--light-gold); color: var(--rich-gold);">Associate Professor</span>
                     <p class="text-xs text-gray-600 mb-3 text-center">Transportation Engineering</p>
                     <div class="flex space-x-4 mt-auto">
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <!-- Faculty Member 5 -->
-                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 border-blue-400 flex flex-col items-center p-6">
-                    <img src="images/faculty/Sridharan.png" alt="Faculty Member" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
-                    <h3 class="text-xl font-bold mb-1 text-blue-700">Dr. B Sridharan</h3>
-                    <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-2">Assistant Professor</span>
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 flex flex-col items-center p-6" style="border-color: var(--primary-gold);">
+                    <img src="images/faculty/Sridharan.png" alt="Dr. B Sridharan" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
+                    <h3 class="text-xl font-bold mb-1" style="color: var(--rich-gold);">Dr. B Sridharan</h3>
+                    <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-2" style="background-color: var(--light-gold); color: var(--rich-gold);">Assistant Professor</span>
                     <p class="text-xs text-gray-600 mb-3 text-center">Open Channel Flows, Computational Fluid Dynamics, Dam Break Simulation, Coastal and Estuarine Flow Modelling, Urban Hydrology and Hydraulics modelling, Large Scale Hydrological and Hydraulics Modelling, Simulation and Optimization of Reservoirs, Water Supply Systems, Impact of climate change on urban flooding, Cyclone induced flooding in changing climate</p>
                     <div class="flex space-x-4 mt-auto">
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <!-- Faculty Member 6 -->
-                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 border-blue-400 flex flex-col items-center p-6">
-                    <img src="images/faculty/Bhavathrathnan.png" alt="Faculty Member" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
-                    <h3 class="text-xl font-bold mb-1 text-blue-700">Dr. B. K. Bhavathrathnan</h3>
-                    <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-2">Associate Professor</span>
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 flex flex-col items-center p-6" style="border-color: var(--primary-gold);">
+                    <img src="images/faculty/Bhavathrathnan.png" alt="Dr. B. K. Bhavathrathnan" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
+                    <h3 class="text-xl font-bold mb-1" style="color: var(--rich-gold);">Dr. B. K. Bhavathrathnan</h3>
+                    <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-2" style="background-color: var(--light-gold); color: var(--rich-gold);">Associate Professor</span>
                     <p class="text-xs text-gray-600 mb-3 text-center">Transportation Systems</p>
                     <div class="flex space-x-4 mt-auto">
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <!-- Faculty Member 7 -->
-                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 border-blue-400 flex flex-col items-center p-6">
-                    <img src="images/faculty/Veena Venudharan.png" alt="Faculty Member" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
-                    <h3 class="text-xl font-bold mb-1 text-blue-700">Dr. C.V. Veena Venudharan</h3>
-                    <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-2">Assistant Professor</span>
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 flex flex-col items-center p-6" style="border-color: var(--primary-gold);">
+                    <img src="images/faculty/Veena Venudharan.png" alt="Dr. C.V. Veena Venudharan" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
+                    <h3 class="text-xl font-bold mb-1" style="color: var(--rich-gold);">Dr. C.V. Veena Venudharan</h3>
+                    <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-2" style="background-color: var(--light-gold); color: var(--rich-gold);">Assistant Professor</span>
                     <p class="text-xs text-gray-600 mb-3 text-center">Transportation Engineering, Pavement Engineering</p>
                     <div class="flex space-x-4 mt-auto">
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <!-- Faculty Member 8 -->
-                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 border-blue-400 flex flex-col items-center p-6">
-                    <img src="images/faculty/Divya P.V..png" alt="Faculty Member" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
-                    <h3 class="text-xl font-bold mb-1 text-blue-700">Dr. Divya P.V.</h3>
-                    <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-2">Associate Professor</span>
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 flex flex-col items-center p-6" style="border-color: var(--primary-gold);">
+                    <img src="images/faculty/Divya P.V..png" alt="Dr. Divya P.V." class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
+                    <h3 class="text-xl font-bold mb-1" style="color: var(--rich-gold);">Dr. Divya P.V.</h3>
+                    <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-2" style="background-color: var(--light-gold); color: var(--rich-gold);">Associate Professor</span>
                     <p class="text-xs text-gray-600 mb-3 text-center">Geosynthetics, Reinforced soil structures, Ground Improvement, Slope stabilization and landslide mitigation, Green-Geotechnics, Centrifuge modelling and Image analysis</p>
                     <div class="flex space-x-4 mt-auto">
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <!-- Faculty Member 9 -->
-                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 border-blue-400 flex flex-col items-center p-6">
-                    <img src="images/faculty/Gokulnath C.png" alt="Faculty Member" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
-                    <h3 class="text-xl font-bold mb-1 text-blue-700">Dr. Gokulnath C</h3>
-                    <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-2">Assistant Professor</span>
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 flex flex-col items-center p-6" style="border-color: var(--primary-gold);">
+                    <img src="images/faculty/Gokulnath C.png" alt="Dr. Gokulnath C" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
+                    <h3 class="text-xl font-bold mb-1" style="color: var(--rich-gold);">Dr. Gokulnath C</h3>
+                    <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-2" style="background-color: var(--light-gold); color: var(--rich-gold);">Assistant Professor</span>
                     <p class="text-xs text-gray-600 mb-3 text-center">Constitutive modelling, Continuum Mechanics, Finite element modelling, Experimental mechanics</p>
                     <div class="flex space-x-4 mt-auto">
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <!-- Faculty Member 10 -->
-                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 border-blue-400 flex flex-col items-center p-6">
-                    <img src="images/faculty/M.V. Anil Kumar.png" alt="Faculty Member" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
-                    <h3 class="text-xl font-bold mb-1 text-blue-700">Dr. M.V. Anil Kumar</h3>
-                    <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-2">Associate Professor</span>
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 flex flex-col items-center p-6" style="border-color: var(--primary-gold);">
+                    <img src="images/faculty/M.V. Anil Kumar.png" alt="Dr. M.V. Anil Kumar" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
+                    <h3 class="text-xl font-bold mb-1" style="color: var(--rich-gold);">Dr. M.V. Anil Kumar</h3>
+                    <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-2" style="background-color: var(--light-gold); color: var(--rich-gold);">Associate Professor</span>
                     <p class="text-xs text-gray-600 mb-3 text-center">Steel Structures</p>
                     <div class="flex space-x-4 mt-auto">
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <!-- Faculty Member 11 -->
-                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 border-blue-400 flex flex-col items-center p-6">
-                    <img src="images/faculty/Madhu Karthik M..png" alt="Faculty Member" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
-                    <h3 class="text-xl font-bold mb-1 text-blue-700">Dr. Madhu Karthik M.</h3>
-                    <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-2">Associate Professor</span>
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 flex flex-col items-center p-6" style="border-color: var(--primary-gold);">
+                    <img src="images/faculty/Madhu Karthik M..png" alt="Dr. Madhu Karthik M." class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
+                    <h3 class="text-xl font-bold mb-1" style="color: var(--rich-gold);">Dr. Madhu Karthik M.</h3>
+                    <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-2" style="background-color: var(--light-gold); color: var(--rich-gold);">Associate Professor</span>
                     <p class="text-xs text-gray-600 mb-3 text-center">Reinforced and prestressed concrete structures, Structural evaluation of deteriorating structures, Non-destructive testing and evaluation, Bridge engineering</p>
                     <div class="flex space-x-4 mt-auto">
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <!-- Faculty Member 12 -->
-                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 border-blue-400 flex flex-col items-center p-6">
-                    <img src="images/faculty/N. Sai Surya Sree Aparna.png" alt="Faculty Member" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
-                    <h3 class="text-xl font-bold mb-1 text-blue-700">Dr. N.  Sai Surya Sree Aparna</h3>
-                    <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-2">Assistant Professor</span>
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 flex flex-col items-center p-6" style="border-color: var(--primary-gold);">
+                    <img src="images/faculty/N. Sai Surya Sree Aparna.png" alt="Dr. N. Sai Surya Sree Aparna" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
+                    <h3 class="text-xl font-bold mb-1" style="color: var(--rich-gold);">Dr. N. Sai Surya Sree Aparna</h3>
+                    <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-2" style="background-color: var(--light-gold); color: var(--rich-gold);">Assistant Professor</span>
                     <p class="text-xs text-gray-600 mb-3 text-center">Alkali-activated Materials, 3D printing of cementitious materials, Rheology of cementitious materials, Valorisation of construction and demolition waste, industrial waste and residues, Carbon sequestration - Mineral carbonation, Chemical admixtures</p>
                     <div class="flex space-x-4 mt-auto">
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <!-- Faculty Member 13 -->
-                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 border-blue-400 flex flex-col items-center p-6">
-                    <img src="images/faculty/Praveena Gangadharan.png" alt="Faculty Member" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
-                    <h3 class="text-xl font-bold mb-1 text-blue-700">Dr. Praveena Gangadharan</h3>
-                    <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-2">Assistant Professor</span>
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 flex flex-col items-center p-6" style="border-color: var(--primary-gold);">
+                    <img src="images/faculty/Praveena Gangadharan.png" alt="Dr. Praveena Gangadharan" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
+                    <h3 class="text-xl font-bold mb-1" style="color: var(--rich-gold);">Dr. Praveena Gangadharan</h3>
+                    <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-2" style="background-color: var(--light-gold); color: var(--rich-gold);">Assistant Professor</span>
                     <p class="text-xs text-gray-600 mb-3 text-center">Sanitation, Resource Recovery from urine, Fecal sludge management, biosolids, Bioelectrochemical systems for wastewater treatment, groundwater treatment</p>
                     <div class="flex space-x-4 mt-auto">
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <!-- Faculty Member 14 -->
-                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 border-blue-400 flex flex-col items-center p-6">
-                    <img src="images/faculty/Rakesh J Pillai.png" alt="Faculty Member" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
-                    <h3 class="text-xl font-bold mb-1 text-blue-700">Dr. Rakesh J Pillai</h3>
-                    <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-2">Associate Professor</span>
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 flex flex-col items-center p-6" style="border-color: var(--primary-gold);">
+                    <img src="images/faculty/Rakesh J Pillai.png" alt="Dr. Rakesh J Pillai" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
+                    <h3 class="text-xl font-bold mb-1" style="color: var(--rich-gold);">Dr. Rakesh J Pillai</h3>
+                    <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-2" style="background-color: var(--light-gold); color: var(--rich-gold);">Associate Professor</span>
                     <p class="text-xs text-gray-600 mb-3 text-center">Cyclic behaviour of soils, Constitutive Modelling in Geomechanics, Ground Improvement for pavement applications</p>
                     <div class="flex space-x-4 mt-auto">
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <!-- Faculty Member 15 -->
-                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 border-blue-400 flex flex-col items-center p-6">
-                    <img src="images/faculty/Sanjukta Chakraborty.png" alt="Faculty Member" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
-                    <h3 class="text-xl font-bold mb-1 text-blue-700">Dr. Sanjukta Chakraborty</h3>
-                    <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-2">Assistant Professor</span>
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 flex flex-col items-center p-6" style="border-color: var(--primary-gold);">
+                    <img src="images/faculty/Sanjukta Chakraborty.png" alt="Dr. Sanjukta Chakraborty" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
+                    <h3 class="text-xl font-bold mb-1" style="color: var(--rich-gold);">Dr. Sanjukta Chakraborty</h3>
+                    <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-2" style="background-color: var(--light-gold); color: var(--rich-gold);">Assistant Professor</span>
                     <p class="text-xs text-gray-600 mb-3 text-center">Vibration control of structures using pssive and feedback control mechanisms, Optimal control, Base isolation, Substructure shaking table test</p>
                     <div class="flex space-x-4 mt-auto">
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <!-- Faculty Member 16 -->
-                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 border-blue-400 flex flex-col items-center p-6">
-                    <img src="images/faculty/Sarmistha Singh.png" alt="Faculty Member" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
-                    <h3 class="text-xl font-bold mb-1 text-blue-700">Dr. Sarmistha Singh</h3>
-                    <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-2">Assistant Professor</span>
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 flex flex-col items-center p-6" style="border-color: var(--primary-gold);">
+                    <img src="images/faculty/Sarmistha Singh.png" alt="Dr. Sarmistha Singh" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
+                    <h3 class="text-xl font-bold mb-1" style="color: var(--rich-gold);">Dr. Sarmistha Singh</h3>
+                    <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-2" style="background-color: var(--light-gold); color: var(--rich-gold);">Assistant Professor</span>
                     <p class="text-xs text-gray-600 mb-3 text-center">Hydroclimatology, Extreme Events Analysis, Climatic Oscillation and Climate Change Impacts Study, Remote Sensing in Disaster Management, Water Resources Management, Non-point Source Pollution, Water Policy Analysis</p>
                     <div class="flex space-x-4 mt-auto">
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <!-- Faculty Member 17 -->
-                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 border-blue-400 flex flex-col items-center p-6">
-                    <img src="images/faculty/Senthil Kumar V..png" alt="Faculty Member" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
-                    <h3 class="text-xl font-bold mb-1 text-blue-700">Dr. Senthil Kumar</h3>
-                    <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-2">Associate Professor</span>
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 flex flex-col items-center p-6" style="border-color: var(--primary-gold);">
+                    <img src="images/faculty/Senthil Kumar V..png" alt="Dr. Senthil Kumar" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
+                    <h3 class="text-xl font-bold mb-1" style="color: var(--rich-gold);">Dr. Senthil Kumar</h3>
+                    <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-2" style="background-color: var(--light-gold); color: var(--rich-gold);">Associate Professor</span>
                     <p class="text-xs text-gray-600 mb-3 text-center">Construction Engineering and Management</p>
                     <div class="flex space-x-4 mt-auto">
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <!-- Faculty Member 18 -->
-                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 border-blue-400 flex flex-col items-center p-6">
-                    <img src="images/faculty/Subhasis Mitra.png" alt="Faculty Member" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
-                    <h3 class="text-xl font-bold mb-1 text-blue-700">Dr. Subhasis Mitra</h3>
-                    <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-2">Assistant Professor</span>
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 flex flex-col items-center p-6" style="border-color: var(--primary-gold);">
+                    <img src="images/faculty/Subhasis Mitra.png" alt="Dr. Subhasis Mitra" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
+                    <h3 class="text-xl font-bold mb-1" style="color: var(--rich-gold);">Dr. Subhasis Mitra</h3>
+                    <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-2" style="background-color: var(--light-gold); color: var(--rich-gold);">Assistant Professor</span>
                     <p class="text-xs text-gray-600 mb-3 text-center">Hydrometeorological forecasting, Climate change and hydroclimatological extremes</p>
                     <div class="flex space-x-4 mt-auto">
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <!-- Faculty Member 19 -->
-                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 border-blue-400 flex flex-col items-center p-6">
-                    <img src="images/faculty/Subrat Kumar Mallick.png" alt="Faculty Member" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
-                    <h3 class="text-xl font-bold mb-1 text-blue-700">Dr. Subrat Kumar Mallick</h3>
-                    <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-2">Assistant Professor</span>
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 flex flex-col items-center p-6" style="border-color: var(--primary-gold);">
+                    <img src="images/faculty/Subrat Kumar Mallick.png" alt="Dr. Subrat Kumar Mallick" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
+                    <h3 class="text-xl font-bold mb-1" style="color: var(--rich-gold);">Dr. Subrat Kumar Mallick</h3>
+                    <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-2" style="background-color: var(--light-gold); color: var(--rich-gold);">Assistant Professor</span>
                     <p class="text-xs text-gray-600 mb-3 text-center">Water/Wastewater treatment</p>
                     <div class="flex space-x-4 mt-auto">
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <!-- Faculty Member 20 -->
-                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 border-blue-400 flex flex-col items-center p-6">
-                    <img src="images/faculty/Sudheesh T.K..png" alt="Faculty Member" class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
-                    <h3 class="text-xl font-bold mb-1 text-blue-700">Dr. Sudheesh T.K.</h3>
-                    <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-2">Associate Professor & Head of the Department</span>
+                <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 border-t-8 flex flex-col items-center p-6" style="border-color: var(--primary-gold);">
+                    <img src="images/faculty/Sudheesh T.K..png" alt="Dr. Sudheesh T.K." class="w-full rounded-xl mb-4 shadow-md" style="max-height: 220px; object-fit: contain;">
+                    <h3 class="text-xl font-bold mb-1" style="color: var(--rich-gold);">Dr. Sudheesh T.K.</h3>
+                    <span class="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-2" style="background-color: var(--light-gold); color: var(--rich-gold);">Associate Professor & Head of the Department</span>
                     <p class="text-xs text-gray-600 mb-3 text-center">Geotechnical Engineering: Deep Foundations; Slope & Embankment Stabilisation; and Analytical Methods in Geomechanics</p>
                     <div class="flex space-x-4 mt-auto">
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-yellow-700" style="color: var(--rich-gold);"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
 
@@ -366,8 +285,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="text-white py-8">
+    <footer class="text-white py-8" style="background-color: var(--charcoal);">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
@@ -402,6 +320,3 @@
     <script src="js/navigation.js"></script>
 </body>
 </html>
-
-
-

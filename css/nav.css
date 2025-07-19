@@ -1,10 +1,12 @@
 /* --- NAVIGATION BASE STYLES --- */
 .navbar {
-    background: white;
+    background: #1A1A1A; /* Deep black background */
     padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2); /* Gold shadow */
     position: relative;
+    z-index: 100; /* Ensure navbar is on top */
 }
+
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -12,42 +14,49 @@
     align-items: center;
     justify-content: space-between;
 }
+
 .nav-links {
     display: flex;
     align-items: center;
     gap: 1.5rem;
 }
+
 .nav-link {
     text-decoration: none;
-    color: #4B5563;
+    color: #FFFFFF; /* White text */
     font-weight: 500;
     margin: 0;
     padding: 0.5rem 1rem;
     white-space: nowrap;
     border: none;
     background: none;
-    transition: color 0.2s;
+    transition: color 0.2s, border-bottom 0.2s;
 }
-.nav-link:hover,
+
+.nav-link:hover {
+    color: #D4AF37; /* Primary gold on hover */
+}
+
 .nav-link.active {
-    color: #ED6C4B;
+    color: #D4AF37;
+    border-bottom: 2px solid #D4AF37;
 }
-.nav-link.active {
-    border-bottom: 2px solid #ED6C4B;
-    background-color: transparent
-}
+
 .mobile-menu-button {
     display: none;
+    color: #D4AF37; /* Gold mobile menu button */
 }
+
 /* --- DROPDOWN BASE --- */
 .dropdown {
     position: relative;
 }
+
 .dropdown-toggle {
     cursor: pointer;
     background: none;
     border: none;
-    color: inherit;
+    /* The problematic 'color: inherit;' was removed from here */
     font: inherit;
     display: flex;
     align-items: center;
@@ -56,12 +65,15 @@
     justify-content: space-between;
     transition: background 0.2s, color 0.2s;
 }
+
 .dropdown-toggle:focus {
-    outline: 2px solid #ED6C4B;
+    outline: 2px solid #D4AF37; /* Gold focus outline */
 }
+
 .dropdown-menu {
     min-width: 180px;
-    background: #fff;
+    background: #2C2C2C; /* Charcoal background */
+    border: 1px solid #D4AF37; /* Gold border */
     margin-top: 0.5rem;
     padding: 0.5rem 0;
     position: absolute;
@@ -69,40 +81,29 @@
     top: 100%;
     z-index: 50;
     display: none;
+    border-radius: 0.5rem;
 }
+
 .dropdown-menu a {
     display: block;
     padding: 0.5rem 1.5rem;
-    color: #374151;
+    color: #FFFFFF; /* White text */
     text-decoration: none;
     font-size: 1rem;
     border: none;
     background: none;
     transition: background 0.15s, color 0.15s;
 }
+
 .dropdown-menu a:hover {
-    background: #FFF3EF;
-    color: #ED6C4B;
+    background: #F4E4BC; /* Light gold background */
+    color: #1A1A1A; /* Black text on hover */
 }
 
 /* --- DESKTOP: SHOW DROPDOWN ON HOVER --- */
 @media (min-width: 769px) {
     .dropdown:hover .dropdown-menu,
     .dropdown:focus-within .dropdown-menu {
-        display: block;
-    }
-    .dropdown-menu {
-        position: absolute;
-        left: 0;
-        top: 100%;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        background: #fff;
-        margin-top: 0.5rem;
-        padding: 0.5rem 0;
-        z-index: 50;
-        margin-bottom: 0.5rem;
-    }
-    .dropdown.active .dropdown-menu {
         display: block;
     }
 }
@@ -114,11 +115,12 @@
         background: none;
         border: none;
         font-size: 2rem;
-        color: #ED6C4B;
+        color: #D4AF37; /* Gold color */
         cursor: pointer;
         margin-left: auto;
         z-index: 60;
     }
+
     .nav-links {
         gap: 0;
         display: none;
@@ -128,26 +130,27 @@
         top: 100%;
         left: 0;
         right: 0;
-        background: #fff;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        background: #2C2C2C; /* Charcoal background */
+        box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
         padding: 0.5rem 0;
         z-index: 50;
-        border-radius: 0 0 1rem 1rem;
+        border-bottom: 2px solid #D4AF37;
         animation: slideDown 0.25s ease;
     }
+
     .nav-links.active {
         display: flex;
-        background: white;
     }
+
     .nav-link,
     .dropdown-toggle {
         width: 100%;
         padding: 1rem 1.5rem;
         font-size: 1.1rem;
         font-weight: 500;
-        color: #374151;
+        color: #FFFFFF; /* White text */
         border: none;
-        border-bottom: 1px solid #F3F4F6;
+        border-bottom: 1px solid #4a4a4a;
         background: none;
         text-align: left;
         transition: background 0.2s, color 0.2s;
@@ -155,26 +158,35 @@
         align-items: center;
         justify-content: space-between;
     }
+
     .nav-link:last-child,
-    .dropdown-toggle:last-child {
+    .dropdown:last-of-type .dropdown-toggle {
         border-bottom: none;
     }
+
     .nav-link:hover,
-    .nav-link.active,
-    .dropdown-toggle.active,
     .dropdown-toggle:hover {
-        background: #FFF3EF;
-        color: #ED6C4B;
+        background: #D4AF37;
+        color: #1A1A1A;
     }
+    
+    .nav-link.active,
+    .dropdown.active > .dropdown-toggle {
+        background: #D4AF37; /* Primary Gold */
+        color: #1A1A1A; /* Black text */
+    }
+
     .dropdown-menu {
         display: none;
         position: static;
-        background: #FFF8F6;
+        background: #1e1e1e; /* Darker charcoal for nested menu */
         box-shadow: none;
         margin: 0;
-        padding: 0.2rem 0 0.2rem 2.5rem;
-        border-radius: 0 0 0.75rem 0.75rem;
+        padding: 0.2rem 0 0.2rem 2rem; /* Indent sub-menu items */
+        border: none;
+        border-bottom: 1px solid #4a4a4a;
     }
+
     .dropdown.active .dropdown-menu {
         display: block;
     }
@@ -185,5 +197,3 @@
     from { opacity: 0; transform: translateY(-10px);}
     to { opacity: 1; transform: translateY(0);}
 }
-
-

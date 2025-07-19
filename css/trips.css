@@ -1,30 +1,37 @@
 h2 {
-    background-color: red;
+    background: linear-gradient(135deg, #1A1A1A, #2C2C2C); /* Black to charcoal gradient */
+    color: #D4AF37; /* Gold text */
     padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 2px solid #D4AF37; /* Gold border */
+    border-radius: 10px;
+    margin-bottom: 1rem;
 }
+
 .it {
     position: relative;
     flex-direction: column;
-    background: pink;
+    background: linear-gradient(145deg, #FFFFFF, #F8F8F8); /* White gradient */
     display: flex;
     height: auto;
     margin: 2rem;
-    /* border-radius: 25%; */
-    border: solid black;
+    border: 2px solid #F4E4BC; /* Light gold border */
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.15); /* Gold shadow */
 }
 
-.it .right{
+.it .right {
     display: flex;
     flex-direction: row;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    margin-right:25%;
+    margin-right: 25%;
     gap: 3rem;
 }
-.it .left{
+
+.it .left {
     margin-top: 25px;
     margin-left: 10%;
     display: flex;
@@ -35,6 +42,11 @@ h2 {
     padding-top: 1rem;
     padding-bottom: 1rem;
     text-align: center;
+    color: #1A1A1A; /* Black text */
+    background: linear-gradient(90deg, #F4E4BC, #FFFFFF, #F4E4BC); /* Light gold gradient */
+    margin: 0 2rem;
+    border-radius: 8px;
+    border: 1px solid #D4AF37;
 }
 
 .it .description {
@@ -42,35 +54,47 @@ h2 {
     font-size: 20px;
     margin-left: 3.5rem;
     margin-right: 3.5rem;
+    color: #2C2C2C; /* Charcoal text */
 }
-.it .list{  
+
+.it .list {
     width: max-content;
     font-size: 25px;
     font-weight: 400;
     margin-bottom: 1rem;
+    color: #1A1A1A; /* Black text */
 }
+
 .it .card {
     margin-top: 10px;
     height: 200px;
-    background: white ;
+    background: linear-gradient(145deg, #FFFFFF, #F4E4BC); /* White to light gold */
     width: 200px;
     margin-bottom: 3rem;
     text-align: center;
     justify-content: center;
     border-radius: 25px;
+    border: 3px solid #D4AF37; /* Gold border */
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.it .card p{
+
+.it .card p {
     font-size: 200%;
     font-weight: 600;
+    color: #1A1A1A; /* Black text */
 }
+
 .it .images {
     display: flex;
     gap: 3rem;
     border-radius: 5px;
     max-width: 700px;
     width: 100%;
-    margin-bottom: 2rem ;
-    flex-wrap: nowrap; /* Prevent stacking */
+    margin-bottom: 2rem;
+    flex-wrap: nowrap;
     box-sizing: border-box;
 }
 
@@ -81,23 +105,26 @@ h2 {
     border-radius: 8px;
     flex: 0 0 auto;
     max-width: 100%;
+    border: 3px solid #D4AF37; /* Gold border on images */
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
 }
 
 @media (max-width: 1150px) {
-    .it .right{
-        margin-right:15%;
+    .it .right {
+        margin-right: 15%;
     }
+
     .it .images {
         display: flex;
         gap: 1rem;
         border-radius: 5px;
         max-width: 500px;
         width: 100%;
-        margin-bottom: 2rem ;
-        flex-wrap: nowrap; /* Prevent stacking */
+        margin-bottom: 2rem;
+        flex-wrap: nowrap;
         box-sizing: border-box;
-        
     }
+
     .it .images img {
         width: 60%;
         max-height: 280px;
@@ -106,28 +133,24 @@ h2 {
 }
 
 @media (max-width: 900px) {
-    /* Header improvements */
     h2 {
         font-size: 1.5rem;
         padding: 0.75rem;
         text-align: center;
     }
-    
-    /* Main container adjustments */
-    .it {   
+
+    .it {
         margin: 1rem;
         padding: 1rem;
         border-radius: 15px;
     }
-    
-    /* Title adjustments */
+
     .it h3 {
         font-size: 1.5rem;
         padding: 0.75rem;
         text-align: center;
     }
-    
-    /* Description text adjustments */
+
     .it .description {
         font-size: 16px;
         margin-left: 1.5rem;
@@ -135,8 +158,7 @@ h2 {
         text-align: justify;
         line-height: 1.6;
     }
-    
-    /* Left section adjustments */
+
     .it .left {
         margin: 0;
         flex-direction: row;
@@ -144,8 +166,7 @@ h2 {
         align-items: center;
         padding: 0 1rem;
     }
-    
-    /* List items adjustments */
+
     .it .list {
         margin-left: 0;
         font-size: 18px;
@@ -158,15 +179,14 @@ h2 {
         width: 100%;
         max-width: 300px;
     }
-    
+
     .it .list i {
         font-size: 16px;
-        color: #333;
+        color: #D4AF37; /* Gold icon color */
         width: 20px;
         flex-shrink: 0;
     }
-    
-    /* Card adjustments */
+
     .it .card {
         width: 100%;
         max-width: 300px;
@@ -177,10 +197,10 @@ h2 {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        border: 2px solid #ddd;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        border: 2px solid #D4AF37;
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
     }
-    
+
     .it .card p:first-child {
         font-size: 14px;
         margin: 0 0 0.5rem 0;
@@ -188,15 +208,14 @@ h2 {
         text-align: center;
         line-height: 1.2;
     }
-    
+
     .it .card p:last-child {
         font-size: 32px;
         margin: 0;
         font-weight: 700;
-        color: #333;
+        color: #1A1A1A;
     }
-    
-    /* Right section - already handled but improved */
+
     .it .right {
         flex-direction: column;
         margin-right: 0;
@@ -206,21 +225,19 @@ h2 {
         align-items: center;
         padding: 0 1rem;
     }
-    
-    /* Images container - improved */
+
     .it .images {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 1rem;
-        margin-bottom: .5rem;
+        margin-bottom: 0.5rem;
         width: 100%;
         max-width: 100%;
         padding: 0;
     }
-    
-    /* Individual images - improved */
+
     .it .images img {
         width: 100%;
         max-width: 100%;
@@ -229,52 +246,51 @@ h2 {
         max-height: 280px;
         object-fit: cover;
         border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        border: 2px solid #fff;
+        box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25);
+        border: 2px solid #D4AF37;
     }
 }
 
-/* Additional mobile-specific improvements for smaller screens */
 @media (max-width: 600px) {
     .it {
         margin: 0.5rem;
         padding: 0.75rem;
     }
-    
+
     .it .description {
         font-size: 14px;
         margin-left: 1rem;
         margin-right: 1rem;
     }
-    
+
     .it .left {
         margin-left: 0;
         padding: 0 0.5rem;
     }
-    
+
     .it .list {
         font-size: 16px;
         max-width: 250px;
     }
-    
+
     .it .card {
         max-width: 250px;
         height: 100px;
         margin: 0rem;
     }
-    
+
     .it .card p:first-child {
         font-size: 12px;
     }
-    
+
     .it .card p:last-child {
         font-size: 28px;
     }
-    
+
     .it .right {
         padding: 0 0.5rem;
     }
-    
+
     .it .images img {
         min-height: 180px;
         max-height: 220px;

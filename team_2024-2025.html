@@ -9,39 +9,47 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/nav.css">
     <style>
-
-                /* Team specific styles */
-         .team-member-card {
+        :root {
+            --background: #FFFFFF;
+            --foreground: #1A1A1A;
+            --primary-gold: #D4AF37;
+            --rich-gold: #B8860B;
+            --light-gold: #F4E4BC;
+            --metallic-gold: #FFD700;
+            --charcoal: #2C2C2C;
+            --off-white: #F8F8F8;
+        }
+        body {
+            background-color: var(--off-white);
+        }
+        .team-member-card {
             transition: transform 0.2s ease-in-out, box-shadow 0.2s;
-            background: linear-gradient(135deg, #f0f4ff 60%, #e0e7ff 100%);
+            background: var(--background);
             border-radius: 1.25rem;
-            box-shadow: 0 4px 16px 0 rgba(37, 99, 235, 0.08), 0 1.5px 4px 0 rgba(0,0,0,0.04);
-            border: 2.5px solid #dbeafe;
+            box-shadow: 0 4px 16px 0 rgba(212, 175, 55, 0.08), 0 1.5px 4px 0 rgba(0,0,0,0.04);
+            border: 2px solid var(--light-gold);
             position: relative;
         }
-
         .team-member-card:hover {
             transform: translateY(-7px) scale(1.03);
-            box-shadow: 0 8px 32px 0 rgba(37, 99, 235, 0.16), 0 3px 8px 0 rgba(0,0,0,0.08);
-            border-color: #60a5fa;
-            background: linear-gradient(135deg, #e0e7ff 60%, #f0f4ff 100%);
+            box-shadow: 0 8px 32px 0 rgba(212, 175, 55, 0.16), 0 3px 8px 0 rgba(0,0,0,0.08);
+            border-color: var(--primary-gold);
+            background: var(--off-white);
         }
-
         .team-member-card img {
             border-radius: 9999px;
-            border: 4px solid #60a5fa;
-            box-shadow: 0 2px 8px 0 rgba(37, 99, 235, 0.10);
+            border: 4px solid var(--primary-gold);
+            box-shadow: 0 2px 8px 0 rgba(212, 175, 55, 0.10);
             background: #fff;
         }
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="flex items-center">
                 <img src="images/ace-logo.png" alt="ACE Logo" style="height:40px; margin-right:10px;">
-                <span class="text-2xl font-bold text-blue-600">ACE</span>
+                <span class="text-2xl font-bold" style="color: var(--primary-gold);">ACE</span>
             </a>
             <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Open navigation menu">
                 <i class="fas fa-bars"></i>
@@ -49,8 +57,6 @@
             <div class="nav-links" id="navLinks">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="faculty.html" class="nav-link">Faculty</a>
-
-                <!-- Activities Dropdown -->
                 <div class="relative dropdown" id="activitiesDropdown">
                     <button class="dropdown-toggle nav-link" id="activitiesToggle" type="button">
                         Activities <i class="fas fa-chevron-down text-xs ml-1"></i>
@@ -61,8 +67,6 @@
                         <a href="workshops.html" class="nav-link">Workshops</a>
                     </div>
                 </div>
-
-                <!-- Team Dropdown -->
                 <div class="relative dropdown" id="teamDropdown">
                     <button class="dropdown-toggle nav-link" id="teamToggle" type="button">
                         Team <i class="fas fa-chevron-down text-xs ml-1"></i>
@@ -73,7 +77,6 @@
                         <a href="team_2025-2026.html" class="nav-link">Team 2025-2026</a>
                     </div>
                 </div>
-
                 <a href="repository.html" class="nav-link">Repository</a>
                 <a href="gallery.html" class="nav-link">Gallery</a>
                 <a href="contact.html" class="nav-link">Contact Us</a>
@@ -81,249 +84,228 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="bg-blue-600 text-white py-16">
+    <header class="text-white py-16" style="background-color: var(--charcoal);">
         <div class="container mx-auto px-4">
             <h1 class="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg tracking-wide">Team 2024-2025</h1>
             <p class="text-xl max-w-2xl font-medium">Meet the dedicated team for the 2024-2025 academic year.</p>
         </div>
     </header>
 
-    <!-- Faculty Leadership Section -->
     <section class="container mx-auto px-4 py-12">
         <div class="mb-12">
-            <h2 class="text-3xl font-extrabold mb-8 text-center text-blue-700 tracking-tight">Faculty</h2>
+            <h2 class="text-3xl font-extrabold mb-8 text-center tracking-tight" style="color: var(--rich-gold);">Faculty</h2>
             <div class="flex flex-col md:flex-row justify-center gap-8">
-                <!-- HOD -->
                 <div class="team-member-card p-6 text-center w-full md:w-1/3">
                     <img src="images/faculty/Sudheesh T.K..png" alt="Dr. Sudheesh T.K." class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-xl font-bold mb-1">Dr. Sudheesh T.K.</h3>
-                    <p class="text-blue-600 font-semibold mb-2">Head of the Department</p>
+                    <p class="font-semibold mb-2" style="color: var(--rich-gold);">Head of the Department</p>
                 </div>
-                <!-- Mentor-->
                 <div class="team-member-card p-6 text-center w-full md:w-1/3">
                     <img src="images/faculty/M.V. Anil Kumar.png" alt="Dr. Anil Kumar" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-xl font-bold mb-1">Dr. Anil Kumar</h3>
-                    <p class="text-blue-600 font-semibold mb-2">Mentor</p>
+                    <p class="font-semibold mb-2" style="color: var(--rich-gold);">Mentor</p>
                 </div>
-                <!-- Faculty Advisor -->
                 <div class="team-member-card p-6 text-center w-full md:w-1/3">
                     <img src="images/faculty/Sridharan.png" alt="Dr. Sridharan" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-xl font-bold mb-1">Dr.Sridharan</h3>
-                    <p class="text-blue-600 font-semibold mb-2">Faculty Advisor</p>
+                    <p class="font-semibold mb-2" style="color: var(--rich-gold);">Faculty Advisor</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Team Grid -->
     <section class="container mx-auto px-4 py-16">
-        <!-- Executive Team -->
         <div class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 text-center">Executive Team</h2>
+            <h2 class="text-3xl font-bold mb-8 text-center" style="color: var(--rich-gold);">Executive Team</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- President -->
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
+                <div class="p-6 text-center team-member-card">
                     <img src="images/Team 24-25/Dhaarini.jpg" alt="Dhaarini" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">Dhaarini</h3>
-                    <p class="text-blue-600 mb-2 font-semibold">ACE President</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">ACE President</p>
                 </div>
-
-                <!-- Vice President -->
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
-                    <img src="images/Team 24-25/Vikrant.jpg" alt="" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+                <div class="p-6 text-center team-member-card">
+                    <img src="images/Team 24-25/Vikrant.jpg" alt="Vikrant" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">Vikrant</h3>
-                    <p class="text-blue-600 mb-2 font-semibold">ACE Secretary</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">ACE Secretary</p>
                 </div>
-
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
+                <div class="p-6 text-center team-member-card">
                     <img src="images/Team 24-25/Ashish Kumar.jpg" alt="Ashish Kumar" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">Ashish Kumar</h3>
-                    <p class="text-blue-600 mb-2 font-semibold">Finance Associate</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">Finance Associate</p>
                 </div>
             </div>
         </div>
 
-        <!-- Technical Team -->
         <div class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 text-center">Technical Team</h2>
+            <h2 class="text-3xl font-bold mb-8 text-center" style="color: var(--rich-gold);">Technical Team</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
+                <div class="p-6 text-center team-member-card">
                     <img src="images/Team 24-25/Gaurav_Nagar_interviewer.jpg" alt="Gaurav Nagar" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">Gaurav Nagar</h3>
-                    <p class="text-blue-600 mb-2 font-semibold">Technical Team</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">Technical Team</p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
+                <div class="p-6 text-center team-member-card">
                     <img src="images/Team 24-25/George Joseph.jpg" alt="George Joseph" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">George Joseph</h3>
-                    <p class="text-blue-600 mb-2 font-semibold">Technical Team</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">Technical Team</p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
+                <div class="p-6 text-center team-member-card">
                     <img src="images/Team 24-25/P Sravan.jpg" alt="P Sravan" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">P Sravan</h3>
-                    <p class="text-blue-600 mb-2 font-semibold">Technical Team</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">Technical Team</p>
                 </div>
             </div>
         </div>
 
-        <!-- Web Development Team -->
         <div class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 text-center">Web Development Team</h2>
+            <h2 class="text-3xl font-bold mb-8 text-center" style="color: var(--rich-gold);">Web Development Team</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
+                <div class="p-6 text-center team-member-card">
                     <img src="images/Team 24-25/Harshitha.B.jpg" alt="Harshitha" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">Harshitha</h3>
-                    <p class="text-blue-600 mb-2 font-semibold">Web Development</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">Web Development</p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
+                <div class="p-6 text-center team-member-card">
                     <img src="images/Team 24-25/IMG-20240915-WA0021.jpg" alt="Adarsh" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">Adarsh</h3>
-                    <p class="text-blue-600 mb-2 font-semibold">Web Development</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">Web Development</p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
+                <div class="p-6 text-center team-member-card">
                     <img src="images/Team 24-25/Zakir Ahmad Khan.jpg" alt="Zakir Ahmad Khan" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">Zakir Ahmad Khan</h3>
-                    <p class="text-blue-600 mb-2 font-semibold">Web Development</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">Web Development</p>
                 </div>
             </div>
         </div>
 
-        <!-- Logistics and Hospitality Team -->
         <div class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 text-center">Logistics and Hospitality Team</h2>
+            <h2 class="text-3xl font-bold mb-8 text-center" style="color: var(--rich-gold);">Logistics and Hospitality Team</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
+                <div class="p-6 text-center team-member-card">
                     <img src="images/Team 24-25/Subhendu.png" alt="Subhendu Maji" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">Subhendu Maji</h3>
-                    <p class="text-blue-600 mb-2 font-semibold">Logistics and Hospitality Team</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">Logistics and Hospitality</p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
+                <div class="p-6 text-center team-member-card">
                     <img src="images/Team 24-25/Tanay.jpg" alt="Tanay Vashist" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">Tanay Vashist</h3>
-                    <p class="text-blue-600 mb-2 font-semibold">Logistics and Hospitality Team</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">Logistics and Hospitality</p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
+                <div class="p-6 text-center team-member-card">
                     <img src="images/Team 24-25/1735446943654.webp" alt="AASHUTOSH KUMAR RAY" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">AASHUTOSH KUMAR RAY</h3>
-                    <p class="text-blue-600 mb-2 font-semibold">Logistics and Hospitality Team</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">Logistics and Hospitality</p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
+                <div class="p-6 text-center team-member-card">
                     <img src="images/Team 24-25/Yammani Shashanka .jpg" alt="Yammani Shashanka" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">Yammani Shashanka</h3>
-                    <p class="text-blue-600 mb-2 font-semibold">Logistics and Hospitality Team</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">Logistics and Hospitality</p>
                 </div>
             </div>
         </div>
 
-        <!-- Event Management Team -->
         <div class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 text-center">Event Management Team</h2>
+            <h2 class="text-3xl font-bold mb-8 text-center" style="color: var(--rich-gold);">Event Management Team</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
+                <div class="p-6 text-center team-member-card">
                     <img src="images/Team 24-25/Divesh Mishra .jpg" alt="Divesh Mishra" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">Divesh Mishra</h3>
-                    <p class="text-blue-600 mb-2 font-semibold">Event Manager</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">Event Manager</p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
+                <div class="p-6 text-center team-member-card">
                     <img src="images/Team 24-25/Prichand.jpg" alt="Prichand" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">Prichand</h3>
-                    <p class="text-blue-600 mb-2 font-semibold">Event Manager</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">Event Manager</p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
+                <div class="p-6 text-center team-member-card">
                     <img src="images/Team 24-25/Sindhu.png" alt="Thamballa Sindhu" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">Thamballa Sindhu</h3>
-                    <p class="text-blue-600 mb-2 font-semibold">Event Manager</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">Event Manager</p>
                 </div>
-                
             </div>
         </div>
 
-        <!-- Media and Publicity Team -->
         <div class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 text-center">Media and Publicity Team</h2>
+            <h2 class="text-3xl font-bold mb-8 text-center" style="color: var(--rich-gold);">Media and Publicity Team</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
+                <div class="p-6 text-center team-member-card">
                     <img src="images/Team 24-25/Rahul.png" alt="Rahul Raj" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">Rahul Raj</h3>
-                        <p class="text-blue-600 mb-2 font-semibold">Media and Publicity</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">Media and Publicity</p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
+                <div class="p-6 text-center team-member-card">
                     <img src="images/Team 24-25/Lokesh jajoriya .jpg" alt="Lokesh jajoriya" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">Lokesh jajoriya</h3>
-                    <p class="text-blue-600 mb-2 font-semibold">Social Media and Publicity</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">Social Media and Publicity</p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
+                <div class="p-6 text-center team-member-card">
                     <img src="images/Team 24-25/Tarun Surisetti.JPG" alt="Tarun Surisetti" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">Tarun Surisetti</h3>
-                    <p class="text-blue-600 mb-2 font-semibold">Media and Publicity</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">Media and Publicity</p>
                 </div>
             </div>
         </div>
 
-        <!-- Content Team -->
         <div class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 text-center">Content Team</h2>
+            <h2 class="text-3xl font-bold mb-8 text-center" style="color: var(--rich-gold);">Content Team</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
+                <div class="p-6 text-center team-member-card">
                     <img src="images/Team 24-25/Ashish Singh.jpg" alt="Ashish Singh" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">Ashish Singh</h3>
-                    <p class="text-blue-600 mb-2 font-semibold">Content Creator</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">Content Creator</p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
+                <div class="p-6 text-center team-member-card">
                     <img src="images/Team 24-25/Shubham Kumar.jpg" alt="Shubham Kumar" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">Shubham Kumar</h3>
-                    <p class="text-blue-600 mb-2 font-semibold">Content Creator</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">Content Creator</p>
                 </div>
             </div>
         </div>
 
-        <!-- Batch Representatives -->
         <div class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 text-center">Batch Representatives</h2>
+            <h2 class="text-3xl font-bold mb-8 text-center" style="color: var(--rich-gold);">Batch Representatives</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
+                <div class="p-6 text-center team-member-card">
                     <img src="images/Team 24-25/Ankush.jpg" alt="Ankush kumar" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">Ankush kumar</h3>
-                    <p class="text-blue-600 mb-2 font-semibold">Batch Representative B21</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">Batch Representative B21</p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
+                <div class="p-6 text-center team-member-card">
                     <img src="./images/Team 24-25/Vaibhav.png" alt="Vaibhav Mittapally" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">Vaibhav Mittapally</h3>
-                    <p class="text-blue-600 mb-2 font-semibold">Batch Representative B22</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">Batch Representative B22</p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
+                <div class="p-6 text-center team-member-card">
                     <img src="images/Team 24-25/bhavana.jpg" alt="Bhavana sri" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">Bhavana sri</h3>
-                    <p class="text-blue-600 mb-2 font-semibold">Batch Representative B23</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">Batch Representative B23</p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
+                <div class="p-6 text-center team-member-card">
                     <img src="images/Team 24-25/RakeshKumar.png" alt="Rakesh kumar" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">Rakesh kumar</h3>
-                    <p class="text-blue-600 mb-2 font-semibold">Batch Representative B24</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">Batch Representative B24</p>
                 </div>
             </div>
         </div>
 
-        <!-- Other Team Members -->
         <div class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 text-center">Other Team Members</h2>
+            <h2 class="text-3xl font-bold mb-8 text-center" style="color: var(--rich-gold);">Other Team Members</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
+                <div class="p-6 text-center team-member-card">
                     <img src="images/Team 24-25/Raj Kumar K.jpg" alt="Raj Kumar K" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">Raj Kumar K</h3>
-                    <p class="text-blue-600 mb-2 font-semibold">Research Scholars Representative</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">Research Scholars Representative</p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 text-center team-member-card">
+                <div class="p-6 text-center team-member-card">
                     <img src="images/Team 24-25/Varshitha.jpg" alt="Varshitha" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
                     <h3 class="text-lg font-bold mb-2">Varshitha</h3>
-                    <p class="text-blue-600 mb-2 font-semibold">Design Associate</p>
+                    <p class="mb-2 font-semibold" style="color: var(--rich-gold);">Design Associate</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="text-white py-8">
+    <footer class="text-white py-8" style="background-color: var(--charcoal);">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
@@ -341,9 +323,8 @@
                 <div>
                     <h3 class="text-xl font-bold mb-4">Follow Us</h3>
                     <div class="flex space-x-4">
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter fa-lg"></i></a>
                         <a href="https://www.linkedin.com/company/association-of-civil-engineers-ace-iit-palakkad/" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="https://www.instagram.com/ace_iitpkd" aria-label="Instagram"><i class="fab fa-instagram fa-lg"></i></a>
                     </div>
                 </div>
             </div>
@@ -356,4 +337,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
     <script src="js/navigation.js"></script>
 </body>
-</html> 
+</html>

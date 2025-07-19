@@ -11,6 +11,22 @@
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/ImageSlider.css">
     <style>
+        :root {
+            --background: #FFFFFF;
+            --foreground: #1A1A1A;
+            --primary-gold: #D4AF37;
+            --rich-gold: #B8860B;
+            --light-gold: #F4E4BC;
+            --metallic-gold: #FFD700;
+            --charcoal: #2C2C2C;
+            --off-white: #F8F8F8;
+        }
+
+        body {
+            background-color: var(--off-white);
+            color: var(--foreground);
+        }
+
         /* Gallery */
         .gallery-container {
             max-width: 1200px;
@@ -46,7 +62,7 @@
         .gallery-item p {
             padding: 1rem;
             text-align: center;
-            color: #4B5563;
+            color: var(--charcoal);
         }
 
         .filter-buttons {
@@ -66,17 +82,17 @@
         }
 
         .filter-btn.active {
-            background: #ED6C4B;
+            background: var(--primary-gold);
             color: white;
         }
 
         .filter-btn:not(.active) {
             background: #F8F8F8;
-            color: #4B5563;
+            color: var(--charcoal);
         }
 
         .filter-btn:hover:not(.active) {
-            background: #ED6C4B;
+            background: var(--rich-gold);
             color: white;
         }
 
@@ -237,13 +253,12 @@
         }
     </style>
 </head>
-<body class="bg-secondary-500">
-    <!-- Navigation -->
+<body style="background-color: var(--off-white);">
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="flex items-center">
                 <img src="images/ace-logo.png" alt="ACE Logo" style="height:40px; margin-right:10px;">
-                <span class="text-2xl font-bold text-blue-600">ACE</span>
+                <span class="text-2xl font-bold" style="color: var(--primary-gold);">ACE</span>
             </a>
             <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Open navigation menu">
                 <i class="fas fa-bars"></i>
@@ -252,7 +267,6 @@
                 <a href="index.html" class="nav-link active">Home</a>
                 <a href="faculty.html" class="nav-link">Faculty</a>
 
-                <!-- Activities Dropdown -->
                 <div class="relative dropdown" id="activitiesDropdown">
                     <button class="dropdown-toggle nav-link" id="activitiesToggle" type="button">
                         Activities <i class="fas fa-chevron-down text-xs ml-1"></i>
@@ -264,7 +278,6 @@
                     </div>
                 </div>
 
-                <!-- Team Dropdown -->
                 <div class="relative dropdown" id="teamDropdown">
                     <button class="dropdown-toggle nav-link" id="teamToggle" type="button">
                         Team <i class="fas fa-chevron-down text-xs ml-1"></i>
@@ -283,11 +296,8 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <!-- Slideshow container -->
     <div class="slideshow-container">
-    <!-- Full-width images with number and caption text -->
-        <div class="mySlides fade">
+    <div class="mySlides fade">
             <img src="images/iit-palakkad.jpg" alt="">
         </div>
 
@@ -299,29 +309,26 @@
             <img src="images/Gallery/grp.png" alt="">
         </div>
 
-        <!-- Next and previous buttons -->
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
 
-    <!-- The dots/circles - separate from slideshow container -->
     <div class="dots-container">
         <span class="dot" onclick="currentSlide(1)"></span>
         <span class="dot" onclick="currentSlide(2)"></span>
         <span class="dot" onclick="currentSlide(3)"></span>
     </div>
 
-    <!-- About Section -->
-    <section class="bg-gradient-to-b from-white to-secondary-100 py-20">
+    <section class="bg-gradient-to-b from-white to-light-gold py-20">
         <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto text-center about-card shadow-2xl rounded-3xl bg-gradient-to-br from-blue-100 via-white to-pink-100 p-12 border-2 border-blue-200 relative overflow-hidden">
-                <div class="absolute -top-8 -left-8 w-32 h-32 bg-blue-200 opacity-30 rounded-full animate-pulse"></div>
-                <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-pink-200 opacity-30 rounded-full animate-pulse"></div>
-                <h2 class="text-5xl font-extrabold mb-8 text-blue-700 tracking-tight drop-shadow-lg flex items-center justify-center gap-4">
+            <div class="max-w-3xl mx-auto text-center about-card shadow-2xl rounded-3xl bg-gradient-to-br from-light-gold via-white to-light-gold p-12 border-2 border-primary-gold relative overflow-hidden">
+                <div class="absolute -top-8 -left-8 w-32 h-32 bg-light-gold opacity-30 rounded-full animate-pulse"></div>
+                <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-light-gold opacity-30 rounded-full animate-pulse"></div>
+                <h2 class="text-5xl font-extrabold mb-8 tracking-tight drop-shadow-lg flex items-center justify-center gap-4" style="color: var(--primary-gold);">
                     <span><i class="fas fa-university"></i></span> About ACE
                 </h2>
                 <p class="text-xl text-gray-700 mb-8 leading-relaxed font-medium">
-                    The <span class="font-semibold text-blue-600">Association of Civil Engineering (ACE)</span> at IIT Palakkad is a vibrant community dedicated to fostering excellence in civil engineering education and research. Our association brings together students, faculty, and industry professionals to create a dynamic platform for learning, innovation, and professional growth.
+                    The <span class="font-semibold" style="color: var(--rich-gold);">Association of Civil Engineering (ACE)</span> at IIT Palakkad is a vibrant community dedicated to fostering excellence in civil engineering education and research. Our association brings together students, faculty, and industry professionals to create a dynamic platform for learning, innovation, and professional growth.
                 </p>
                 <p class="text-xl text-gray-700 leading-relaxed font-medium">
                     Through workshops, seminars, and hands-on projects, we aim to bridge the gap between academic knowledge and practical applications, preparing our members for successful careers in civil engineering.
@@ -330,39 +337,35 @@
         </div>
     </section>
 
-    <!-- Event Highlights Section -->
-    <section class="py-16 bg-gradient-to-br from-blue-50 via-white to-pink-50">
+    <section class="py-16 bg-gradient-to-br from-off-white via-white to-light-gold">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center text-blue-700 mb-12">Event Highlights</h2>
+            <h2 class="text-4xl font-bold text-center mb-12" style="color: var(--primary-gold);">Event Highlights</h2>
             <div class="flex overflow-x-auto gap-8 pb-4 event-highlights-scroll">
-                <!-- Freshers 2024 -->
                 <div class="min-w-[320px] bg-white rounded-2xl shadow-lg hover:shadow-2xl transition p-4 flex flex-col items-center">
                     <img src="images/Gallery/Freshers 2024/DSC06028.JPG" alt="Freshers 2024" class="rounded-xl h-48 w-full object-cover mb-4">
-                    <h3 class="text-2xl font-semibold text-blue-600 mb-2">Freshers 2024</h3>
+                    <h3 class="text-2xl font-semibold mb-2" style="color: var(--primary-gold);">Freshers 2024</h3>
                     <p class="text-gray-600 text-center">Welcoming the new batch with fun, energy, and memorable moments!</p>
                 </div>
                 <div class="min-w-[320px] bg-white rounded-2xl shadow-lg hover:shadow-2xl transition p-4 flex flex-col items-center">
                     <img src="images/Gallery/Freshers 2024/DSC06251.JPG" alt="Freshers 2024" class="rounded-xl h-48 w-full object-cover mb-4">
-                    <h3 class="text-2xl font-semibold text-blue-600 mb-2">Freshers 2024</h3>
+                    <h3 class="text-2xl font-semibold mb-2" style="color: var(--primary-gold);">Freshers 2024</h3>
                     <p class="text-gray-600 text-center">A glimpse of the vibrant celebrations and new friendships.</p>
                 </div>
-                <!-- Expert Talk 2024 -->
                 <div class="min-w-[320px] bg-white rounded-2xl shadow-lg hover:shadow-2xl transition p-4 flex flex-col items-center">
                     <img src="images/Gallery/Expert talk 2024/DSC05818.JPG" alt="Expert Talk 2024" class="rounded-xl h-48 w-full object-cover mb-4">
-                    <h3 class="text-2xl font-semibold text-blue-600 mb-2">Expert Talk 2024</h3>
+                    <h3 class="text-2xl font-semibold mb-2" style="color: var(--primary-gold);">Expert Talk 2024</h3>
                     <p class="text-gray-600 text-center">Inspiring session by Shri Sivaguru Prabhakaran IAS on Urban Governance and Smart Cities.</p>
                 </div>
                 <div class="min-w-[320px] bg-white rounded-2xl shadow-lg hover:shadow-2xl transition p-4 flex flex-col items-center">
                     <img src="images/Gallery/Expert talk 2024/DSC05915.JPG" alt="Expert Talk 2024" class="rounded-xl h-48 w-full object-cover mb-4">
-                    <h3 class="text-2xl font-semibold text-blue-600 mb-2">Expert Talk 2024</h3>
+                    <h3 class="text-2xl font-semibold mb-2" style="color: var(--primary-gold);">Expert Talk 2024</h3>
                     <p class="text-gray-600 text-center">Engaging discussions and knowledge sharing with industry leaders.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="text-white py-8">
+    <footer class="text-white py-8" style="background-color: var(--charcoal);">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 footer-grid">
                 <div>

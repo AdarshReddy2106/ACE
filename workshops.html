@@ -7,15 +7,46 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/nav.css">
+    <style>
+        :root {
+            --background: #FFFFFF;
+            --foreground: #1A1A1A;
+            --primary-gold: #D4AF37;
+            --rich-gold: #B8860B;
+            --light-gold: #F4E4BC;
+            --metallic-gold: #FFD700;
+            --charcoal: #2C2C2C;
+            --off-white: #F8F8F8;
+        }
+        body {
+            background-color: var(--off-white);
+        }
+        .excited-text {
+            font-family: 'Luckiest Guy', cursive, sans-serif;
+            font-size: 4rem;
+            letter-spacing: 2px;
+            color: var(--rich-gold);
+            text-shadow: 0 6px 24px rgba(0,0,0,0.25), 0 1.5px 4px rgba(0,0,0,0.12);
+            animation: bounce 1.5s infinite alternate cubic-bezier(.68,-0.55,.27,1.55);
+        }
+        @keyframes bounce {
+            0% { transform: scale(1) translateY(0); }
+            50% { transform: scale(1.08) translateY(-18px); }
+            100% { transform: scale(1) translateY(0); }
+        }
+        @media (max-width: 600px) {
+            .excited-text { font-size: 2.2rem; }
+        }
+    </style>
 </head>
 <body class="bg-secondary-500">
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="flex items-center">
                 <img src="images/ace-logo.png" alt="ACE Logo" style="height:40px; margin-right:10px;">
-                <span class="text-2xl font-bold text-blue-600">ACE</span>
+                <span class="text-2xl font-bold" style="color: var(--primary-gold);">ACE</span>
             </a>
             <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Open navigation menu">
                 <i class="fas fa-bars"></i>
@@ -23,8 +54,6 @@
             <div class="nav-links" id="navLinks">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="faculty.html" class="nav-link">Faculty</a>
-
-                <!-- Activities Dropdown -->
                 <div class="relative dropdown" id="activitiesDropdown">
                     <button class="dropdown-toggle nav-link" id="activitiesToggle" type="button">
                         Activities <i class="fas fa-chevron-down text-xs ml-1"></i>
@@ -35,8 +64,6 @@
                         <a href="workshops.html" class="nav-link active">Workshops</a>
                     </div>
                 </div>
-
-                <!-- Team Dropdown -->
                 <div class="relative dropdown" id="teamDropdown">
                     <button class="dropdown-toggle nav-link" id="teamToggle" type="button">
                         Team <i class="fas fa-chevron-down text-xs ml-1"></i>
@@ -47,7 +74,6 @@
                         <a href="team_2025-2026.html">Team 2025-2026</a>
                     </div>
                 </div>
-
                 <a href="repository.html" class="nav-link">Repository</a>
                 <a href="gallery.html" class="nav-link">Gallery</a>
                 <a href="contact.html" class="nav-link">Contact Us</a>
@@ -55,24 +81,21 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="bg-primary-500 text-white py-16">
+    <header class="text-white py-16" style="background-color: var(--charcoal);">
         <div class="container mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Workshops</h1>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Workshops</h1>
             <p class="text-xl max-w-2xl">Find information about workshops conducted by the Association of Civil Engineering.</p>
         </div>
     </header>
 
 
-    <!-- Coming Soon Box -->
     <main class="flex items-center justify-center min-h-[60vh]">
-        <div class="w-full max-w-2xl mx-auto my-20 p-16 rounded-3xl shadow-xl bg-gradient-to-br from-blue-400 via-purple-300 to-pink-300 flex items-center justify-center">
+        <div class="w-full max-w-2xl mx-auto my-20 p-16 rounded-3xl shadow-xl bg-gradient-to-br from-light-gold via-white to-light-gold flex items-center justify-center">
             <span class="excited-text text-center">Coming Soon!</span>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="text-white py-8">
+    <footer class="text-white py-8" style="background-color: var(--charcoal);">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
@@ -106,4 +129,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
     <script src="js/navigation.js"></script>
 </body>
-</html> 
+</html>
