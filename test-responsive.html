@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <style>
+        body {
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+        .test-content {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .screen-size-indicator {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="screen-size-indicator" id="screenSizeIndicator">
+        Screen: <span id="screenWidth">0</span>px
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="flex items-center">
+                <img src="images/ace-logo.png" alt="ACE Logo" style="height:40px; margin-right:10px;">
+                <span class="text-2xl font-bold" style="color: #D4AF37;">ACE</span>
+            </a>
+            <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Open navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="faculty.html" class="nav-link">Faculty</a>
+
+                <div class="relative dropdown" id="activitiesDropdown">
+                    <button class="dropdown-toggle nav-link" id="activitiesToggle" type="button">
+                        Activities <i class="fas fa-chevron-down text-xs ml-1"></i>
+                    </button>
+                    <div class="dropdown-menu" id="activitiesMenu">
+                        <a href="industrial_trips.html">Industrial Trips</a>
+                        <a href="talks.html">Talks</a>
+                        <a href="workshops.html">Workshops</a>
+                    </div>
+                </div>
+
+                <div class="relative dropdown" id="teamDropdown">
+                    <button class="dropdown-toggle nav-link" id="teamToggle" type="button">
+                        Team <i class="fas fa-chevron-down text-xs ml-1"></i>
+                    </button>
+                    <div class="dropdown-menu" id="teamMenu">
+                        <a href="team_2023-2024.html">Team 2023-2024</a>
+                        <a href="team_2024-2025.html">Team 2024-2025</a>
+                        <a href="team_2025-2026.html">Team 2025-2026</a>
+                    </div>
+                </div>
+
+                <a href="repository.html" class="nav-link">Repository</a>
+                <a href="gallery.html" class="nav-link">Gallery</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="test-content">
+        <h1 class="text-4xl font-bold mb-8 text-center">Responsive Navbar Test</h1>
+        
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Test Instructions:</h2>
+            <ol class="list-decimal list-inside space-y-2">
+                <li>Resize your browser window to test different screen sizes</li>
+                <li>On mobile sizes (≤768px), the hamburger menu should appear</li>
+                <li>Click the hamburger menu to open/close the mobile navigation</li>
+                <li>Test dropdown menus on both desktop (hover) and mobile (click)</li>
+                <li>Check the console for debug information</li>
+            </ol>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-xl font-semibold mb-3">Desktop (1025px+)</h3>
+                <p class="text-gray-600">All navigation links should be visible horizontally. Dropdowns work on hover.</p>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-xl font-semibold mb-3">Tablet (769px - 1024px)</h3>
+                <p class="text-gray-600">Navigation should still be horizontal but with adjusted spacing.</p>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-xl font-semibold mb-3">Mobile (≤768px)</h3>
+                <p class="text-gray-600">Hamburger menu should appear. Navigation becomes vertical when opened.</p>
+            </div>
+        </div>
+
+        <div class="mt-8 bg-blue-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold mb-3">Debug Information</h3>
+            <p class="text-sm text-gray-600">Open the browser console (F12) to see detailed debug information about the responsive behavior.</p>
+        </div>
+    </div>
+
+    <script src="js/navigation.js"></script>
+    <script>
+        // Update screen size indicator
+        function updateScreenSizeIndicator() {
+            const width = window.innerWidth;
+            document.getElementById('screenWidth').textContent = width;
+            
+            let size = '';
+            if (width <= 480) size = 'Small Mobile';
+            else if (width <= 768) size = 'Mobile';
+            else if (width <= 1024) size = 'Tablet';
+            else size = 'Desktop';
+            
+            document.getElementById('screenSizeIndicator').innerHTML = 
+                `Screen: ${width}px (${size})`;
+        }
+        
+        window.addEventListener('resize', updateScreenSizeIndicator);
+        updateScreenSizeIndicator();
+    </script>
+</body>
+</html> 
